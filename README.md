@@ -1,6 +1,6 @@
 # README - Metatrans-smk-hs
 
-In dit project werken de Bpaxa HL Leiden bioinformatica studenten aan een Snakemake –use-conda implementatie
+In dit project werken de Bpexa HL Leiden bioinformatica studenten aan een Snakemake –use-conda implementatie
 van een meta-transcriptomic workflow. De pipeline zal bestaan uit enkele kern onderdelen waar de
 studenten gezamenlijk aan werken met behulp van github. Daarnaast zijn er enkele uitbreidingsmogelijkheden 
 waar de studenten elk individueel aan werken binnen de gezamenlijke pijplijn. Hierbij is het
@@ -13,7 +13,7 @@ belangrijk de eindgebruiker flexibiliteit te bieden in welke optionele modules w
 - `db/` - databases used in test as well as the intial setup of the snakemake workflow. This repo only contains the download instructions to limit repo size. Extention: include rule to download databases as part of the snakemake workflow.
 - `docs/` - Documentation on how to use the code in this repo.
 - `envs/` - Conda environments in yaml format. See envs/INSTALL.md for further details.
-- `forms/` - Betaplex assignments, aggreements and grading forms.
+- `forms/` - Bpexa assignments, aggreements and grading forms.
 - `INSTALL.md` - Installation instructions for metatrans-smk-hs, incl. dependencies (conda and snakemake) and git clone instructions.
 - `jobscripts/` - old SLURM scripts and WALKTHROUGHS that can be used as a reference. See als jobscripts/README.md and test/README.md.
 - `LICENCE` - of later concern.

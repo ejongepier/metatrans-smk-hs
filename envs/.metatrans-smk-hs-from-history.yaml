@@ -1,0 +1,17 @@
+name: mtrans-smk-hs
+channels:
+  - defaults
+  - bioconda
+  - conda-forge
+dependencies:
+  - trinity
+  - sortmerna
+  - diamond
+  - rsem
+  - r-base
+  - bioconductor-edger
+  - libopenblas==0.3.7
+  - bioconductor-biobase
+  - bioconductor-qvalue
+  - r-fastcluster
+prefix: /home/pier/miniconda3/envs/mtrans-smk-hs

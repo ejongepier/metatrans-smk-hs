@@ -1,0 +1,38 @@
+#!/bin/bash
+#SBATCH -n 1
+#SBATCH --cpus-per-task 16
+#SBATCH --mem=15GB
+#SBATCH --job-name=trimmomatic
+#SBATCH --output=../slurm_logs/%x/%x_%u_%A_%a.out
+#SBATCH --error=../slurm_logs/%x/%x_%u_%A_%a.error
+
+source ~/.bashrc 
+conda activate /zfs/omics/projects/spongeomics/miniconda3/envs/sponge
+
+INPUT_DIR=/zfs/omics/projects/spongeomics/data/input/Haliclona
+OUTPUT_DIR=/zfs/omics/projects/spongeomics/data/trimmomatic_results/Haliclona
+ADAPTER_DIR=/zfs/omics/projects/spongeomics/git/sara-campana/fa
+
+echo "using the following directories:"
+echo "input: $INPUT_DIR"
+echo "output: $OUTPUT_DIR"
+echo "adapter: $ADAPTER_DIR"
+
+srun trimmomatic PE -threads $SLURM_CPUS_PER_TASK -phred33 $INPUT_DIR/I26438-L1_S107_L002_R1_001.fastq.gz $INPUT_DIR/I26438-L1_S107_L002_R2_001.fastq.gz $OUTPUT_DIR/I26438_R1_paired.fq $OUTPUT_DIR/I26438_R1_unpaired.fq $OUTPUT_DIR/I26438_R2_paired.fq $OUTPUT_DIR/I26438_R2_unpaired.fq ILLUMINACLIP:$ADAPTER_DIR/ALL_adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+
+srun trimmomatic PE -threads $SLURM_CPUS_PER_TASK -phred33 $INPUT_DIR/I26433-L1_S102_L002_R1_001.fastq.gz $INPUT_DIR/I26433-L1_S102_L002_R2_001.fastq.gz $OUTPUT_DIR/I26433_R1_paired.fq $OUTPUT_DIR/I26433_R1_unpaired.fq $OUTPUT_DIR/I26433_R2_paired.fq $OUTPUT_DIR/I26433_R2_unpaired.fq ILLUMINACLIP:$ADAPTER_DIR/ALL_adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+
+srun trimmomatic PE -threads $SLURM_CPUS_PER_TASK -phred33 $INPUT_DIR/I26429-L1_S98_L002_R1_001.fastq.gz $INPUT_DIR/I26429-L1_S98_L002_R2_001.fastq.gz $OUTPUT_DIR/I26429_R1_paired.fq $OUTPUT_DIR/I26429_R1_unpaired.fq $OUTPUT_DIR/I26429_R2_paired.fq $OUTPUT_DIR/I26429_R2_unpaired.fq ILLUMINACLIP:$ADAPTER_DIR/ALL_adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+
+srun trimmomatic PE -threads $SLURM_CPUS_PER_TASK -phred33 $INPUT_DIR/I26428-L1_S97_L002_R1_001.fastq.gz $INPUT_DIR/I26428-L1_S97_L002_R2_001.fastq.gz $OUTPUT_DIR/I26428_R1_paired.fq $OUTPUT_DIR/I26428_R1_unpaired.fq $OUTPUT_DIR/I26428_R2_paired.fq $OUTPUT_DIR/I26428_R2_unpaired.fq ILLUMINACLIP:$ADAPTER_DIR/ALL_adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+
+srun trimmomatic PE -threads $SLURM_CPUS_PER_TASK -phred33 $INPUT_DIR/I26441-L1_S110_L002_R1_001.fastq.gz $INPUT_DIR/I26441-L1_S110_L002_R2_001.fastq.gz $OUTPUT_DIR/I26441_R1_paired.fq $OUTPUT_DIR/I26441_R1_unpaired.fq $OUTPUT_DIR/I26441_R2_paired.fq $OUTPUT_DIR/I26441_R2_unpaired.fq ILLUMINACLIP:$ADAPTER_DIR/ALL_adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+
+srun trimmomatic PE -threads $SLURM_CPUS_PER_TASK -phred33 $INPUT_DIR/I26436-L1_S105_L002_R1_001.fastq.gz $INPUT_DIR/I26436-L1_S105_L002_R2_001.fastq.gz $OUTPUT_DIR/I26436_R1_paired.fq $OUTPUT_DIR/I26436_R1_unpaired.fq $OUTPUT_DIR/I26436_R2_paired.fq $OUTPUT_DIR/I26436_R2_unpaired.fq ILLUMINACLIP:$ADAPTER_DIR/ALL_adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+
+srun trimmomatic PE -threads $SLURM_CPUS_PER_TASK -phred33 $INPUT_DIR/I26426-L1_S95_L002_R1_001.fastq.gz $INPUT_DIR/I26426-L1_S95_L002_R2_001.fastq.gz $OUTPUT_DIR/I26426_R1_paired.fq $OUTPUT_DIR/I26426_R1_unpaired.fq $OUTPUT_DIR/I26426_R2_paired.fq $OUTPUT_DIR/I26426_R2_unpaired.fq ILLUMINACLIP:$ADAPTER_DIR/ALL_adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+
+srun trimmomatic PE -threads $SLURM_CPUS_PER_TASK -phred33 $INPUT_DIR/I26432-L1_S101_L002_R1_001.fastq.gz $INPUT_DIR/I26432-L1_S101_L002_R2_001.fastq.gz $OUTPUT_DIR/I26432_R1_paired.fq $OUTPUT_DIR/I26432_R1_unpaired.fq $OUTPUT_DIR/I26432_R2_paired.fq $OUTPUT_DIR/I26432_R2_unpaired.fq ILLUMINACLIP:$ADAPTER_DIR/ALL_adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+
+srun trimmomatic PE -threads $SLURM_CPUS_PER_TASK -phred33 $INPUT_DIR/I26442-L1_S111_L002_R1_001.fastq.gz $INPUT_DIR/I26442-L1_S111_L002_R2_001.fastq.gz $OUTPUT_DIR/I26442_R1_paired.fq $OUTPUT_DIR/I26442_R1_unpaired.fq $OUTPUT_DIR/I26442_R2_paired.fq $OUTPUT_DIR/I26442_R2_unpaired.fq ILLUMINACLIP:$ADAPTER_DIR/ALL_adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+

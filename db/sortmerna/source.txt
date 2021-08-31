@@ -1,0 +1,2 @@
+wget https://bioinfo.lifl.fr/sortmerna/material/set5-database.fasta.zip
+unzip set5-database.fasta.zip & rm set5-database.fasta.zip

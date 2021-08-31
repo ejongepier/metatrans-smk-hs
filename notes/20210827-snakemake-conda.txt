@@ -1,0 +1,1 @@
+for a brief overview of how to use conda and snakemake see: https://www.biostars.org/p/335903/

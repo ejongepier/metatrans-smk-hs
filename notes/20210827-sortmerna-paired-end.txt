@@ -1,0 +1,3 @@
+To retain paired end data after filtering rRNA reads with sort me RNA, check out 
+  - lit/SortMeRNA-user-manual-v2.1.pdf: 4.3.2 Filtering paired-end reads and the /merge-paired-reads.sh utility
+  - and jobscripts/jobscript_sortmerna_HC.sh for an example

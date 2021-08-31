@@ -1,0 +1,1 @@
+wget https://bioinfo.lifl.fr/RNA/sortmerna/code/SortMeRNA-user-manual-v2.1.pdf

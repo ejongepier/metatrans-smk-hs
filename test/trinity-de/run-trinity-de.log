@@ -1,0 +1,772 @@
+Using the following directories:
+  assembly directory: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-assemble/trinity-output
+  read directory: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs
+  output directory: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output
+date Starting alignment and abundance estimates of C_PT1_0_J36463
+$VAR1 = [
+          {
+            'right' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_0_J36463_R2_paired-subset.fq.gz',
+            'output_dir' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/C_PT1_0_J36463',
+            'left' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_0_J36463_R1_paired-subset.fq.gz'
+          }
+        ];
+CMD: convert-sam-for-rsem bowtie2.bam bowtie2.bam.for_rsem
+samtools sort -n -@ 1 -m 1G -o bowtie2.bam.for_rsem.tmp.bam bowtie2.bam
+
+rsem-scan-for-paired-end-reads 1 bowtie2.bam.for_rsem.tmp.bam bowtie2.bam.for_rsem.bam
+.
+Finished!
+
+Conversion is completed. bowtie2.bam.for_rsem.bam will be checked by 'rsem-sam-validator'.
+rsem-sam-validator bowtie2.bam.for_rsem.bam
+.
+The input file is valid!
+
+CMD: touch RSEM.isoforms.results.ok
+date  Finished alignment and abundance estimates of C_PT1_0_J36463
+date Starting alignment and abundance estimates of C_PT1_1_J36443
+$VAR1 = [
+          {
+            'output_dir' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/C_PT1_1_J36443',
+            'left' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_1_J36443_R1_paired-subset.fq.gz',
+            'right' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_1_J36443_R2_paired-subset.fq.gz'
+          }
+        ];
+CMD: convert-sam-for-rsem bowtie2.bam bowtie2.bam.for_rsem
+samtools sort -n -@ 1 -m 1G -o bowtie2.bam.for_rsem.tmp.bam bowtie2.bam
+
+rsem-scan-for-paired-end-reads 1 bowtie2.bam.for_rsem.tmp.bam bowtie2.bam.for_rsem.bam
+.
+Finished!
+
+Conversion is completed. bowtie2.bam.for_rsem.bam will be checked by 'rsem-sam-validator'.
+rsem-sam-validator bowtie2.bam.for_rsem.bam
+.
+The input file is valid!
+
+CMD: touch RSEM.isoforms.results.ok
+date  Finished alignment and abundance estimates of C_PT1_1_J36443
+date Starting alignment and abundance estimates of C_PT1_2_J36451
+$VAR1 = [
+          {
+            'output_dir' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/C_PT1_2_J36451',
+            'right' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_2_J36451_R2_paired-subset.fq.gz',
+            'left' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_2_J36451_R1_paired-subset.fq.gz'
+          }
+        ];
+CMD: convert-sam-for-rsem bowtie2.bam bowtie2.bam.for_rsem
+samtools sort -n -@ 1 -m 1G -o bowtie2.bam.for_rsem.tmp.bam bowtie2.bam
+
+rsem-scan-for-paired-end-reads 1 bowtie2.bam.for_rsem.tmp.bam bowtie2.bam.for_rsem.bam
+.
+Finished!
+
+Conversion is completed. bowtie2.bam.for_rsem.bam will be checked by 'rsem-sam-validator'.
+rsem-sam-validator bowtie2.bam.for_rsem.bam
+.
+The input file is valid!
+
+CMD: touch RSEM.isoforms.results.ok
+date  Finished alignment and abundance estimates of C_PT1_2_J36451
+date Starting alignment and abundance estimates of C_PT1_3_J36458
+$VAR1 = [
+          {
+            'output_dir' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/C_PT1_3_J36458',
+            'left' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_3_J36458_R1_paired-subset.fq.gz',
+            'right' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_3_J36458_R2_paired-subset.fq.gz'
+          }
+        ];
+CMD: convert-sam-for-rsem bowtie2.bam bowtie2.bam.for_rsem
+samtools sort -n -@ 1 -m 1G -o bowtie2.bam.for_rsem.tmp.bam bowtie2.bam
+
+rsem-scan-for-paired-end-reads 1 bowtie2.bam.for_rsem.tmp.bam bowtie2.bam.for_rsem.bam
+.
+Finished!
+
+Conversion is completed. bowtie2.bam.for_rsem.bam will be checked by 'rsem-sam-validator'.
+rsem-sam-validator bowtie2.bam.for_rsem.bam
+.
+The input file is valid!
+
+CMD: touch RSEM.isoforms.results.ok
+date  Finished alignment and abundance estimates of C_PT1_3_J36458
+date Starting alignment and abundance estimates of C_PT2_0_J36461
+$VAR1 = [
+          {
+            'left' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_0_J36461_R1_paired-subset.fq.gz',
+            'output_dir' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/C_PT2_0_J36461',
+            'right' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_0_J36461_R2_paired-subset.fq.gz'
+          }
+        ];
+CMD: convert-sam-for-rsem bowtie2.bam bowtie2.bam.for_rsem
+samtools sort -n -@ 1 -m 1G -o bowtie2.bam.for_rsem.tmp.bam bowtie2.bam
+
+rsem-scan-for-paired-end-reads 1 bowtie2.bam.for_rsem.tmp.bam bowtie2.bam.for_rsem.bam
+.
+Finished!
+
+Conversion is completed. bowtie2.bam.for_rsem.bam will be checked by 'rsem-sam-validator'.
+rsem-sam-validator bowtie2.bam.for_rsem.bam
+.
+The input file is valid!
+
+CMD: touch RSEM.isoforms.results.ok
+date  Finished alignment and abundance estimates of C_PT2_0_J36461
+date Starting alignment and abundance estimates of C_PT2_1_J36457
+$VAR1 = [
+          {
+            'right' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_1_J36457_R2_paired-subset.fq.gz',
+            'output_dir' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/C_PT2_1_J36457',
+            'left' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_1_J36457_R1_paired-subset.fq.gz'
+          }
+        ];
+CMD: convert-sam-for-rsem bowtie2.bam bowtie2.bam.for_rsem
+samtools sort -n -@ 1 -m 1G -o bowtie2.bam.for_rsem.tmp.bam bowtie2.bam
+
+rsem-scan-for-paired-end-reads 1 bowtie2.bam.for_rsem.tmp.bam bowtie2.bam.for_rsem.bam
+.
+Finished!
+
+Conversion is completed. bowtie2.bam.for_rsem.bam will be checked by 'rsem-sam-validator'.
+rsem-sam-validator bowtie2.bam.for_rsem.bam
+.
+The input file is valid!
+
+CMD: touch RSEM.isoforms.results.ok
+date  Finished alignment and abundance estimates of C_PT2_1_J36457
+date Starting alignment and abundance estimates of C_PT2_2_J36489
+$VAR1 = [
+          {
+            'right' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_2_J36489_R2_paired-subset.fq.gz',
+            'output_dir' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/C_PT2_2_J36489',
+            'left' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_2_J36489_R1_paired-subset.fq.gz'
+          }
+        ];
+CMD: convert-sam-for-rsem bowtie2.bam bowtie2.bam.for_rsem
+samtools sort -n -@ 1 -m 1G -o bowtie2.bam.for_rsem.tmp.bam bowtie2.bam
+
+rsem-scan-for-paired-end-reads 1 bowtie2.bam.for_rsem.tmp.bam bowtie2.bam.for_rsem.bam
+.
+Finished!
+
+Conversion is completed. bowtie2.bam.for_rsem.bam will be checked by 'rsem-sam-validator'.
+rsem-sam-validator bowtie2.bam.for_rsem.bam
+.
+The input file is valid!
+
+CMD: touch RSEM.isoforms.results.ok
+date  Finished alignment and abundance estimates of C_PT2_2_J36489
+date Starting alignment and abundance estimates of C_PT2_3_J36467
+$VAR1 = [
+          {
+            'left' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_3_J36467_R1_paired-subset.fq.gz',
+            'right' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_3_J36467_R2_paired-subset.fq.gz',
+            'output_dir' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/C_PT2_3_J36467'
+          }
+        ];
+CMD: convert-sam-for-rsem bowtie2.bam bowtie2.bam.for_rsem
+samtools sort -n -@ 1 -m 1G -o bowtie2.bam.for_rsem.tmp.bam bowtie2.bam
+
+rsem-scan-for-paired-end-reads 1 bowtie2.bam.for_rsem.tmp.bam bowtie2.bam.for_rsem.bam
+.
+Finished!
+
+Conversion is completed. bowtie2.bam.for_rsem.bam will be checked by 'rsem-sam-validator'.
+rsem-sam-validator bowtie2.bam.for_rsem.bam
+.
+The input file is valid!
+
+CMD: touch RSEM.isoforms.results.ok
+date  Finished alignment and abundance estimates of C_PT2_3_J36467
+date Starting alignment and abundance estimates of MA_PT1_0_J36462
+$VAR1 = [
+          {
+            'left' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_0_J36462_R1_paired-subset.fq.gz',
+            'right' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_0_J36462_R2_paired-subset.fq.gz',
+            'output_dir' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/MA_PT1_0_J36462'
+          }
+        ];
+CMD: convert-sam-for-rsem bowtie2.bam bowtie2.bam.for_rsem
+samtools sort -n -@ 1 -m 1G -o bowtie2.bam.for_rsem.tmp.bam bowtie2.bam
+
+rsem-scan-for-paired-end-reads 1 bowtie2.bam.for_rsem.tmp.bam bowtie2.bam.for_rsem.bam
+.
+Finished!
+
+Conversion is completed. bowtie2.bam.for_rsem.bam will be checked by 'rsem-sam-validator'.
+rsem-sam-validator bowtie2.bam.for_rsem.bam
+.
+The input file is valid!
+
+CMD: touch RSEM.isoforms.results.ok
+date  Finished alignment and abundance estimates of MA_PT1_0_J36462
+date Starting alignment and abundance estimates of MA_PT1_1_J36455
+$VAR1 = [
+          {
+            'right' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_1_J36455_R2_paired-subset.fq.gz',
+            'left' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_1_J36455_R1_paired-subset.fq.gz',
+            'output_dir' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/MA_PT1_1_J36455'
+          }
+        ];
+CMD: convert-sam-for-rsem bowtie2.bam bowtie2.bam.for_rsem
+samtools sort -n -@ 1 -m 1G -o bowtie2.bam.for_rsem.tmp.bam bowtie2.bam
+
+rsem-scan-for-paired-end-reads 1 bowtie2.bam.for_rsem.tmp.bam bowtie2.bam.for_rsem.bam
+.
+Finished!
+
+Conversion is completed. bowtie2.bam.for_rsem.bam will be checked by 'rsem-sam-validator'.
+rsem-sam-validator bowtie2.bam.for_rsem.bam
+.
+The input file is valid!
+
+CMD: touch RSEM.isoforms.results.ok
+date  Finished alignment and abundance estimates of MA_PT1_1_J36455
+date Starting alignment and abundance estimates of MA_PT1_2_J36479
+$VAR1 = [
+          {
+            'right' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_2_J36479_R2_paired-subset.fq.gz',
+            'output_dir' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/MA_PT1_2_J36479',
+            'left' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_2_J36479_R1_paired-subset.fq.gz'
+          }
+        ];
+CMD: convert-sam-for-rsem bowtie2.bam bowtie2.bam.for_rsem
+samtools sort -n -@ 1 -m 1G -o bowtie2.bam.for_rsem.tmp.bam bowtie2.bam
+
+rsem-scan-for-paired-end-reads 1 bowtie2.bam.for_rsem.tmp.bam bowtie2.bam.for_rsem.bam
+.
+Finished!
+
+Conversion is completed. bowtie2.bam.for_rsem.bam will be checked by 'rsem-sam-validator'.
+rsem-sam-validator bowtie2.bam.for_rsem.bam
+.
+The input file is valid!
+
+CMD: touch RSEM.isoforms.results.ok
+date  Finished alignment and abundance estimates of MA_PT1_2_J36479
+date Starting alignment and abundance estimates of MA_PT1_3_J36484
+$VAR1 = [
+          {
+            'right' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_3_J36484_R2_paired-subset.fq.gz',
+            'left' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_3_J36484_R1_paired-subset.fq.gz',
+            'output_dir' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/MA_PT1_3_J36484'
+          }
+        ];
+CMD: convert-sam-for-rsem bowtie2.bam bowtie2.bam.for_rsem
+samtools sort -n -@ 1 -m 1G -o bowtie2.bam.for_rsem.tmp.bam bowtie2.bam
+
+rsem-scan-for-paired-end-reads 1 bowtie2.bam.for_rsem.tmp.bam bowtie2.bam.for_rsem.bam
+.
+Finished!
+
+Conversion is completed. bowtie2.bam.for_rsem.bam will be checked by 'rsem-sam-validator'.
+rsem-sam-validator bowtie2.bam.for_rsem.bam
+.
+The input file is valid!
+
+CMD: touch RSEM.isoforms.results.ok
+date  Finished alignment and abundance estimates of MA_PT1_3_J36484
+date Starting alignment and abundance estimates of MA_PT2_0_J36468
+$VAR1 = [
+          {
+            'right' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_0_J36468_R2_paired-subset.fq.gz',
+            'left' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_0_J36468_R1_paired-subset.fq.gz',
+            'output_dir' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/MA_PT2_0_J36468'
+          }
+        ];
+CMD: convert-sam-for-rsem bowtie2.bam bowtie2.bam.for_rsem
+samtools sort -n -@ 1 -m 1G -o bowtie2.bam.for_rsem.tmp.bam bowtie2.bam
+
+rsem-scan-for-paired-end-reads 1 bowtie2.bam.for_rsem.tmp.bam bowtie2.bam.for_rsem.bam
+.
+Finished!
+
+Conversion is completed. bowtie2.bam.for_rsem.bam will be checked by 'rsem-sam-validator'.
+rsem-sam-validator bowtie2.bam.for_rsem.bam
+.
+The input file is valid!
+
+CMD: touch RSEM.isoforms.results.ok
+date  Finished alignment and abundance estimates of MA_PT2_0_J36468
+date Starting alignment and abundance estimates of MA_PT2_1_J36471
+$VAR1 = [
+          {
+            'left' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_1_J36471_R1_paired-subset.fq.gz',
+            'right' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_1_J36471_R2_paired-subset.fq.gz',
+            'output_dir' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/MA_PT2_1_J36471'
+          }
+        ];
+CMD: convert-sam-for-rsem bowtie2.bam bowtie2.bam.for_rsem
+samtools sort -n -@ 1 -m 1G -o bowtie2.bam.for_rsem.tmp.bam bowtie2.bam
+
+rsem-scan-for-paired-end-reads 1 bowtie2.bam.for_rsem.tmp.bam bowtie2.bam.for_rsem.bam
+.
+Finished!
+
+Conversion is completed. bowtie2.bam.for_rsem.bam will be checked by 'rsem-sam-validator'.
+rsem-sam-validator bowtie2.bam.for_rsem.bam
+.
+The input file is valid!
+
+CMD: touch RSEM.isoforms.results.ok
+date  Finished alignment and abundance estimates of MA_PT2_1_J36471
+date Starting alignment and abundance estimates of MA_PT2_2_J36480
+$VAR1 = [
+          {
+            'right' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_2_J36480_R2_paired-subset.fq.gz',
+            'left' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_2_J36480_R1_paired-subset.fq.gz',
+            'output_dir' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/MA_PT2_2_J36480'
+          }
+        ];
+CMD: convert-sam-for-rsem bowtie2.bam bowtie2.bam.for_rsem
+samtools sort -n -@ 1 -m 1G -o bowtie2.bam.for_rsem.tmp.bam bowtie2.bam
+
+rsem-scan-for-paired-end-reads 1 bowtie2.bam.for_rsem.tmp.bam bowtie2.bam.for_rsem.bam
+.
+Finished!
+
+Conversion is completed. bowtie2.bam.for_rsem.bam will be checked by 'rsem-sam-validator'.
+rsem-sam-validator bowtie2.bam.for_rsem.bam
+.
+The input file is valid!
+
+CMD: touch RSEM.isoforms.results.ok
+date  Finished alignment and abundance estimates of MA_PT2_2_J36480
+date Starting alignment and abundance estimates of MA_PT2_3_J36478
+$VAR1 = [
+          {
+            'output_dir' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/MA_PT2_3_J36478',
+            'left' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_3_J36478_R1_paired-subset.fq.gz',
+            'right' => '/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_3_J36478_R2_paired-subset.fq.gz'
+          }
+        ];
+CMD: convert-sam-for-rsem bowtie2.bam bowtie2.bam.for_rsem
+samtools sort -n -@ 1 -m 1G -o bowtie2.bam.for_rsem.tmp.bam bowtie2.bam
+
+rsem-scan-for-paired-end-reads 1 bowtie2.bam.for_rsem.tmp.bam bowtie2.bam.for_rsem.bam
+.
+Finished!
+
+Conversion is completed. bowtie2.bam.for_rsem.bam will be checked by 'rsem-sam-validator'.
+rsem-sam-validator bowtie2.bam.for_rsem.bam
+.
+The input file is valid!
+
+CMD: touch RSEM.isoforms.results.ok
+date  Finished alignment and abundance estimates of MA_PT2_3_J36478
+date Starting conversion of abundance estimates to matrix
+-reading file: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/C_PT1_0_J36463/RSEM.isoforms.results
+-reading file: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/C_PT1_1_J36443/RSEM.isoforms.results
+-reading file: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/C_PT1_2_J36451/RSEM.isoforms.results
+-reading file: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/C_PT1_3_J36458/RSEM.isoforms.results
+-reading file: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/C_PT2_0_J36461/RSEM.isoforms.results
+-reading file: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/C_PT2_1_J36457/RSEM.isoforms.results
+-reading file: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/C_PT2_2_J36489/RSEM.isoforms.results
+-reading file: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/C_PT2_3_J36467/RSEM.isoforms.results
+-reading file: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/MA_PT1_0_J36462/RSEM.isoforms.results
+-reading file: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/MA_PT1_1_J36455/RSEM.isoforms.results
+-reading file: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/MA_PT1_2_J36479/RSEM.isoforms.results
+-reading file: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/MA_PT1_3_J36484/RSEM.isoforms.results
+-reading file: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/MA_PT2_0_J36468/RSEM.isoforms.results
+-reading file: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/MA_PT2_1_J36471/RSEM.isoforms.results
+-reading file: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/MA_PT2_2_J36480/RSEM.isoforms.results
+-reading file: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/MA_PT2_3_J36478/RSEM.isoforms.results
+
+
+* Outputting combined matrix.
+
+/home/pier/miniconda3/envs/mtrans-smk-hs/opt/trinity-2.8.5/util/support_scripts/run_TMM_scale_matrix.pl --matrix trinity-de.isoform.TPM.not_cross_norm > trinity-de.isoform.TMM.EXPR.matrixCMD: R --no-save --no-restore --no-site-file --no-init-file -q < trinity-de.isoform.TPM.not_cross_norm.runTMM.R 1>&2 
+> library(edgeR)
+Loading required package: limma
+> 
+> rnaseqMatrix = read.table("trinity-de.isoform.TPM.not_cross_norm", header=T, row.names=1, com='', check.names=F)
+> rnaseqMatrix = as.matrix(rnaseqMatrix)
+> rnaseqMatrix = round(rnaseqMatrix)
+> exp_study = DGEList(counts=rnaseqMatrix, group=factor(colnames(rnaseqMatrix)))
+> exp_study = calcNormFactors(exp_study)
+> exp_study$samples$eff.lib.size = exp_study$samples$lib.size * exp_study$samples$norm.factors
+> write.table(exp_study$samples, file="trinity-de.isoform.TPM.not_cross_norm.TMM_info.txt", quote=F, sep="\t", row.names=F)
+> 
+date Finished conversion of abundance estimates to matrix
+date Starting differential expression analysis
+Got 16 samples, and got: 17 data fields.
+Header: C_PT1_0_J36463	C_PT1_1_J36443	C_PT1_2_J36451	C_PT1_3_J36458	C_PT2_0_J36461	C_PT2_1_J36457	C_PT2_2_J36489	C_PT2_3_J36467	MA_PT1_0_J36462	MA_PT1_1_J36455	MA_PT1_2_J36479	MA_PT1_3_J36484	MA_PT2_0_J36468	MA_PT2_1_J36471	MA_PT2_2_J36480	MA_PT2_3_J36478
+Next: TRINITY_DN6_c0_g1_i1	1.00	0.00	11.27	4.00	0.00	0.00	1.00	0.00	3.00	0.00	1.00	0.00	1.00	0.00	0.00	0.00
+
+$VAR1 = {
+          'MA_PT1_2_J36479' => 11,
+          'C_PT2_1_J36457' => 6,
+          'C_PT2_3_J36467' => 8,
+          'MA_PT2_1_J36471' => 14,
+          'C_PT1_3_J36458' => 4,
+          'MA_PT2_3_J36478' => 16,
+          'C_PT1_0_J36463' => 1,
+          'MA_PT1_1_J36455' => 10,
+          'C_PT2_0_J36461' => 5,
+          'C_PT1_1_J36443' => 2,
+          'C_PT2_2_J36489' => 7,
+          'MA_PT1_0_J36462' => 9,
+          'MA_PT1_3_J36484' => 12,
+          'MA_PT2_2_J36480' => 15,
+          'C_PT1_2_J36451' => 3,
+          'MA_PT2_0_J36468' => 13
+        };
+Contrasts to perform are: $VAR1 = [
+          [
+            'C',
+            'MA'
+          ]
+        ];
+$VAR1 = {
+          'C' => [
+                   'C_PT1_0_J36463',
+                   'C_PT1_1_J36443',
+                   'C_PT1_2_J36451',
+                   'C_PT1_3_J36458',
+                   'C_PT2_0_J36461',
+                   'C_PT2_1_J36457',
+                   'C_PT2_2_J36489',
+                   'C_PT2_3_J36467'
+                 ],
+          'MA' => [
+                    'MA_PT1_0_J36462',
+                    'MA_PT1_1_J36455',
+                    'MA_PT1_2_J36479',
+                    'MA_PT1_3_J36484',
+                    'MA_PT2_0_J36468',
+                    'MA_PT2_1_J36471',
+                    'MA_PT2_2_J36480',
+                    'MA_PT2_3_J36478'
+                  ]
+        };
+CMD: R --no-save --no-restore --no-site-file --no-init-file -q < trinity-de.isoform.counts.matrix.C_vs_MA.C.vs.MA.EdgeR.Rscript
+> if (! require(edgeR)) {
++    source("https://bioconductor.org/biocLite.R")
++    biocLite("edgeR")
++    library(edgeR)
++ }
+Loading required package: edgeR
+Loading required package: limma
+> 
+> data = read.table("/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/edgeR-output/trinity-de.isoform.counts.matrix", header=T, row.names=1, com='')
+> col_ordering = c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16)
+> rnaseqMatrix = data[,col_ordering]
+> rnaseqMatrix = round(rnaseqMatrix)
+> rnaseqMatrix = rnaseqMatrix[rowSums(cpm(rnaseqMatrix) > 1) >= 2,]
+> conditions = factor(c(rep("C", 8), rep("MA", 8)))
+> 
+> exp_study = DGEList(counts=rnaseqMatrix, group=conditions)
+> exp_study = calcNormFactors(exp_study)
+> exp_study = estimateDisp(exp_study)
+Design matrix not provided. Switch to the classic mode.
+> et = exactTest(exp_study, pair=c("C", "MA"))
+> tTags = topTags(et,n=NULL)
+> result_table = tTags$table
+> result_table = data.frame(sampleA="C", sampleB="MA", result_table)
+> result_table$logFC = -1 * result_table$logFC
+> write.table(result_table, file='trinity-de.isoform.counts.matrix.C_vs_MA.edgeR.DE_results', sep='	', quote=F, row.names=T)
+> write.table(rnaseqMatrix, file='trinity-de.isoform.counts.matrix.C_vs_MA.edgeR.count_matrix', sep='	', quote=F, row.names=T)
+> source("/home/pier/miniconda3/envs/mtrans-smk-hs/opt/trinity-2.8.5/Analysis/DifferentialExpression/R/rnaseq_plot_funcs.R")
+> pdf("trinity-de.isoform.counts.matrix.C_vs_MA.edgeR.DE_results.MA_n_Volcano.pdf")
+> plot_MA_and_Volcano(rownames(result_table), result_table$logCPM, result_table$logFC, result_table$FDR)
+> dev.off()
+null device 
+          1 
+> 
+date Finished differential expression analysis
+date Starting plots
+
+
+** Found 2 features as differentially expressed.
+
+CMD: /home/pier/miniconda3/envs/mtrans-smk-hs/opt/trinity-2.8.5/Analysis/DifferentialExpression/PtR -m diffExpr.P0.01_C1.matrix --log2 --heatmap --min_colSums 0 --min_rowSums 0 --gene_dist euclidean --sample_dist euclidean --sample_cor_matrix --center_rows --save  -s /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/edgeR-output/sample-file.txt
+CMD: R --no-save --no-restore --no-site-file --no-init-file -q < diffExpr.P0.01_C1.matrix.R
+> library(cluster)
+> library(Biobase)
+Loading required package: BiocGenerics
+Loading required package: parallel
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, append, as.data.frame, basename, cbind, colnames,
+    dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,
+    grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,
+    order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+    rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
+    union, unique, unsplit, which, which.max, which.min
+
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+> library(qvalue)
+Registered S3 methods overwritten by 'ggplot2':
+  method         from 
+  [.quosures     rlang
+  c.quosures     rlang
+  print.quosures rlang
+> library(fastcluster)
+
+Attaching package: ‘fastcluster’
+
+The following object is masked from ‘package:stats’:
+
+    hclust
+
+> options(stringsAsFactors = FALSE)
+> NO_REUSE = F
+> 
+> # try to reuse earlier-loaded data if possible
+> if (file.exists("diffExpr.P0.01_C1.matrix.RData") && ! NO_REUSE) {
++     print('RESTORING DATA FROM EARLIER ANALYSIS')
++     load("diffExpr.P0.01_C1.matrix.RData")
++ } else {
++     print('Reading matrix file.')
++     primary_data = read.table("diffExpr.P0.01_C1.matrix", header=T, com='', row.names=1, check.names=F, sep='\t')
++     primary_data = as.matrix(primary_data)
++ }
+[1] "Reading matrix file."
+> source("/home/pier/miniconda3/envs/mtrans-smk-hs/opt/trinity-2.8.5/Analysis/DifferentialExpression/R/heatmap.3.R")
+> source("/home/pier/miniconda3/envs/mtrans-smk-hs/opt/trinity-2.8.5/Analysis/DifferentialExpression/R/misc_rnaseq_funcs.R")
+> source("/home/pier/miniconda3/envs/mtrans-smk-hs/opt/trinity-2.8.5/Analysis/DifferentialExpression/R/pairs3.R")
+> source("/home/pier/miniconda3/envs/mtrans-smk-hs/opt/trinity-2.8.5/Analysis/DifferentialExpression/R/vioplot2.R")
+> data = primary_data
+> myheatcol = colorpanel(75, 'purple','black','yellow')
+> samples_data = read.table("/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/edgeR-output/sample-file.txt", header=F, check.names=F, fill=T)
+> samples_data = samples_data[samples_data[,2] != '',]
+> colnames(samples_data) = c('sample_name', 'replicate_name')
+> sample_types = as.character(unique(samples_data[,1]))
+> rep_names = as.character(samples_data[,2])
+> data = data[, colnames(data) %in% rep_names, drop=F ]
+> nsamples = length(sample_types)
+> sample_colors = rainbow(nsamples)
+> names(sample_colors) = sample_types
+> sample_type_list = list()
+> for (i in 1:nsamples) {
++     samples_want = samples_data[samples_data[,1]==sample_types[i], 2]
++     sample_type_list[[sample_types[i]]] = as.vector(samples_want)
++ }
+> sample_factoring = colnames(data)
+> for (i in 1:nsamples) {
++     sample_type = sample_types[i]
++     replicates_want = sample_type_list[[sample_type]]
++     sample_factoring[ colnames(data) %in% replicates_want ] = sample_type
++ }
+> initial_matrix = data # store before doing various data transformations
+> data = log2(data+1)
+> sample_factoring = colnames(data)
+> for (i in 1:nsamples) {
++     sample_type = sample_types[i]
++     replicates_want = sample_type_list[[sample_type]]
++     sample_factoring[ colnames(data) %in% replicates_want ] = sample_type
++ }
+> sampleAnnotations = matrix(ncol=ncol(data),nrow=nsamples)
+> for (i in 1:nsamples) {
++   sampleAnnotations[i,] = colnames(data) %in% sample_type_list[[sample_types[i]]]
++ }
+> sampleAnnotations = apply(sampleAnnotations, 1:2, function(x) as.logical(x))
+> sampleAnnotations = sample_matrix_to_color_assignments(sampleAnnotations, col=sample_colors)
+> rownames(sampleAnnotations) = as.vector(sample_types)
+> colnames(sampleAnnotations) = colnames(data)
+> data = as.matrix(data) # convert to matrix
+> 
+> # Centering rows
+> data = t(scale(t(data), scale=F))
+> 
+> write.table(data, file="diffExpr.P0.01_C1.matrix.log2.centered.dat", quote=F, sep='	');
+> if (nrow(data) < 2) { stop("
++ 
++ **** Sorry, at least two rows are required for this matrix.
++ 
++ ");}
+> if (ncol(data) < 2) { stop("
++ 
++ **** Sorry, at least two columns are required for this matrix.
++ 
++ ");}
+> sample_cor = cor(data, method='pearson', use='pairwise.complete.obs')
+> write.table(sample_cor, file="diffExpr.P0.01_C1.matrix.log2.centered.sample_cor.dat", quote=F, sep='	')
+> sample_dist = dist(t(data), method='euclidean')
+> hc_samples = hclust(sample_dist, method='complete')
+> pdf("diffExpr.P0.01_C1.matrix.log2.centered.sample_cor_matrix.pdf")
+> sample_cor_for_plot = sample_cor
+> heatmap.3(sample_cor_for_plot, dendrogram='both', Rowv=as.dendrogram(hc_samples), Colv=as.dendrogram(hc_samples), col = myheatcol, scale='none', symm=TRUE, key=TRUE,density.info='none', trace='none', symkey=FALSE, symbreaks=F, margins=c(10,10), cexCol=1, cexRow=1, cex.main=0.75, main=paste("sample correlation matrix
++ ", "diffExpr.P0.01_C1.matrix.log2.centered") , ColSideColors=sampleAnnotations, RowSideColors=t(sampleAnnotations))
+for plotting:: min.raw: -1 max.raw: 1
+> dev.off()
+null device 
+          1 
+> gene_cor = NULL
+> gene_dist = dist(data, method='euclidean')
+> if (nrow(data) <= 1) { message('Too few genes to generate heatmap'); quit(status=0); }
+> hc_genes = hclust(gene_dist, method='complete')
+> heatmap_data = data
+> pdf("diffExpr.P0.01_C1.matrix.log2.centered.genes_vs_samples_heatmap.pdf")
+> heatmap.3(heatmap_data, dendrogram='both', Rowv=as.dendrogram(hc_genes), Colv=as.dendrogram(hc_samples), col=myheatcol, scale="none", density.info="none", trace="none", key=TRUE, keysize=1.2, cexCol=1, margins=c(10,10), cex.main=0.75, main=paste("samples vs. features
++ ", "diffExpr.P0.01_C1.matrix.log2.centered" ) , ColSideColors=sampleAnnotations)
+for plotting:: min.raw: -14.4727418706338 max.raw: 14.4727418706338
+> dev.off()
+null device 
+          1 
+> save(list=ls(all=TRUE), file="diffExpr.P0.01_C1.matrix.RData")
+> 
+CMD: R --no-save --no-restore --no-site-file --no-init-file -q < trinity-de.isoform.TMM.EXPR.matrix.R
+> library(cluster)
+> library(Biobase)
+Loading required package: BiocGenerics
+Loading required package: parallel
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, append, as.data.frame, basename, cbind, colnames,
+    dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,
+    grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,
+    order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+    rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
+    union, unique, unsplit, which, which.max, which.min
+
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+> library(qvalue)
+Registered S3 methods overwritten by 'ggplot2':
+  method         from 
+  [.quosures     rlang
+  c.quosures     rlang
+  print.quosures rlang
+> library(fastcluster)
+
+Attaching package: ‘fastcluster’
+
+The following object is masked from ‘package:stats’:
+
+    hclust
+
+> options(stringsAsFactors = FALSE)
+> NO_REUSE = F
+> 
+> # try to reuse earlier-loaded data if possible
+> if (file.exists("trinity-de.isoform.TMM.EXPR.matrix.RData") && ! NO_REUSE) {
++     print('RESTORING DATA FROM EARLIER ANALYSIS')
++     load("trinity-de.isoform.TMM.EXPR.matrix.RData")
++ } else {
++     print('Reading matrix file.')
++     primary_data = read.table("/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/edgeR-output/trinity-de.isoform.TMM.EXPR.matrix", header=T, com='', row.names=1, check.names=F, sep='\t')
++     primary_data = as.matrix(primary_data)
++ }
+[1] "Reading matrix file."
+> source("/home/pier/miniconda3/envs/mtrans-smk-hs/opt/trinity-2.8.5/Analysis/DifferentialExpression/R/heatmap.3.R")
+> source("/home/pier/miniconda3/envs/mtrans-smk-hs/opt/trinity-2.8.5/Analysis/DifferentialExpression/R/misc_rnaseq_funcs.R")
+> source("/home/pier/miniconda3/envs/mtrans-smk-hs/opt/trinity-2.8.5/Analysis/DifferentialExpression/R/pairs3.R")
+> source("/home/pier/miniconda3/envs/mtrans-smk-hs/opt/trinity-2.8.5/Analysis/DifferentialExpression/R/vioplot2.R")
+> data = primary_data
+> myheatcol = colorpanel(75, 'purple','black','yellow')
+> samples_data = read.table("/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trinity-de/trinity-output/edgeR-output/sample-file.txt", header=F, check.names=F, fill=T)
+> samples_data = samples_data[samples_data[,2] != '',]
+> colnames(samples_data) = c('sample_name', 'replicate_name')
+> sample_types = as.character(unique(samples_data[,1]))
+> rep_names = as.character(samples_data[,2])
+> data = data[, colnames(data) %in% rep_names, drop=F ]
+> nsamples = length(sample_types)
+> sample_colors = rainbow(nsamples)
+> names(sample_colors) = sample_types
+> sample_type_list = list()
+> for (i in 1:nsamples) {
++     samples_want = samples_data[samples_data[,1]==sample_types[i], 2]
++     sample_type_list[[sample_types[i]]] = as.vector(samples_want)
++ }
+> sample_factoring = colnames(data)
+> for (i in 1:nsamples) {
++     sample_type = sample_types[i]
++     replicates_want = sample_type_list[[sample_type]]
++     sample_factoring[ colnames(data) %in% replicates_want ] = sample_type
++ }
+> initial_matrix = data # store before doing various data transformations
+> data = log2(data+1)
+> sample_factoring = colnames(data)
+> for (i in 1:nsamples) {
++     sample_type = sample_types[i]
++     replicates_want = sample_type_list[[sample_type]]
++     sample_factoring[ colnames(data) %in% replicates_want ] = sample_type
++ }
+> sampleAnnotations = matrix(ncol=ncol(data),nrow=nsamples)
+> for (i in 1:nsamples) {
++   sampleAnnotations[i,] = colnames(data) %in% sample_type_list[[sample_types[i]]]
++ }
+> sampleAnnotations = apply(sampleAnnotations, 1:2, function(x) as.logical(x))
+> sampleAnnotations = sample_matrix_to_color_assignments(sampleAnnotations, col=sample_colors)
+> rownames(sampleAnnotations) = as.vector(sample_types)
+> colnames(sampleAnnotations) = colnames(data)
+> data = as.matrix(data) # convert to matrix
+> write.table(data, file="trinity-de.isoform.TMM.EXPR.matrix.log2.dat", quote=F, sep='	');
+> pdf("trinity-de.isoform.TMM.EXPR.matrix.log2.prcomp.principal_components.pdf")
+> prin_comp_data = data
+> pca = prcomp(prin_comp_data, center = FALSE, scale. = FALSE)
+> pc_pct_variance = (pca$sdev^2)/sum(pca$sdev^2)
+> def.par <- par(no.readonly = TRUE) # save default, for resetting...
+> gridlayout = matrix(c(1:4),nrow=2,ncol=2, byrow=TRUE);
+> layout(gridlayout, widths=c(1,1));
+> write.table(pca$rotation, file="trinity-de.isoform.TMM.EXPR.matrix.log2.PCA.prcomp.scores", quote=F, sep="	")
+> write.table(pca$x, file="trinity-de.isoform.TMM.EXPR.matrix.log2.PCA.prcomp.loadings", quote=F, sep="	")
+> PCA.loadings=pca$x
+> PCA.scores = pca$rotation
+> for (i in 1:(max(3,2)-1)) {
++     xrange = range(PCA.scores[,i])
++     yrange = range(PCA.scores[,i+1])
++     samples_want = rownames(PCA.scores) %in% sample_type_list[[sample_types[1]]]
++     pc_i_pct_var = sprintf("(%.2f%%)", pc_pct_variance[i]*100)
++     pc_i_1_pct_var = sprintf("(%.2f%%)", pc_pct_variance[i+1]*100)
++     plot(PCA.scores[samples_want,i], PCA.scores[samples_want,i+1], xlab=paste('PC',i, pc_i_pct_var), ylab=paste('PC',i+1, pc_i_1_pct_var), xlim=xrange, ylim=yrange, col=sample_colors[1])
++     for (j in 2:nsamples) {
++         samples_want = rownames(PCA.scores) %in% sample_type_list[[sample_types[j]]]
++         points(PCA.scores[samples_want,i], PCA.scores[samples_want,i+1], col=sample_colors[j], pch=j)
++     }
++     plot.new()
++     legend('topleft', as.vector(sample_types), col=sample_colors, pch=1:nsamples, ncol=2)
++ }
+> 
+> par(def.par)
+> pcloadings_mat_vals = PCA.loadings[,1:3]
+> print(dim(pcloadings_mat_vals))
+[1] 102   3
+> pcloadings_mat = matrix_to_color_assignments(pcloadings_mat_vals, col=colorpanel(256,'purple','black','yellow'), by='col')
+> print(dim(pcloadings_mat))
+[1] 102   3
+> colnames(pcloadings_mat) = paste('PC', 1:ncol(pcloadings_mat))
+> dev.off()
+null device 
+          1 
+> gene_cor = NULL
+> 
+date Finished plots
+Done
+Runtime: 11 seconds

@@ -1,0 +1,470 @@
+Running run-trimmomatic.sh using the following directories:
+input: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs
+output: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic
+adapter: /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/db/adapters
+Forward reads: C_PT1_0_J36463_R1_paired-subset.fq.gz
+Reverse reads: C_PT1_0_J36463_R1_paired-subset.fq.gz
+Library prefix: C_PT1_0_J36463
+TrimmomaticPE: Started with arguments:
+ -threads 8 -phred33 /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_0_J36463_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_0_J36463_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT1_0_J36463_R1_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT1_0_J36463_R1_unpaired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT1_0_J36463_R2_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT1_0_J36463_R2_unpaired.fq ILLUMINACLIP:/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/db/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC>PrefixPE/1AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 2 prefix pairs, 17 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 236 Both Surviving: 236 (100.00%) Forward Only Surviving: 0 (0.00%) Reverse Only Surviving: 0 (0.00%) Dropped: 0 (0.00%)
+TrimmomaticPE: Completed successfully
+Forward reads: C_PT1_1_J36443_R1_paired-subset.fq.gz
+Reverse reads: C_PT1_1_J36443_R1_paired-subset.fq.gz
+Library prefix: C_PT1_1_J36443
+TrimmomaticPE: Started with arguments:
+ -threads 8 -phred33 /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_1_J36443_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_1_J36443_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT1_1_J36443_R1_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT1_1_J36443_R1_unpaired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT1_1_J36443_R2_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT1_1_J36443_R2_unpaired.fq ILLUMINACLIP:/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/db/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC>PrefixPE/1AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 2 prefix pairs, 17 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 277 Both Surviving: 277 (100.00%) Forward Only Surviving: 0 (0.00%) Reverse Only Surviving: 0 (0.00%) Dropped: 0 (0.00%)
+TrimmomaticPE: Completed successfully
+Forward reads: C_PT1_2_J36451_R1_paired-subset.fq.gz
+Reverse reads: C_PT1_2_J36451_R1_paired-subset.fq.gz
+Library prefix: C_PT1_2_J36451
+TrimmomaticPE: Started with arguments:
+ -threads 8 -phred33 /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_2_J36451_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_2_J36451_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT1_2_J36451_R1_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT1_2_J36451_R1_unpaired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT1_2_J36451_R2_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT1_2_J36451_R2_unpaired.fq ILLUMINACLIP:/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/db/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC>PrefixPE/1AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 2 prefix pairs, 17 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 498 Both Surviving: 498 (100.00%) Forward Only Surviving: 0 (0.00%) Reverse Only Surviving: 0 (0.00%) Dropped: 0 (0.00%)
+TrimmomaticPE: Completed successfully
+Forward reads: C_PT1_3_J36458_R1_paired-subset.fq.gz
+Reverse reads: C_PT1_3_J36458_R1_paired-subset.fq.gz
+Library prefix: C_PT1_3_J36458
+TrimmomaticPE: Started with arguments:
+ -threads 8 -phred33 /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_3_J36458_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_3_J36458_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT1_3_J36458_R1_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT1_3_J36458_R1_unpaired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT1_3_J36458_R2_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT1_3_J36458_R2_unpaired.fq ILLUMINACLIP:/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/db/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC>PrefixPE/1AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 2 prefix pairs, 17 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 431 Both Surviving: 431 (100.00%) Forward Only Surviving: 0 (0.00%) Reverse Only Surviving: 0 (0.00%) Dropped: 0 (0.00%)
+TrimmomaticPE: Completed successfully
+Forward reads: C_PT2_0_J36461_R1_paired-subset.fq.gz
+Reverse reads: C_PT2_0_J36461_R1_paired-subset.fq.gz
+Library prefix: C_PT2_0_J36461
+TrimmomaticPE: Started with arguments:
+ -threads 8 -phred33 /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_0_J36461_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_0_J36461_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT2_0_J36461_R1_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT2_0_J36461_R1_unpaired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT2_0_J36461_R2_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT2_0_J36461_R2_unpaired.fq ILLUMINACLIP:/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/db/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC>PrefixPE/1AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 2 prefix pairs, 17 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 79 Both Surviving: 79 (100.00%) Forward Only Surviving: 0 (0.00%) Reverse Only Surviving: 0 (0.00%) Dropped: 0 (0.00%)
+TrimmomaticPE: Completed successfully
+Forward reads: C_PT2_1_J36457_R1_paired-subset.fq.gz
+Reverse reads: C_PT2_1_J36457_R1_paired-subset.fq.gz
+Library prefix: C_PT2_1_J36457
+TrimmomaticPE: Started with arguments:
+ -threads 8 -phred33 /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_1_J36457_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_1_J36457_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT2_1_J36457_R1_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT2_1_J36457_R1_unpaired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT2_1_J36457_R2_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT2_1_J36457_R2_unpaired.fq ILLUMINACLIP:/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/db/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC>PrefixPE/1AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 2 prefix pairs, 17 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 805 Both Surviving: 805 (100.00%) Forward Only Surviving: 0 (0.00%) Reverse Only Surviving: 0 (0.00%) Dropped: 0 (0.00%)
+TrimmomaticPE: Completed successfully
+Forward reads: C_PT2_2_J36489_R1_paired-subset.fq.gz
+Reverse reads: C_PT2_2_J36489_R1_paired-subset.fq.gz
+Library prefix: C_PT2_2_J36489
+TrimmomaticPE: Started with arguments:
+ -threads 8 -phred33 /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_2_J36489_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_2_J36489_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT2_2_J36489_R1_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT2_2_J36489_R1_unpaired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT2_2_J36489_R2_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT2_2_J36489_R2_unpaired.fq ILLUMINACLIP:/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/db/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC>PrefixPE/1AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 2 prefix pairs, 17 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 106 Both Surviving: 106 (100.00%) Forward Only Surviving: 0 (0.00%) Reverse Only Surviving: 0 (0.00%) Dropped: 0 (0.00%)
+TrimmomaticPE: Completed successfully
+Forward reads: C_PT2_3_J36467_R1_paired-subset.fq.gz
+Reverse reads: C_PT2_3_J36467_R1_paired-subset.fq.gz
+Library prefix: C_PT2_3_J36467
+TrimmomaticPE: Started with arguments:
+ -threads 8 -phred33 /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_3_J36467_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_3_J36467_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT2_3_J36467_R1_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT2_3_J36467_R1_unpaired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT2_3_J36467_R2_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/C_PT2_3_J36467_R2_unpaired.fq ILLUMINACLIP:/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/db/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC>PrefixPE/1AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 2 prefix pairs, 17 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 321 Both Surviving: 321 (100.00%) Forward Only Surviving: 0 (0.00%) Reverse Only Surviving: 0 (0.00%) Dropped: 0 (0.00%)
+TrimmomaticPE: Completed successfully
+Forward reads: MA_PT1_0_J36462_R1_paired-subset.fq.gz
+Reverse reads: MA_PT1_0_J36462_R1_paired-subset.fq.gz
+Library prefix: MA_PT1_0_J36462
+TrimmomaticPE: Started with arguments:
+ -threads 8 -phred33 /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_0_J36462_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_0_J36462_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT1_0_J36462_R1_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT1_0_J36462_R1_unpaired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT1_0_J36462_R2_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT1_0_J36462_R2_unpaired.fq ILLUMINACLIP:/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/db/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC>PrefixPE/1AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 2 prefix pairs, 17 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 250 Both Surviving: 250 (100.00%) Forward Only Surviving: 0 (0.00%) Reverse Only Surviving: 0 (0.00%) Dropped: 0 (0.00%)
+TrimmomaticPE: Completed successfully
+Forward reads: MA_PT1_1_J36455_R1_paired-subset.fq.gz
+Reverse reads: MA_PT1_1_J36455_R1_paired-subset.fq.gz
+Library prefix: MA_PT1_1_J36455
+TrimmomaticPE: Started with arguments:
+ -threads 8 -phred33 /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_1_J36455_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_1_J36455_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT1_1_J36455_R1_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT1_1_J36455_R1_unpaired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT1_1_J36455_R2_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT1_1_J36455_R2_unpaired.fq ILLUMINACLIP:/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/db/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC>PrefixPE/1AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 2 prefix pairs, 17 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 119 Both Surviving: 119 (100.00%) Forward Only Surviving: 0 (0.00%) Reverse Only Surviving: 0 (0.00%) Dropped: 0 (0.00%)
+TrimmomaticPE: Completed successfully
+Forward reads: MA_PT1_2_J36479_R1_paired-subset.fq.gz
+Reverse reads: MA_PT1_2_J36479_R1_paired-subset.fq.gz
+Library prefix: MA_PT1_2_J36479
+TrimmomaticPE: Started with arguments:
+ -threads 8 -phred33 /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_2_J36479_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_2_J36479_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT1_2_J36479_R1_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT1_2_J36479_R1_unpaired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT1_2_J36479_R2_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT1_2_J36479_R2_unpaired.fq ILLUMINACLIP:/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/db/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC>PrefixPE/1AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 2 prefix pairs, 17 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 63 Both Surviving: 63 (100.00%) Forward Only Surviving: 0 (0.00%) Reverse Only Surviving: 0 (0.00%) Dropped: 0 (0.00%)
+TrimmomaticPE: Completed successfully
+Forward reads: MA_PT1_3_J36484_R1_paired-subset.fq.gz
+Reverse reads: MA_PT1_3_J36484_R1_paired-subset.fq.gz
+Library prefix: MA_PT1_3_J36484
+TrimmomaticPE: Started with arguments:
+ -threads 8 -phred33 /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_3_J36484_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_3_J36484_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT1_3_J36484_R1_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT1_3_J36484_R1_unpaired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT1_3_J36484_R2_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT1_3_J36484_R2_unpaired.fq ILLUMINACLIP:/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/db/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC>PrefixPE/1AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 2 prefix pairs, 17 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 59 Both Surviving: 59 (100.00%) Forward Only Surviving: 0 (0.00%) Reverse Only Surviving: 0 (0.00%) Dropped: 0 (0.00%)
+TrimmomaticPE: Completed successfully
+Forward reads: MA_PT2_0_J36468_R1_paired-subset.fq.gz
+Reverse reads: MA_PT2_0_J36468_R1_paired-subset.fq.gz
+Library prefix: MA_PT2_0_J36468
+TrimmomaticPE: Started with arguments:
+ -threads 8 -phred33 /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_0_J36468_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_0_J36468_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT2_0_J36468_R1_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT2_0_J36468_R1_unpaired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT2_0_J36468_R2_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT2_0_J36468_R2_unpaired.fq ILLUMINACLIP:/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/db/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC>PrefixPE/1AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 2 prefix pairs, 17 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 45 Both Surviving: 45 (100.00%) Forward Only Surviving: 0 (0.00%) Reverse Only Surviving: 0 (0.00%) Dropped: 0 (0.00%)
+TrimmomaticPE: Completed successfully
+Forward reads: MA_PT2_1_J36471_R1_paired-subset.fq.gz
+Reverse reads: MA_PT2_1_J36471_R1_paired-subset.fq.gz
+Library prefix: MA_PT2_1_J36471
+TrimmomaticPE: Started with arguments:
+ -threads 8 -phred33 /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_1_J36471_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_1_J36471_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT2_1_J36471_R1_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT2_1_J36471_R1_unpaired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT2_1_J36471_R2_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT2_1_J36471_R2_unpaired.fq ILLUMINACLIP:/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/db/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC>PrefixPE/1AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 2 prefix pairs, 17 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 170 Both Surviving: 170 (100.00%) Forward Only Surviving: 0 (0.00%) Reverse Only Surviving: 0 (0.00%) Dropped: 0 (0.00%)
+TrimmomaticPE: Completed successfully
+Forward reads: MA_PT2_2_J36480_R1_paired-subset.fq.gz
+Reverse reads: MA_PT2_2_J36480_R1_paired-subset.fq.gz
+Library prefix: MA_PT2_2_J36480
+TrimmomaticPE: Started with arguments:
+ -threads 8 -phred33 /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_2_J36480_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_2_J36480_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT2_2_J36480_R1_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT2_2_J36480_R1_unpaired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT2_2_J36480_R2_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT2_2_J36480_R2_unpaired.fq ILLUMINACLIP:/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/db/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC>PrefixPE/1AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 2 prefix pairs, 17 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 79 Both Surviving: 79 (100.00%) Forward Only Surviving: 0 (0.00%) Reverse Only Surviving: 0 (0.00%) Dropped: 0 (0.00%)
+TrimmomaticPE: Completed successfully
+Forward reads: MA_PT2_3_J36478_R1_paired-subset.fq.gz
+Reverse reads: MA_PT2_3_J36478_R1_paired-subset.fq.gz
+Library prefix: MA_PT2_3_J36478
+TrimmomaticPE: Started with arguments:
+ -threads 8 -phred33 /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_3_J36478_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_3_J36478_R1_paired-subset.fq.gz /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT2_3_J36478_R1_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT2_3_J36478_R1_unpaired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT2_3_J36478_R2_paired.fq /project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/test/trimmomatic/MA_PT2_3_J36478_R2_unpaired.fq ILLUMINACLIP:/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs/db/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:28 MINLEN:36
+Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Skipping duplicate Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC>PrefixPE/1AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 2 prefix pairs, 17 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 173 Both Surviving: 173 (100.00%) Forward Only Surviving: 0 (0.00%) Reverse Only Surviving: 0 (0.00%) Dropped: 0 (0.00%)
+TrimmomaticPE: Completed successfully
+Done
+Runtime: '9' seconds

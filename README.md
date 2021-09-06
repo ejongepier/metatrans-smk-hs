@@ -1,6 +1,6 @@
 # README - Metatrans-smk-hs
 
-In dit project werken de Bpexa HL Leiden bioinformatica studenten aan een Snakemake –use-conda implementatie
+In dit project werken de Bpexa HS Leiden bioinformatica studenten aan een Snakemake –use-conda implementatie
 van een meta-transcriptomic workflow. De pipeline zal bestaan uit enkele kern onderdelen waar de
 studenten gezamenlijk aan werken met behulp van github. Daarnaast zijn er enkele uitbreidingsmogelijkheden 
 waar de studenten elk individueel aan werken binnen de gezamenlijke pijplijn. Hierbij is het

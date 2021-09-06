@@ -2,11 +2,11 @@
 !.gitignore
 !INSTALL.md
 !LICENCE
-MILESTONES.md
+!MILESTONES.md
 !README.md
 !Snakefile
-agendas/
-agendas/*
+!agendas/
+!agendas/*
 !config.yaml
 !db/
 !db/adapters/
@@ -33,7 +33,10 @@ agendas/*
 !sample-data/*
 !sample-data/subset-trimmed-libs/
 !sample-data/subset-trimmed-libs/*
+sample-data/subset-trimmed-libs-workflow.tar.gz
 !samples.csv
+!schemas/
+!schemas/*
 !scripts/
 !scripts/*
 !src/

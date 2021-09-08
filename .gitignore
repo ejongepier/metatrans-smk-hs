@@ -8,6 +8,8 @@
 !agendas/
 !agendas/*
 !config.yaml
+data/
+data/*
 !db/
 !db/adapters/
 !db/adapters/*
@@ -33,7 +35,8 @@
 !sample-data/*
 !sample-data/subset-trimmed-libs/
 !sample-data/subset-trimmed-libs/*
-sample-data/subset-trimmed-libs-workflow.tar.gz
+!sample-data/subset-raw-libs/
+!sample-data/subset-raw-libs/*
 !samples.csv
 !schemas/
 !schemas/*

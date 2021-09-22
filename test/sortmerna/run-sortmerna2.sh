@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+6#!/usr/bin/env bash
 
 if [ "$1" == "-h" ]; then
   echo "Usage: bash `basename $0` 2>&1 | tee run-sortmerna.log"
@@ -11,15 +11,11 @@ start=`date +%s`
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate mtrans-smk-hs
 
-<<<<<<< HEAD
-PARENT_DIR="/metatrans-smk-hs"
-=======
-PARENT_DIR="/project/202108-metatranscriptomics-ibedall"
->>>>>>> 97351e8641dc84c7a50c6a0cce764d942c020099
+PARENT_DIR="/exports/bngp_home/bpexa/metatrans-smk-hs"
 IN_DIR=${PARENT_DIR}"/sample-data/subset-trimmed-libs"
 OUT_DIR=${PARENT_DIR}"/test/sortmerna"
 DB_DIR=${PARENT_DIR}"/db/sortmerna"
-THREADS=8
+THREADS=4
 
 echo "using the following directories:"
 echo "input: $IN_DIR"
@@ -50,16 +46,18 @@ for fwdpath in ${IN_DIR}/*_R1_*; do
     --workdir ${OUT_DIR}/tmp
 
   ## one file is misnamed in sortmerna output
-  mv MA_PT2_J36468-clean_0.fq.gz MA_PT2_0_J36468-clean.fq.gz
-  mv C_PT1_J36463-clean_0.fq.gz C_PT1_0_J36463-clean.fq.gz
+#  mv MA_PT2_J36468-clean_0.fq.gz MA_PT2_0_J36468-clean.fq.gz
+#  mv C_PT1_J36463-clean_0.fq.gz C_PT1_0_J36463-clean.fq.gz
 
   ## deinterleve
-  zcat ${OUT_DIR}/${prefix}-clean.fq.gz | paste - - - - - - - - | tee | cut -f 1-4 | tr "\t" "\n" | egrep -v '^$' | gzip -c > ${OUT_DIR}/${prefix}-R1-clean.fq.gz
-  zcat ${OUT_DIR}/${prefix}-clean.fq.gz | paste - - - - - - - - | tee | cut -f 5-8 | tr "\t" "\n" | egrep -v '^$' | gzip -c > ${OUT_DIR}/${prefix}-R2-clean.fq.gz
+  zcat ${OUT_DIR}/${prefix}-R1-clean.fq.gz | paste - - - - - - - - | tee | cut -f 1-4 | tr "\t" "\n" | egrep -v '^$' | gzip -c > ${OUT_DIR}/${prefix}-R1-clean.fq.gz
+  zcat ${OUT_DIR}/${prefix}-R2-clean.fq.gz | paste - - - - - - - - | tee | cut -f 5-8 | tr "\t" "\n" | egrep -v '^$' | gzip -c > ${OUT_DIR}/${prefix}-R2-clean.fq.gz
 
   rm -r ${OUT_DIR}/tmp
 
 done
+
+#rm tmpsortmerna_keys_*
 
 echo "Done"
 end=`date +%s`

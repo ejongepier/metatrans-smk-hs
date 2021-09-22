@@ -1,0 +1,1281 @@
+using the following directories:
+input: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs
+output: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna
+db: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna
+C_PT1_0_J36463_R1_paired-subset.fq.gz
+C_PT1_0_J36463_R2_paired-subset.fq.gz
+C_PT1_0_J36463
+[process:1376] === Options processing starts ... ===
+Found value: sortmerna
+Found flag: --ref
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of previous flag: --ref
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_0_J36463_R1_paired-subset.fq.gz of previous flag: --reads
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_0_J36463_R2_paired-subset.fq.gz of previous flag: --reads
+Found flag: --aligned
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_0_J36463-rRNA of previous flag: --aligned
+Found flag: --other
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_0_J36463-clean of previous flag: --other
+Found flag: --num_alignments
+Found value: 1 of previous flag: --num_alignments
+Found flag: --fastx
+Previous flag: --fastx is Boolean. Setting to True
+Found flag: --blast
+Found value: 1 of previous flag: --blast
+Found flag: --paired_out
+Previous flag: --paired_out is Boolean. Setting to True
+Found flag: -v
+Previous flag: -v is Boolean. Setting to True
+Found flag: --threads
+Found value: 8 of previous flag: --threads
+Found flag: --workdir
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp of previous flag: --workdir
+[opt_workdir:994] Using WORKDIR: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp" as specified
+[process:1460] Processing option: aligned with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_0_J36463-rRNA
+[process:1460] Processing option: blast with value: 1
+[process:1460] Processing option: fastx with value: 
+[process:1460] Processing option: num_alignments with value: 1
+[process:1460] Processing option: other with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_0_J36463-clean
+[process:1460] Processing option: paired_out with value: 
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_0_J36463_R1_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [1] out of total [2] files
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_0_J36463_R2_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [2] out of total [2] files
+[process:1460] Processing option: ref with value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta
+[opt_ref:157] Processing reference [1] out of total [1] references
+[opt_ref:205] File "/exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta" exists and is readable
+[process:1460] Processing option: threads with value: 8
+[process:1460] Processing option: v with value: 
+[process:1480] === Options processing done ===
+[process:1481] Alignment type: [best:1 num_alignments:1 min_lis:2 seeds:2]
+[validate_kvdbdir:1227] Key-value DB location "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_idxdir:1193] Using index directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx"
+[validate_idxdir:1209] IDX directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx" exists and is not empty
+[validate_readb_dir:1285] Using split reads directory : "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/readb"
+[validate_readb_dir:1298] split reads directory : "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/readb" exists and is empty
+[main:62] Running command:
+sortmerna --ref /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_0_J36463_R1_paired-subset.fq.gz --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_0_J36463_R2_paired-subset.fq.gz --aligned /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_0_J36463-rRNA --other /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_0_J36463-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads 8 --workdir /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp 
+[build_index:1127] ==== Index building started ====
+
+  Parameters summary: 
+    K-mer size: 19
+    K-mer interval: 1
+    Maximum positions to store per unique K-mer: 10000
+
+  Total number of databases to index: 1
+
+[build_index:1190] Begin indexing file /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of size: 11243170 under index name /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112
+
+  Collecting nucleotide distribution statistics ..  done  [0.0688162 sec]
+
+  start index part # 0:
+    (1/3) building burst tries .. done  [6.97981 sec]
+    (2/3) building CMPH hash .. done  [13.7351 sec]
+    (3/3) building position lookup tables .. done [16.223 sec]
+    total number of sequences in this part = 7659
+      temporary file was here: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmpsortmerna_keys_15198.txt
+      writing kmer data to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.kmer_0.dat
+      writing burst tries to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.bursttrie_0.dat
+      writing position lookup table to /exports/bngp_home/bpexa/metatrans-smkrun-sortmerna2.sh: line 25: 15198 Segmentation fault      sortmerna --ref ${DB_DIR}/set5-database.fasta --reads ${IN_DIR}/$fwd --reads ${IN_DIR}/$rev --aligned ${OUT_DIR}/${prefix}-rRNA --other ${OUT_DIR}/${prefix}-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads $THREADS --workdir ${OUT_DIR}/tmp
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_0_J36463-R2-clean.fq.gz: unexpected end of file
+C_PT1_1_J36443_R1_paired-subset.fq.gz
+C_PT1_1_J36443_R2_paired-subset.fq.gz
+C_PT1_1_J36443
+[process:1376] === Options processing starts ... ===
+Found value: sortmerna
+Found flag: --ref
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of previous flag: --ref
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_1_J36443_R1_paired-subset.fq.gz of previous flag: --reads
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_1_J36443_R2_paired-subset.fq.gz of previous flag: --reads
+Found flag: --aligned
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_1_J36443-rRNA of previous flag: --aligned
+Found flag: --other
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_1_J36443-clean of previous flag: --other
+Found flag: --num_alignments
+Found value: 1 of previous flag: --num_alignments
+Found flag: --fastx
+Previous flag: --fastx is Boolean. Setting to True
+Found flag: --blast
+Found value: 1 of previous flag: --blast
+Found flag: --paired_out
+Previous flag: --paired_out is Boolean. Setting to True
+Found flag: -v
+Previous flag: -v is Boolean. Setting to True
+Found flag: --threads
+Found value: 8 of previous flag: --threads
+Found flag: --workdir
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp of previous flag: --workdir
+[opt_workdir:994] Using WORKDIR: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp" as specified
+[process:1460] Processing option: aligned with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_1_J36443-rRNA
+[process:1460] Processing option: blast with value: 1
+[process:1460] Processing option: fastx with value: 
+[process:1460] Processing option: num_alignments with value: 1
+[process:1460] Processing option: other with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_1_J36443-clean
+[process:1460] Processing option: paired_out with value: 
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_1_J36443_R1_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [1] out of total [2] files
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_1_J36443_R2_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [2] out of total [2] files
+[process:1460] Processing option: ref with value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta
+[opt_ref:157] Processing reference [1] out of total [1] references
+[opt_ref:205] File "/exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta" exists and is readable
+[process:1460] Processing option: threads with value: 8
+[process:1460] Processing option: v with value: 
+[process:1480] === Options processing done ===
+[process:1481] Alignment type: [best:1 num_alignments:1 min_lis:2 seeds:2]
+[validate_kvdbdir:1227] Key-value DB location "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_kvdbdir:1263] Creating KVDB directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_idxdir:1193] Using index directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx"
+[validate_idxdir:1201] Created index directory - OK
+[validate_readb_dir:1285] Using split reads directory : "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/readb"
+[validate_readb_dir:1293] Created split reads directory - OK
+[main:62] Running command:
+sortmerna --ref /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_1_J36443_R1_paired-subset.fq.gz --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_1_J36443_R2_paired-subset.fq.gz --aligned /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_1_J36443-rRNA --other /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_1_J36443-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads 8 --workdir /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp 
+[build_index:1127] ==== Index building started ====
+
+  Parameters summary: 
+    K-mer size: 19
+    K-mer interval: 1
+    Maximum positions to store per unique K-mer: 10000
+
+  Total number of databases to index: 1
+
+[build_index:1190] Begin indexing file /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of size: 11243170 under index name /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112
+
+  Collecting nucleotide distribution statistics ..  done  [0.0714511 sec]
+
+  start index part # 0:
+    (1/3) building burst tries .. done  [7.01709 sec]
+    (2/3) building CMPH hash .. done  [13.733 sec]
+    (3/3) building position lookup tables .. done [16.1723 sec]
+    total number of sequences in this part = 7659
+      temporary file was here: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmpsortmerna_keys_15237.txt
+      writing kmer data to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.kmer_0.dat
+      writing burst tries to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.bursttrie_0.dat
+      writing position lookup table to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494run-sortmerna2.sh: line 25: 15237 Segmentation fault      sortmerna --ref ${DB_DIR}/set5-database.fasta --reads ${IN_DIR}/$fwd --reads ${IN_DIR}/$rev --aligned ${OUT_DIR}/${prefix}-rRNA --other ${OUT_DIR}/${prefix}-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads $THREADS --workdir ${OUT_DIR}/tmp
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_1_J36443-R2-clean.fq.gz: unexpected end of file
+C_PT1_2_J36451_R1_paired-subset.fq.gz
+C_PT1_2_J36451_R2_paired-subset.fq.gz
+C_PT1_2_J36451
+[process:1376] === Options processing starts ... ===
+Found value: sortmerna
+Found flag: --ref
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of previous flag: --ref
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_2_J36451_R1_paired-subset.fq.gz of previous flag: --reads
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_2_J36451_R2_paired-subset.fq.gz of previous flag: --reads
+Found flag: --aligned
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_2_J36451-rRNA of previous flag: --aligned
+Found flag: --other
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_2_J36451-clean of previous flag: --other
+Found flag: --num_alignments
+Found value: 1 of previous flag: --num_alignments
+Found flag: --fastx
+Previous flag: --fastx is Boolean. Setting to True
+Found flag: --blast
+Found value: 1 of previous flag: --blast
+Found flag: --paired_out
+Previous flag: --paired_out is Boolean. Setting to True
+Found flag: -v
+Previous flag: -v is Boolean. Setting to True
+Found flag: --threads
+Found value: 8 of previous flag: --threads
+Found flag: --workdir
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp of previous flag: --workdir
+[opt_workdir:994] Using WORKDIR: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp" as specified
+[process:1460] Processing option: aligned with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_2_J36451-rRNA
+[process:1460] Processing option: blast with value: 1
+[process:1460] Processing option: fastx with value: 
+[process:1460] Processing option: num_alignments with value: 1
+[process:1460] Processing option: other with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_2_J36451-clean
+[process:1460] Processing option: paired_out with value: 
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_2_J36451_R1_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [1] out of total [2] files
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_2_J36451_R2_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [2] out of total [2] files
+[process:1460] Processing option: ref with value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta
+[opt_ref:157] Processing reference [1] out of total [1] references
+[opt_ref:205] File "/exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta" exists and is readable
+[process:1460] Processing option: threads with value: 8
+[process:1460] Processing option: v with value: 
+[process:1480] === Options processing done ===
+[process:1481] Alignment type: [best:1 num_alignments:1 min_lis:2 seeds:2]
+[validate_kvdbdir:1227] Key-value DB location "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_kvdbdir:1263] Creating KVDB directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_idxdir:1193] Using index directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx"
+[validate_idxdir:1201] Created index directory - OK
+[validate_readb_dir:1285] Using split reads directory : "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/readb"
+[validate_readb_dir:1293] Created split reads directory - OK
+[main:62] Running command:
+sortmerna --ref /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_2_J36451_R1_paired-subset.fq.gz --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_2_J36451_R2_paired-subset.fq.gz --aligned /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_2_J36451-rRNA --other /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_2_J36451-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads 8 --workdir /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp 
+[build_index:1127] ==== Index building started ====
+
+  Parameters summary: 
+    K-mer size: 19
+    K-mer interval: 1
+    Maximum positions to store per unique K-mer: 10000
+
+  Total number of databases to index: 1
+
+[build_index:1190] Begin indexing file /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of size: 11243170 under index name /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112
+
+  Collecting nucleotide distribution statistics ..  done  [0.0672855 sec]
+
+  start index part # 0:
+    (1/3) building burst tries .. done  [7.03055 sec]
+    (2/3) building CMPH hash .. done  [13.5963 sec]
+    (3/3) building position lookup tables .. done [15.9045 sec]
+    total number of sequences in this part = 7659
+      temporary file was here: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmpsortmerna_keys_15276.txt
+      writing kmer data to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.kmer_0.dat
+      writing burst tries to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.bursttrie_0.dat
+      writing position lookup table to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/1324281649run-sortmerna2.sh: line 25: 15276 Segmentation fault      sortmerna --ref ${DB_DIR}/set5-database.fasta --reads ${IN_DIR}/$fwd --reads ${IN_DIR}/$rev --aligned ${OUT_DIR}/${prefix}-rRNA --other ${OUT_DIR}/${prefix}-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads $THREADS --workdir ${OUT_DIR}/tmp
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_2_J36451-R1-clean.fq.gz: unexpected end of file
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_2_J36451-R2-clean.fq.gz: unexpected end of file
+C_PT1_3_J36458_R1_paired-subset.fq.gz
+C_PT1_3_J36458_R2_paired-subset.fq.gz
+C_PT1_3_J36458
+[process:1376] === Options processing starts ... ===
+Found value: sortmerna
+Found flag: --ref
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of previous flag: --ref
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_3_J36458_R1_paired-subset.fq.gz of previous flag: --reads
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_3_J36458_R2_paired-subset.fq.gz of previous flag: --reads
+Found flag: --aligned
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_3_J36458-rRNA of previous flag: --aligned
+Found flag: --other
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_3_J36458-clean of previous flag: --other
+Found flag: --num_alignments
+Found value: 1 of previous flag: --num_alignments
+Found flag: --fastx
+Previous flag: --fastx is Boolean. Setting to True
+Found flag: --blast
+Found value: 1 of previous flag: --blast
+Found flag: --paired_out
+Previous flag: --paired_out is Boolean. Setting to True
+Found flag: -v
+Previous flag: -v is Boolean. Setting to True
+Found flag: --threads
+Found value: 8 of previous flag: --threads
+Found flag: --workdir
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp of previous flag: --workdir
+[opt_workdir:994] Using WORKDIR: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp" as specified
+[process:1460] Processing option: aligned with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_3_J36458-rRNA
+[process:1460] Processing option: blast with value: 1
+[process:1460] Processing option: fastx with value: 
+[process:1460] Processing option: num_alignments with value: 1
+[process:1460] Processing option: other with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_3_J36458-clean
+[process:1460] Processing option: paired_out with value: 
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_3_J36458_R1_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [1] out of total [2] files
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_3_J36458_R2_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [2] out of total [2] files
+[process:1460] Processing option: ref with value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta
+[opt_ref:157] Processing reference [1] out of total [1] references
+[opt_ref:205] File "/exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta" exists and is readable
+[process:1460] Processing option: threads with value: 8
+[process:1460] Processing option: v with value: 
+[process:1480] === Options processing done ===
+[process:1481] Alignment type: [best:1 num_alignments:1 min_lis:2 seeds:2]
+[validate_kvdbdir:1227] Key-value DB location "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_kvdbdir:1263] Creating KVDB directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_idxdir:1193] Using index directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx"
+[validate_idxdir:1201] Created index directory - OK
+[validate_readb_dir:1285] Using split reads directory : "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/readb"
+[validate_readb_dir:1293] Created split reads directory - OK
+[main:62] Running command:
+sortmerna --ref /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_3_J36458_R1_paired-subset.fq.gz --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT1_3_J36458_R2_paired-subset.fq.gz --aligned /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_3_J36458-rRNA --other /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_3_J36458-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads 8 --workdir /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp 
+[build_index:1127] ==== Index building started ====
+
+  Parameters summary: 
+    K-mer size: 19
+    K-mer interval: 1
+    Maximum positions to store per unique K-mer: 10000
+
+  Total number of databases to index: 1
+
+[build_index:1190] Begin indexing file /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of size: 11243170 under index name /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112
+
+  Collecting nucleotide distribution statistics ..  done  [0.0670963 sec]
+
+  start index part # 0:
+    (1/3) building burst tries .. done  [6.94476 sec]
+    (2/3) building CMPH hash .. done  [13.6391 sec]
+    (3/3) building position lookup tables .. done [15.949 sec]
+    total number of sequences in this part = 7659
+      temporary file was here: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmpsortmerna_keys_15314.txt
+      writing kmer data to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.kmer_0.dat
+      writing burst tries to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.bursttrie_0.dat
+      writing position lookup table to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494run-sortmerna2.sh: line 25: 15314 Segmentation fault      sortmerna --ref ${DB_DIR}/set5-database.fasta --reads ${IN_DIR}/$fwd --reads ${IN_DIR}/$rev --aligned ${OUT_DIR}/${prefix}-rRNA --other ${OUT_DIR}/${prefix}-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads $THREADS --workdir ${OUT_DIR}/tmp
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT1_3_J36458-R1-clean.fq.gz: unexpected end of file
+C_PT2_0_J36461_R1_paired-subset.fq.gz
+C_PT2_0_J36461_R2_paired-subset.fq.gz
+C_PT2_0_J36461
+[process:1376] === Options processing starts ... ===
+Found value: sortmerna
+Found flag: --ref
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of previous flag: --ref
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_0_J36461_R1_paired-subset.fq.gz of previous flag: --reads
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_0_J36461_R2_paired-subset.fq.gz of previous flag: --reads
+Found flag: --aligned
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_0_J36461-rRNA of previous flag: --aligned
+Found flag: --other
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_0_J36461-clean of previous flag: --other
+Found flag: --num_alignments
+Found value: 1 of previous flag: --num_alignments
+Found flag: --fastx
+Previous flag: --fastx is Boolean. Setting to True
+Found flag: --blast
+Found value: 1 of previous flag: --blast
+Found flag: --paired_out
+Previous flag: --paired_out is Boolean. Setting to True
+Found flag: -v
+Previous flag: -v is Boolean. Setting to True
+Found flag: --threads
+Found value: 8 of previous flag: --threads
+Found flag: --workdir
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp of previous flag: --workdir
+[opt_workdir:994] Using WORKDIR: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp" as specified
+[process:1460] Processing option: aligned with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_0_J36461-rRNA
+[process:1460] Processing option: blast with value: 1
+[process:1460] Processing option: fastx with value: 
+[process:1460] Processing option: num_alignments with value: 1
+[process:1460] Processing option: other with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_0_J36461-clean
+[process:1460] Processing option: paired_out with value: 
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_0_J36461_R1_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [1] out of total [2] files
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_0_J36461_R2_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [2] out of total [2] files
+[process:1460] Processing option: ref with value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta
+[opt_ref:157] Processing reference [1] out of total [1] references
+[opt_ref:205] File "/exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta" exists and is readable
+[process:1460] Processing option: threads with value: 8
+[process:1460] Processing option: v with value: 
+[process:1480] === Options processing done ===
+[process:1481] Alignment type: [best:1 num_alignments:1 min_lis:2 seeds:2]
+[validate_kvdbdir:1227] Key-value DB location "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_kvdbdir:1263] Creating KVDB directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_idxdir:1193] Using index directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx"
+[validate_idxdir:1201] Created index directory - OK
+[validate_readb_dir:1285] Using split reads directory : "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/readb"
+[validate_readb_dir:1293] Created split reads directory - OK
+[main:62] Running command:
+sortmerna --ref /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_0_J36461_R1_paired-subset.fq.gz --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_0_J36461_R2_paired-subset.fq.gz --aligned /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_0_J36461-rRNA --other /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_0_J36461-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads 8 --workdir /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp 
+[build_index:1127] ==== Index building started ====
+
+  Parameters summary: 
+    K-mer size: 19
+    K-mer interval: 1
+    Maximum positions to store per unique K-mer: 10000
+
+  Total number of databases to index: 1
+
+[build_index:1190] Begin indexing file /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of size: 11243170 under index name /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112
+
+  Collecting nucleotide distribution statistics ..  done  [0.06735 sec]
+
+  start index part # 0:
+    (1/3) building burst tries .. done  [6.94618 sec]
+    (2/3) building CMPH hash .. done  [13.6205 sec]
+    (3/3) building position lookup tables .. done [16.0801 sec]
+    total number of sequences in this part = 7659
+      temporary file was here: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmpsortmerna_keys_15354.txt
+      writing kmer data to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.kmer_0.dat
+      writing burst tries to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.bursttrie_0.dat
+      writing position lookup table to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/132428164940run-sortmerna2.sh: line 25: 15354 Segmentation fault      sortmerna --ref ${DB_DIR}/set5-database.fasta --reads ${IN_DIR}/$fwd --reads ${IN_DIR}/$rev --aligned ${OUT_DIR}/${prefix}-rRNA --other ${OUT_DIR}/${prefix}-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads $THREADS --workdir ${OUT_DIR}/tmp
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_0_J36461-R1-clean.fq.gz: unexpected end of file
+C_PT2_1_J36457_R1_paired-subset.fq.gz
+C_PT2_1_J36457_R2_paired-subset.fq.gz
+C_PT2_1_J36457
+[process:1376] === Options processing starts ... ===
+Found value: sortmerna
+Found flag: --ref
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of previous flag: --ref
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_1_J36457_R1_paired-subset.fq.gz of previous flag: --reads
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_1_J36457_R2_paired-subset.fq.gz of previous flag: --reads
+Found flag: --aligned
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_1_J36457-rRNA of previous flag: --aligned
+Found flag: --other
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_1_J36457-clean of previous flag: --other
+Found flag: --num_alignments
+Found value: 1 of previous flag: --num_alignments
+Found flag: --fastx
+Previous flag: --fastx is Boolean. Setting to True
+Found flag: --blast
+Found value: 1 of previous flag: --blast
+Found flag: --paired_out
+Previous flag: --paired_out is Boolean. Setting to True
+Found flag: -v
+Previous flag: -v is Boolean. Setting to True
+Found flag: --threads
+Found value: 8 of previous flag: --threads
+Found flag: --workdir
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp of previous flag: --workdir
+[opt_workdir:994] Using WORKDIR: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp" as specified
+[process:1460] Processing option: aligned with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_1_J36457-rRNA
+[process:1460] Processing option: blast with value: 1
+[process:1460] Processing option: fastx with value: 
+[process:1460] Processing option: num_alignments with value: 1
+[process:1460] Processing option: other with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_1_J36457-clean
+[process:1460] Processing option: paired_out with value: 
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_1_J36457_R1_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [1] out of total [2] files
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_1_J36457_R2_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [2] out of total [2] files
+[process:1460] Processing option: ref with value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta
+[opt_ref:157] Processing reference [1] out of total [1] references
+[opt_ref:205] File "/exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta" exists and is readable
+[process:1460] Processing option: threads with value: 8
+[process:1460] Processing option: v with value: 
+[process:1480] === Options processing done ===
+[process:1481] Alignment type: [best:1 num_alignments:1 min_lis:2 seeds:2]
+[validate_kvdbdir:1227] Key-value DB location "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_kvdbdir:1263] Creating KVDB directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_idxdir:1193] Using index directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx"
+[validate_idxdir:1201] Created index directory - OK
+[validate_readb_dir:1285] Using split reads directory : "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/readb"
+[validate_readb_dir:1293] Created split reads directory - OK
+[main:62] Running command:
+sortmerna --ref /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_1_J36457_R1_paired-subset.fq.gz --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_1_J36457_R2_paired-subset.fq.gz --aligned /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_1_J36457-rRNA --other /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_1_J36457-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads 8 --workdir /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp 
+[build_index:1127] ==== Index building started ====
+
+  Parameters summary: 
+    K-mer size: 19
+    K-mer interval: 1
+    Maximum positions to store per unique K-mer: 10000
+
+  Total number of databases to index: 1
+
+[build_index:1190] Begin indexing file /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of size: 11243170 under index name /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112
+
+  Collecting nucleotide distribution statistics ..  done  [0.0678837 sec]
+
+  start index part # 0:
+    (1/3) building burst tries .. done  [6.94757 sec]
+    (2/3) building CMPH hash .. done  [13.6719 sec]
+    (3/3) building position lookup tables .. done [15.9828 sec]
+    total number of sequences in this part = 7659
+      temporary file was here: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmpsortmerna_keys_15392.txt
+      writing kmer data to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.kmer_0.dat
+      writing burst tries to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.bursttrie_0.dat
+      writing position lookup table to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/1324281649run-sortmerna2.sh: line 25: 15392 Segmentation fault      sortmerna --ref ${DB_DIR}/set5-database.fasta --reads ${IN_DIR}/$fwd --reads ${IN_DIR}/$rev --aligned ${OUT_DIR}/${prefix}-rRNA --other ${OUT_DIR}/${prefix}-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads $THREADS --workdir ${OUT_DIR}/tmp
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_1_J36457-R1-clean.fq.gz: unexpected end of file
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_1_J36457-R2-clean.fq.gz: unexpected end of file
+C_PT2_2_J36489_R1_paired-subset.fq.gz
+C_PT2_2_J36489_R2_paired-subset.fq.gz
+C_PT2_2_J36489
+[process:1376] === Options processing starts ... ===
+Found value: sortmerna
+Found flag: --ref
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of previous flag: --ref
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_2_J36489_R1_paired-subset.fq.gz of previous flag: --reads
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_2_J36489_R2_paired-subset.fq.gz of previous flag: --reads
+Found flag: --aligned
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_2_J36489-rRNA of previous flag: --aligned
+Found flag: --other
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_2_J36489-clean of previous flag: --other
+Found flag: --num_alignments
+Found value: 1 of previous flag: --num_alignments
+Found flag: --fastx
+Previous flag: --fastx is Boolean. Setting to True
+Found flag: --blast
+Found value: 1 of previous flag: --blast
+Found flag: --paired_out
+Previous flag: --paired_out is Boolean. Setting to True
+Found flag: -v
+Previous flag: -v is Boolean. Setting to True
+Found flag: --threads
+Found value: 8 of previous flag: --threads
+Found flag: --workdir
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp of previous flag: --workdir
+[opt_workdir:994] Using WORKDIR: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp" as specified
+[process:1460] Processing option: aligned with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_2_J36489-rRNA
+[process:1460] Processing option: blast with value: 1
+[process:1460] Processing option: fastx with value: 
+[process:1460] Processing option: num_alignments with value: 1
+[process:1460] Processing option: other with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_2_J36489-clean
+[process:1460] Processing option: paired_out with value: 
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_2_J36489_R1_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [1] out of total [2] files
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_2_J36489_R2_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [2] out of total [2] files
+[process:1460] Processing option: ref with value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta
+[opt_ref:157] Processing reference [1] out of total [1] references
+[opt_ref:205] File "/exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta" exists and is readable
+[process:1460] Processing option: threads with value: 8
+[process:1460] Processing option: v with value: 
+[process:1480] === Options processing done ===
+[process:1481] Alignment type: [best:1 num_alignments:1 min_lis:2 seeds:2]
+[validate_kvdbdir:1227] Key-value DB location "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_kvdbdir:1263] Creating KVDB directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_idxdir:1193] Using index directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx"
+[validate_idxdir:1201] Created index directory - OK
+[validate_readb_dir:1285] Using split reads directory : "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/readb"
+[validate_readb_dir:1293] Created split reads directory - OK
+[main:62] Running command:
+sortmerna --ref /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_2_J36489_R1_paired-subset.fq.gz --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_2_J36489_R2_paired-subset.fq.gz --aligned /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_2_J36489-rRNA --other /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_2_J36489-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads 8 --workdir /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp 
+[build_index:1127] ==== Index building started ====
+
+  Parameters summary: 
+    K-mer size: 19
+    K-mer interval: 1
+    Maximum positions to store per unique K-mer: 10000
+
+  Total number of databases to index: 1
+
+[build_index:1190] Begin indexing file /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of size: 11243170 under index name /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112
+
+  Collecting nucleotide distribution statistics ..  done  [0.068149 sec]
+
+  start index part # 0:
+    (1/3) building burst tries .. done  [7.11742 sec]
+    (2/3) building CMPH hash .. done  [13.538 sec]
+    (3/3) building position lookup tables .. done [16.1007 sec]
+    total number of sequences in this part = 7659
+      temporary file was here: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmpsortmerna_keys_15439.txt
+      writing kmer data to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.kmer_0.dat
+      writing burst tries to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.bursttrie_0.dat
+      writing position lookup table to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/132428164940run-sortmerna2.sh: line 25: 15439 Segmentation fault      sortmerna --ref ${DB_DIR}/set5-database.fasta --reads ${IN_DIR}/$fwd --reads ${IN_DIR}/$rev --aligned ${OUT_DIR}/${prefix}-rRNA --other ${OUT_DIR}/${prefix}-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads $THREADS --workdir ${OUT_DIR}/tmp
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_2_J36489-R1-clean.fq.gz: unexpected end of file
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_2_J36489-R2-clean.fq.gz: unexpected end of file
+C_PT2_3_J36467_R1_paired-subset.fq.gz
+C_PT2_3_J36467_R2_paired-subset.fq.gz
+C_PT2_3_J36467
+[process:1376] === Options processing starts ... ===
+Found value: sortmerna
+Found flag: --ref
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of previous flag: --ref
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_3_J36467_R1_paired-subset.fq.gz of previous flag: --reads
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_3_J36467_R2_paired-subset.fq.gz of previous flag: --reads
+Found flag: --aligned
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_3_J36467-rRNA of previous flag: --aligned
+Found flag: --other
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_3_J36467-clean of previous flag: --other
+Found flag: --num_alignments
+Found value: 1 of previous flag: --num_alignments
+Found flag: --fastx
+Previous flag: --fastx is Boolean. Setting to True
+Found flag: --blast
+Found value: 1 of previous flag: --blast
+Found flag: --paired_out
+Previous flag: --paired_out is Boolean. Setting to True
+Found flag: -v
+Previous flag: -v is Boolean. Setting to True
+Found flag: --threads
+Found value: 8 of previous flag: --threads
+Found flag: --workdir
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp of previous flag: --workdir
+[opt_workdir:994] Using WORKDIR: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp" as specified
+[process:1460] Processing option: aligned with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_3_J36467-rRNA
+[process:1460] Processing option: blast with value: 1
+[process:1460] Processing option: fastx with value: 
+[process:1460] Processing option: num_alignments with value: 1
+[process:1460] Processing option: other with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_3_J36467-clean
+[process:1460] Processing option: paired_out with value: 
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_3_J36467_R1_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [1] out of total [2] files
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_3_J36467_R2_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [2] out of total [2] files
+[process:1460] Processing option: ref with value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta
+[opt_ref:157] Processing reference [1] out of total [1] references
+[opt_ref:205] File "/exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta" exists and is readable
+[process:1460] Processing option: threads with value: 8
+[process:1460] Processing option: v with value: 
+[process:1480] === Options processing done ===
+[process:1481] Alignment type: [best:1 num_alignments:1 min_lis:2 seeds:2]
+[validate_kvdbdir:1227] Key-value DB location "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_kvdbdir:1263] Creating KVDB directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_idxdir:1193] Using index directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx"
+[validate_idxdir:1201] Created index directory - OK
+[validate_readb_dir:1285] Using split reads directory : "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/readb"
+[validate_readb_dir:1293] Created split reads directory - OK
+[main:62] Running command:
+sortmerna --ref /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_3_J36467_R1_paired-subset.fq.gz --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/C_PT2_3_J36467_R2_paired-subset.fq.gz --aligned /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_3_J36467-rRNA --other /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_3_J36467-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads 8 --workdir /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp 
+[build_index:1127] ==== Index building started ====
+
+  Parameters summary: 
+    K-mer size: 19
+    K-mer interval: 1
+    Maximum positions to store per unique K-mer: 10000
+
+  Total number of databases to index: 1
+
+[build_index:1190] Begin indexing file /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of size: 11243170 under index name /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112
+
+  Collecting nucleotide distribution statistics ..  done  [0.0688432 sec]
+
+  start index part # 0:
+    (1/3) building burst tries .. done  [6.94748 sec]
+    (2/3) building CMPH hash .. done  [13.506 sec]
+    (3/3) building position lookup tables .. done [15.9194 sec]
+    total number of sequences in this part = 7659
+      temporary file was here: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmpsortmerna_keys_15586.txt
+      writing kmer data to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.kmer_0.dat
+      writing burst tries to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.bursttrie_0.dat
+      writing position lookup table to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494run-sortmerna2.sh: line 25: 15586 Segmentation fault      sortmerna --ref ${DB_DIR}/set5-database.fasta --reads ${IN_DIR}/$fwd --reads ${IN_DIR}/$rev --aligned ${OUT_DIR}/${prefix}-rRNA --other ${OUT_DIR}/${prefix}-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads $THREADS --workdir ${OUT_DIR}/tmp
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/C_PT2_3_J36467-R1-clean.fq.gz: unexpected end of file
+MA_PT1_0_J36462_R1_paired-subset.fq.gz
+MA_PT1_0_J36462_R2_paired-subset.fq.gz
+MA_PT1_0_J36462
+[process:1376] === Options processing starts ... ===
+Found value: sortmerna
+Found flag: --ref
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of previous flag: --ref
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_0_J36462_R1_paired-subset.fq.gz of previous flag: --reads
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_0_J36462_R2_paired-subset.fq.gz of previous flag: --reads
+Found flag: --aligned
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_0_J36462-rRNA of previous flag: --aligned
+Found flag: --other
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_0_J36462-clean of previous flag: --other
+Found flag: --num_alignments
+Found value: 1 of previous flag: --num_alignments
+Found flag: --fastx
+Previous flag: --fastx is Boolean. Setting to True
+Found flag: --blast
+Found value: 1 of previous flag: --blast
+Found flag: --paired_out
+Previous flag: --paired_out is Boolean. Setting to True
+Found flag: -v
+Previous flag: -v is Boolean. Setting to True
+Found flag: --threads
+Found value: 8 of previous flag: --threads
+Found flag: --workdir
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp of previous flag: --workdir
+[opt_workdir:994] Using WORKDIR: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp" as specified
+[process:1460] Processing option: aligned with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_0_J36462-rRNA
+[process:1460] Processing option: blast with value: 1
+[process:1460] Processing option: fastx with value: 
+[process:1460] Processing option: num_alignments with value: 1
+[process:1460] Processing option: other with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_0_J36462-clean
+[process:1460] Processing option: paired_out with value: 
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_0_J36462_R1_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [1] out of total [2] files
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_0_J36462_R2_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [2] out of total [2] files
+[process:1460] Processing option: ref with value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta
+[opt_ref:157] Processing reference [1] out of total [1] references
+[opt_ref:205] File "/exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta" exists and is readable
+[process:1460] Processing option: threads with value: 8
+[process:1460] Processing option: v with value: 
+[process:1480] === Options processing done ===
+[process:1481] Alignment type: [best:1 num_alignments:1 min_lis:2 seeds:2]
+[validate_kvdbdir:1227] Key-value DB location "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_kvdbdir:1263] Creating KVDB directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_idxdir:1193] Using index directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx"
+[validate_idxdir:1201] Created index directory - OK
+[validate_readb_dir:1285] Using split reads directory : "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/readb"
+[validate_readb_dir:1293] Created split reads directory - OK
+[main:62] Running command:
+sortmerna --ref /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_0_J36462_R1_paired-subset.fq.gz --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_0_J36462_R2_paired-subset.fq.gz --aligned /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_0_J36462-rRNA --other /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_0_J36462-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads 8 --workdir /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp 
+[build_index:1127] ==== Index building started ====
+
+  Parameters summary: 
+    K-mer size: 19
+    K-mer interval: 1
+    Maximum positions to store per unique K-mer: 10000
+
+  Total number of databases to index: 1
+
+[build_index:1190] Begin indexing file /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of size: 11243170 under index name /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112
+
+  Collecting nucleotide distribution statistics ..  done  [0.0641135 sec]
+
+  start index part # 0:
+    (1/3) building burst tries .. done  [6.96901 sec]
+    (2/3) building CMPH hash .. done  [13.5484 sec]
+    (3/3) building position lookup tables .. done [15.9983 sec]
+    total number of sequences in this part = 7659
+      temporary file was here: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmpsortmerna_keys_15627.txt
+      writing kmer data to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.kmer_0.dat
+      writing burst tries to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.bursttrie_0.dat
+      writing position lookup table to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13run-sortmerna2.sh: line 25: 15627 Segmentation fault      sortmerna --ref ${DB_DIR}/set5-database.fasta --reads ${IN_DIR}/$fwd --reads ${IN_DIR}/$rev --aligned ${OUT_DIR}/${prefix}-rRNA --other ${OUT_DIR}/${prefix}-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads $THREADS --workdir ${OUT_DIR}/tmp
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_0_J36462-R1-clean.fq.gz: unexpected end of file
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_0_J36462-R2-clean.fq.gz: unexpected end of file
+MA_PT1_1_J36455_R1_paired-subset.fq.gz
+MA_PT1_1_J36455_R2_paired-subset.fq.gz
+MA_PT1_1_J36455
+[process:1376] === Options processing starts ... ===
+Found value: sortmerna
+Found flag: --ref
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of previous flag: --ref
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_1_J36455_R1_paired-subset.fq.gz of previous flag: --reads
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_1_J36455_R2_paired-subset.fq.gz of previous flag: --reads
+Found flag: --aligned
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_1_J36455-rRNA of previous flag: --aligned
+Found flag: --other
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_1_J36455-clean of previous flag: --other
+Found flag: --num_alignments
+Found value: 1 of previous flag: --num_alignments
+Found flag: --fastx
+Previous flag: --fastx is Boolean. Setting to True
+Found flag: --blast
+Found value: 1 of previous flag: --blast
+Found flag: --paired_out
+Previous flag: --paired_out is Boolean. Setting to True
+Found flag: -v
+Previous flag: -v is Boolean. Setting to True
+Found flag: --threads
+Found value: 8 of previous flag: --threads
+Found flag: --workdir
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp of previous flag: --workdir
+[opt_workdir:994] Using WORKDIR: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp" as specified
+[process:1460] Processing option: aligned with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_1_J36455-rRNA
+[process:1460] Processing option: blast with value: 1
+[process:1460] Processing option: fastx with value: 
+[process:1460] Processing option: num_alignments with value: 1
+[process:1460] Processing option: other with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_1_J36455-clean
+[process:1460] Processing option: paired_out with value: 
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_1_J36455_R1_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [1] out of total [2] files
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_1_J36455_R2_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [2] out of total [2] files
+[process:1460] Processing option: ref with value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta
+[opt_ref:157] Processing reference [1] out of total [1] references
+[opt_ref:205] File "/exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta" exists and is readable
+[process:1460] Processing option: threads with value: 8
+[process:1460] Processing option: v with value: 
+[process:1480] === Options processing done ===
+[process:1481] Alignment type: [best:1 num_alignments:1 min_lis:2 seeds:2]
+[validate_kvdbdir:1227] Key-value DB location "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_kvdbdir:1263] Creating KVDB directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_idxdir:1193] Using index directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx"
+[validate_idxdir:1201] Created index directory - OK
+[validate_readb_dir:1285] Using split reads directory : "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/readb"
+[validate_readb_dir:1293] Created split reads directory - OK
+[main:62] Running command:
+sortmerna --ref /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_1_J36455_R1_paired-subset.fq.gz --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_1_J36455_R2_paired-subset.fq.gz --aligned /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_1_J36455-rRNA --other /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_1_J36455-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads 8 --workdir /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp 
+[build_index:1127] ==== Index building started ====
+
+  Parameters summary: 
+    K-mer size: 19
+    K-mer interval: 1
+    Maximum positions to store per unique K-mer: 10000
+
+  Total number of databases to index: 1
+
+[build_index:1190] Begin indexing file /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of size: 11243170 under index name /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112
+
+  Collecting nucleotide distribution statistics ..  done  [0.0675956 sec]
+
+  start index part # 0:
+    (1/3) building burst tries .. done  [6.94929 sec]
+    (2/3) building CMPH hash .. done  [13.5697 sec]
+    (3/3) building position lookup tables .. done [15.9595 sec]
+    total number of sequences in this part = 7659
+      temporary file was here: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmpsortmerna_keys_15671.txt
+      writing kmer data to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.kmer_0.dat
+      writing burst tries to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.bursttrie_0.dat
+      writing position lookup table to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13run-sortmerna2.sh: line 25: 15671 Segmentation fault      sortmerna --ref ${DB_DIR}/set5-database.fasta --reads ${IN_DIR}/$fwd --reads ${IN_DIR}/$rev --aligned ${OUT_DIR}/${prefix}-rRNA --other ${OUT_DIR}/${prefix}-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads $THREADS --workdir ${OUT_DIR}/tmp
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_1_J36455-R1-clean.fq.gz: unexpected end of file
+MA_PT1_2_J36479_R1_paired-subset.fq.gz
+MA_PT1_2_J36479_R2_paired-subset.fq.gz
+MA_PT1_2_J36479
+[process:1376] === Options processing starts ... ===
+Found value: sortmerna
+Found flag: --ref
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of previous flag: --ref
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_2_J36479_R1_paired-subset.fq.gz of previous flag: --reads
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_2_J36479_R2_paired-subset.fq.gz of previous flag: --reads
+Found flag: --aligned
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_2_J36479-rRNA of previous flag: --aligned
+Found flag: --other
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_2_J36479-clean of previous flag: --other
+Found flag: --num_alignments
+Found value: 1 of previous flag: --num_alignments
+Found flag: --fastx
+Previous flag: --fastx is Boolean. Setting to True
+Found flag: --blast
+Found value: 1 of previous flag: --blast
+Found flag: --paired_out
+Previous flag: --paired_out is Boolean. Setting to True
+Found flag: -v
+Previous flag: -v is Boolean. Setting to True
+Found flag: --threads
+Found value: 8 of previous flag: --threads
+Found flag: --workdir
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp of previous flag: --workdir
+[opt_workdir:994] Using WORKDIR: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp" as specified
+[process:1460] Processing option: aligned with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_2_J36479-rRNA
+[process:1460] Processing option: blast with value: 1
+[process:1460] Processing option: fastx with value: 
+[process:1460] Processing option: num_alignments with value: 1
+[process:1460] Processing option: other with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_2_J36479-clean
+[process:1460] Processing option: paired_out with value: 
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_2_J36479_R1_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [1] out of total [2] files
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_2_J36479_R2_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [2] out of total [2] files
+[process:1460] Processing option: ref with value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta
+[opt_ref:157] Processing reference [1] out of total [1] references
+[opt_ref:205] File "/exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta" exists and is readable
+[process:1460] Processing option: threads with value: 8
+[process:1460] Processing option: v with value: 
+[process:1480] === Options processing done ===
+[process:1481] Alignment type: [best:1 num_alignments:1 min_lis:2 seeds:2]
+[validate_kvdbdir:1227] Key-value DB location "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_kvdbdir:1263] Creating KVDB directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_idxdir:1193] Using index directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx"
+[validate_idxdir:1201] Created index directory - OK
+[validate_readb_dir:1285] Using split reads directory : "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/readb"
+[validate_readb_dir:1293] Created split reads directory - OK
+[main:62] Running command:
+sortmerna --ref /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_2_J36479_R1_paired-subset.fq.gz --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_2_J36479_R2_paired-subset.fq.gz --aligned /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_2_J36479-rRNA --other /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_2_J36479-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads 8 --workdir /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp 
+[build_index:1127] ==== Index building started ====
+
+  Parameters summary: 
+    K-mer size: 19
+    K-mer interval: 1
+    Maximum positions to store per unique K-mer: 10000
+
+  Total number of databases to index: 1
+
+[build_index:1190] Begin indexing file /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of size: 11243170 under index name /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112
+
+  Collecting nucleotide distribution statistics ..  done  [0.0666365 sec]
+
+  start index part # 0:
+    (1/3) building burst tries .. done  [6.9809 sec]
+    (2/3) building CMPH hash .. done  [13.563 sec]
+    (3/3) building position lookup tables .. done [15.9469 sec]
+    total number of sequences in this part = 7659
+      temporary file was here: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmpsortmerna_keys_15709.txt
+      writing kmer data to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.kmer_0.dat
+      writing burst tries to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.bursttrie_0.dat
+      writing position lookup table to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/1324run-sortmerna2.sh: line 25: 15709 Segmentation fault      sortmerna --ref ${DB_DIR}/set5-database.fasta --reads ${IN_DIR}/$fwd --reads ${IN_DIR}/$rev --aligned ${OUT_DIR}/${prefix}-rRNA --other ${OUT_DIR}/${prefix}-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads $THREADS --workdir ${OUT_DIR}/tmp
+MA_PT1_3_J36484_R1_paired-subset.fq.gz
+MA_PT1_3_J36484_R2_paired-subset.fq.gz
+MA_PT1_3_J36484
+[process:1376] === Options processing starts ... ===
+Found value: sortmerna
+Found flag: --ref
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of previous flag: --ref
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_3_J36484_R1_paired-subset.fq.gz of previous flag: --reads
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_3_J36484_R2_paired-subset.fq.gz of previous flag: --reads
+Found flag: --aligned
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_3_J36484-rRNA of previous flag: --aligned
+Found flag: --other
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_3_J36484-clean of previous flag: --other
+Found flag: --num_alignments
+Found value: 1 of previous flag: --num_alignments
+Found flag: --fastx
+Previous flag: --fastx is Boolean. Setting to True
+Found flag: --blast
+Found value: 1 of previous flag: --blast
+Found flag: --paired_out
+Previous flag: --paired_out is Boolean. Setting to True
+Found flag: -v
+Previous flag: -v is Boolean. Setting to True
+Found flag: --threads
+Found value: 8 of previous flag: --threads
+Found flag: --workdir
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp of previous flag: --workdir
+[opt_workdir:994] Using WORKDIR: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp" as specified
+[process:1460] Processing option: aligned with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_3_J36484-rRNA
+[process:1460] Processing option: blast with value: 1
+[process:1460] Processing option: fastx with value: 
+[process:1460] Processing option: num_alignments with value: 1
+[process:1460] Processing option: other with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_3_J36484-clean
+[process:1460] Processing option: paired_out with value: 
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_3_J36484_R1_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [1] out of total [2] files
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_3_J36484_R2_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [2] out of total [2] files
+[process:1460] Processing option: ref with value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta
+[opt_ref:157] Processing reference [1] out of total [1] references
+[opt_ref:205] File "/exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta" exists and is readable
+[process:1460] Processing option: threads with value: 8
+[process:1460] Processing option: v with value: 
+[process:1480] === Options processing done ===
+[process:1481] Alignment type: [best:1 num_alignments:1 min_lis:2 seeds:2]
+[validate_kvdbdir:1227] Key-value DB location "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_kvdbdir:1263] Creating KVDB directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_idxdir:1193] Using index directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx"
+[validate_idxdir:1201] Created index directory - OK
+[validate_readb_dir:1285] Using split reads directory : "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/readb"
+[validate_readb_dir:1293] Created split reads directory - OK
+[main:62] Running command:
+sortmerna --ref /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_3_J36484_R1_paired-subset.fq.gz --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT1_3_J36484_R2_paired-subset.fq.gz --aligned /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_3_J36484-rRNA --other /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_3_J36484-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads 8 --workdir /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp 
+[build_index:1127] ==== Index building started ====
+
+  Parameters summary: 
+    K-mer size: 19
+    K-mer interval: 1
+    Maximum positions to store per unique K-mer: 10000
+
+  Total number of databases to index: 1
+
+[build_index:1190] Begin indexing file /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of size: 11243170 under index name /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112
+
+  Collecting nucleotide distribution statistics ..  done  [0.0645165 sec]
+
+  start index part # 0:
+    (1/3) building burst tries .. done  [6.95076 sec]
+    (2/3) building CMPH hash .. done  [13.4919 sec]
+    (3/3) building position lookup tables .. done [15.9048 sec]
+    total number of sequences in this part = 7659
+      temporary file was here: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmpsortmerna_keys_15747.txt
+      writing kmer data to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.kmer_0.dat
+      writing burst tries to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.bursttrie_0.dat
+      writing position lookup table to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13run-sortmerna2.sh: line 25: 15747 Segmentation fault      sortmerna --ref ${DB_DIR}/set5-database.fasta --reads ${IN_DIR}/$fwd --reads ${IN_DIR}/$rev --aligned ${OUT_DIR}/${prefix}-rRNA --other ${OUT_DIR}/${prefix}-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads $THREADS --workdir ${OUT_DIR}/tmp
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_3_J36484-R1-clean.fq.gz: unexpected end of file
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT1_3_J36484-R2-clean.fq.gz: unexpected end of file
+MA_PT2_0_J36468_R1_paired-subset.fq.gz
+MA_PT2_0_J36468_R2_paired-subset.fq.gz
+MA_PT2_0_J36468
+[process:1376] === Options processing starts ... ===
+Found value: sortmerna
+Found flag: --ref
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of previous flag: --ref
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_0_J36468_R1_paired-subset.fq.gz of previous flag: --reads
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_0_J36468_R2_paired-subset.fq.gz of previous flag: --reads
+Found flag: --aligned
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_0_J36468-rRNA of previous flag: --aligned
+Found flag: --other
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_0_J36468-clean of previous flag: --other
+Found flag: --num_alignments
+Found value: 1 of previous flag: --num_alignments
+Found flag: --fastx
+Previous flag: --fastx is Boolean. Setting to True
+Found flag: --blast
+Found value: 1 of previous flag: --blast
+Found flag: --paired_out
+Previous flag: --paired_out is Boolean. Setting to True
+Found flag: -v
+Previous flag: -v is Boolean. Setting to True
+Found flag: --threads
+Found value: 8 of previous flag: --threads
+Found flag: --workdir
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp of previous flag: --workdir
+[opt_workdir:994] Using WORKDIR: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp" as specified
+[process:1460] Processing option: aligned with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_0_J36468-rRNA
+[process:1460] Processing option: blast with value: 1
+[process:1460] Processing option: fastx with value: 
+[process:1460] Processing option: num_alignments with value: 1
+[process:1460] Processing option: other with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_0_J36468-clean
+[process:1460] Processing option: paired_out with value: 
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_0_J36468_R1_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [1] out of total [2] files
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_0_J36468_R2_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [2] out of total [2] files
+[process:1460] Processing option: ref with value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta
+[opt_ref:157] Processing reference [1] out of total [1] references
+[opt_ref:205] File "/exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta" exists and is readable
+[process:1460] Processing option: threads with value: 8
+[process:1460] Processing option: v with value: 
+[process:1480] === Options processing done ===
+[process:1481] Alignment type: [best:1 num_alignments:1 min_lis:2 seeds:2]
+[validate_kvdbdir:1227] Key-value DB location "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_kvdbdir:1263] Creating KVDB directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_idxdir:1193] Using index directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx"
+[validate_idxdir:1201] Created index directory - OK
+[validate_readb_dir:1285] Using split reads directory : "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/readb"
+[validate_readb_dir:1293] Created split reads directory - OK
+[main:62] Running command:
+sortmerna --ref /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_0_J36468_R1_paired-subset.fq.gz --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_0_J36468_R2_paired-subset.fq.gz --aligned /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_0_J36468-rRNA --other /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_0_J36468-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads 8 --workdir /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp 
+[build_index:1127] ==== Index building started ====
+
+  Parameters summary: 
+    K-mer size: 19
+    K-mer interval: 1
+    Maximum positions to store per unique K-mer: 10000
+
+  Total number of databases to index: 1
+
+[build_index:1190] Begin indexing file /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of size: 11243170 under index name /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112
+
+  Collecting nucleotide distribution statistics ..  done  [0.0683636 sec]
+
+  start index part # 0:
+    (1/3) building burst tries .. done  [6.95676 sec]
+    (2/3) building CMPH hash .. done  [13.5396 sec]
+    (3/3) building position lookup tables .. done [15.9222 sec]
+    total number of sequences in this part = 7659
+      temporary file was here: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmpsortmerna_keys_15785.txt
+      writing kmer data to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.kmer_0.dat
+      writing burst tries to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.bursttrie_0.dat
+      writing position lookup table to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13run-sortmerna2.sh: line 25: 15785 Segmentation fault      sortmerna --ref ${DB_DIR}/set5-database.fasta --reads ${IN_DIR}/$fwd --reads ${IN_DIR}/$rev --aligned ${OUT_DIR}/${prefix}-rRNA --other ${OUT_DIR}/${prefix}-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads $THREADS --workdir ${OUT_DIR}/tmp
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_0_J36468-R1-clean.fq.gz: unexpected end of file
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_0_J36468-R2-clean.fq.gz: unexpected end of file
+MA_PT2_1_J36471_R1_paired-subset.fq.gz
+MA_PT2_1_J36471_R2_paired-subset.fq.gz
+MA_PT2_1_J36471
+[process:1376] === Options processing starts ... ===
+Found value: sortmerna
+Found flag: --ref
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of previous flag: --ref
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_1_J36471_R1_paired-subset.fq.gz of previous flag: --reads
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_1_J36471_R2_paired-subset.fq.gz of previous flag: --reads
+Found flag: --aligned
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_1_J36471-rRNA of previous flag: --aligned
+Found flag: --other
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_1_J36471-clean of previous flag: --other
+Found flag: --num_alignments
+Found value: 1 of previous flag: --num_alignments
+Found flag: --fastx
+Previous flag: --fastx is Boolean. Setting to True
+Found flag: --blast
+Found value: 1 of previous flag: --blast
+Found flag: --paired_out
+Previous flag: --paired_out is Boolean. Setting to True
+Found flag: -v
+Previous flag: -v is Boolean. Setting to True
+Found flag: --threads
+Found value: 8 of previous flag: --threads
+Found flag: --workdir
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp of previous flag: --workdir
+[opt_workdir:994] Using WORKDIR: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp" as specified
+[process:1460] Processing option: aligned with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_1_J36471-rRNA
+[process:1460] Processing option: blast with value: 1
+[process:1460] Processing option: fastx with value: 
+[process:1460] Processing option: num_alignments with value: 1
+[process:1460] Processing option: other with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_1_J36471-clean
+[process:1460] Processing option: paired_out with value: 
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_1_J36471_R1_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [1] out of total [2] files
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_1_J36471_R2_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [2] out of total [2] files
+[process:1460] Processing option: ref with value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta
+[opt_ref:157] Processing reference [1] out of total [1] references
+[opt_ref:205] File "/exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta" exists and is readable
+[process:1460] Processing option: threads with value: 8
+[process:1460] Processing option: v with value: 
+[process:1480] === Options processing done ===
+[process:1481] Alignment type: [best:1 num_alignments:1 min_lis:2 seeds:2]
+[validate_kvdbdir:1227] Key-value DB location "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_kvdbdir:1263] Creating KVDB directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_idxdir:1193] Using index directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx"
+[validate_idxdir:1201] Created index directory - OK
+[validate_readb_dir:1285] Using split reads directory : "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/readb"
+[validate_readb_dir:1293] Created split reads directory - OK
+[main:62] Running command:
+sortmerna --ref /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_1_J36471_R1_paired-subset.fq.gz --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_1_J36471_R2_paired-subset.fq.gz --aligned /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_1_J36471-rRNA --other /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_1_J36471-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads 8 --workdir /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp 
+[build_index:1127] ==== Index building started ====
+
+  Parameters summary: 
+    K-mer size: 19
+    K-mer interval: 1
+    Maximum positions to store per unique K-mer: 10000
+
+  Total number of databases to index: 1
+
+[build_index:1190] Begin indexing file /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of size: 11243170 under index name /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112
+
+  Collecting nucleotide distribution statistics ..  done  [0.0670829 sec]
+
+  start index part # 0:
+    (1/3) building burst tries .. done  [7.13674 sec]
+    (2/3) building CMPH hash .. done  [13.6434 sec]
+    (3/3) building position lookup tables .. done [16.0665 sec]
+    total number of sequences in this part = 7659
+      temporary file was here: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmpsortmerna_keys_15824.txt
+      writing kmer data to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.kmer_0.dat
+      writing burst tries to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.bursttrie_0.dat
+      writing position lookup table to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13run-sortmerna2.sh: line 25: 15824 Segmentation fault      sortmerna --ref ${DB_DIR}/set5-database.fasta --reads ${IN_DIR}/$fwd --reads ${IN_DIR}/$rev --aligned ${OUT_DIR}/${prefix}-rRNA --other ${OUT_DIR}/${prefix}-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads $THREADS --workdir ${OUT_DIR}/tmp
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_1_J36471-R1-clean.fq.gz: unexpected end of file
+MA_PT2_2_J36480_R1_paired-subset.fq.gz
+MA_PT2_2_J36480_R2_paired-subset.fq.gz
+MA_PT2_2_J36480
+[process:1376] === Options processing starts ... ===
+Found value: sortmerna
+Found flag: --ref
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of previous flag: --ref
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_2_J36480_R1_paired-subset.fq.gz of previous flag: --reads
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_2_J36480_R2_paired-subset.fq.gz of previous flag: --reads
+Found flag: --aligned
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_2_J36480-rRNA of previous flag: --aligned
+Found flag: --other
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_2_J36480-clean of previous flag: --other
+Found flag: --num_alignments
+Found value: 1 of previous flag: --num_alignments
+Found flag: --fastx
+Previous flag: --fastx is Boolean. Setting to True
+Found flag: --blast
+Found value: 1 of previous flag: --blast
+Found flag: --paired_out
+Previous flag: --paired_out is Boolean. Setting to True
+Found flag: -v
+Previous flag: -v is Boolean. Setting to True
+Found flag: --threads
+Found value: 8 of previous flag: --threads
+Found flag: --workdir
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp of previous flag: --workdir
+[opt_workdir:994] Using WORKDIR: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp" as specified
+[process:1460] Processing option: aligned with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_2_J36480-rRNA
+[process:1460] Processing option: blast with value: 1
+[process:1460] Processing option: fastx with value: 
+[process:1460] Processing option: num_alignments with value: 1
+[process:1460] Processing option: other with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_2_J36480-clean
+[process:1460] Processing option: paired_out with value: 
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_2_J36480_R1_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [1] out of total [2] files
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_2_J36480_R2_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [2] out of total [2] files
+[process:1460] Processing option: ref with value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta
+[opt_ref:157] Processing reference [1] out of total [1] references
+[opt_ref:205] File "/exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta" exists and is readable
+[process:1460] Processing option: threads with value: 8
+[process:1460] Processing option: v with value: 
+[process:1480] === Options processing done ===
+[process:1481] Alignment type: [best:1 num_alignments:1 min_lis:2 seeds:2]
+[validate_kvdbdir:1227] Key-value DB location "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_kvdbdir:1263] Creating KVDB directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_idxdir:1193] Using index directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx"
+[validate_idxdir:1201] Created index directory - OK
+[validate_readb_dir:1285] Using split reads directory : "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/readb"
+[validate_readb_dir:1293] Created split reads directory - OK
+[main:62] Running command:
+sortmerna --ref /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_2_J36480_R1_paired-subset.fq.gz --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_2_J36480_R2_paired-subset.fq.gz --aligned /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_2_J36480-rRNA --other /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_2_J36480-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads 8 --workdir /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp 
+[build_index:1127] ==== Index building started ====
+
+  Parameters summary: 
+    K-mer size: 19
+    K-mer interval: 1
+    Maximum positions to store per unique K-mer: 10000
+
+  Total number of databases to index: 1
+
+[build_index:1190] Begin indexing file /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of size: 11243170 under index name /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112
+
+  Collecting nucleotide distribution statistics ..  done  [0.068894 sec]
+
+  start index part # 0:
+    (1/3) building burst tries .. done  [6.96435 sec]
+    (2/3) building CMPH hash .. done  [13.5472 sec]
+    (3/3) building position lookup tables .. done [16.0805 sec]
+    total number of sequences in this part = 7659
+      temporary file was here: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmpsortmerna_keys_15862.txt
+      writing kmer data to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.kmer_0.dat
+      writing burst tries to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.bursttrie_0.dat
+      writing position lookup table to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/132run-sortmerna2.sh: line 25: 15862 Segmentation fault      sortmerna --ref ${DB_DIR}/set5-database.fasta --reads ${IN_DIR}/$fwd --reads ${IN_DIR}/$rev --aligned ${OUT_DIR}/${prefix}-rRNA --other ${OUT_DIR}/${prefix}-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads $THREADS --workdir ${OUT_DIR}/tmp
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_2_J36480-R1-clean.fq.gz: unexpected end of file
+MA_PT2_3_J36478_R1_paired-subset.fq.gz
+MA_PT2_3_J36478_R2_paired-subset.fq.gz
+MA_PT2_3_J36478
+[process:1376] === Options processing starts ... ===
+Found value: sortmerna
+Found flag: --ref
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of previous flag: --ref
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_3_J36478_R1_paired-subset.fq.gz of previous flag: --reads
+Found flag: --reads
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_3_J36478_R2_paired-subset.fq.gz of previous flag: --reads
+Found flag: --aligned
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_3_J36478-rRNA of previous flag: --aligned
+Found flag: --other
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_3_J36478-clean of previous flag: --other
+Found flag: --num_alignments
+Found value: 1 of previous flag: --num_alignments
+Found flag: --fastx
+Previous flag: --fastx is Boolean. Setting to True
+Found flag: --blast
+Found value: 1 of previous flag: --blast
+Found flag: --paired_out
+Previous flag: --paired_out is Boolean. Setting to True
+Found flag: -v
+Previous flag: -v is Boolean. Setting to True
+Found flag: --threads
+Found value: 8 of previous flag: --threads
+Found flag: --workdir
+Found value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp of previous flag: --workdir
+[opt_workdir:994] Using WORKDIR: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp" as specified
+[process:1460] Processing option: aligned with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_3_J36478-rRNA
+[process:1460] Processing option: blast with value: 1
+[process:1460] Processing option: fastx with value: 
+[process:1460] Processing option: num_alignments with value: 1
+[process:1460] Processing option: other with value: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_3_J36478-clean
+[process:1460] Processing option: paired_out with value: 
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_3_J36478_R1_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [1] out of total [2] files
+[process:1460] Processing option: reads with value: /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_3_J36478_R2_paired-subset.fq.gz
+[opt_reads:97] Processing reads file [2] out of total [2] files
+[process:1460] Processing option: ref with value: /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta
+[opt_ref:157] Processing reference [1] out of total [1] references
+[opt_ref:205] File "/exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta" exists and is readable
+[process:1460] Processing option: threads with value: 8
+[process:1460] Processing option: v with value: 
+[process:1480] === Options processing done ===
+[process:1481] Alignment type: [best:1 num_alignments:1 min_lis:2 seeds:2]
+[validate_kvdbdir:1227] Key-value DB location "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_kvdbdir:1263] Creating KVDB directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/kvdb"
+[validate_idxdir:1193] Using index directory: "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx"
+[validate_idxdir:1201] Created index directory - OK
+[validate_readb_dir:1285] Using split reads directory : "/exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/readb"
+[validate_readb_dir:1293] Created split reads directory - OK
+[main:62] Running command:
+sortmerna --ref /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_3_J36478_R1_paired-subset.fq.gz --reads /exports/bngp_home/bpexa/metatrans-smk-hs/sample-data/subset-trimmed-libs/MA_PT2_3_J36478_R2_paired-subset.fq.gz --aligned /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_3_J36478-rRNA --other /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_3_J36478-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads 8 --workdir /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp 
+[build_index:1127] ==== Index building started ====
+
+  Parameters summary: 
+    K-mer size: 19
+    K-mer interval: 1
+    Maximum positions to store per unique K-mer: 10000
+
+  Total number of databases to index: 1
+
+[build_index:1190] Begin indexing file /exports/bngp_home/bpexa/metatrans-smk-hs/db/sortmerna/set5-database.fasta of size: 11243170 under index name /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112
+
+  Collecting nucleotide distribution statistics ..  done  [0.0663792 sec]
+
+  start index part # 0:
+    (1/3) building burst tries .. done  [6.97305 sec]
+    (2/3) building CMPH hash .. done  [13.5747 sec]
+    (3/3) building position lookup tables .. done [16.1308 sec]
+    total number of sequences in this part = 7659
+      temporary file was here: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmpsortmerna_keys_15901.txt
+      writing kmer data to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.kmer_0.dat
+      writing burst tries to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13242816494091978112.bursttrie_0.dat
+      writing position lookup table to /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/tmp/idx/13run-sortmerna2.sh: line 25: 15901 Segmentation fault      sortmerna --ref ${DB_DIR}/set5-database.fasta --reads ${IN_DIR}/$fwd --reads ${IN_DIR}/$rev --aligned ${OUT_DIR}/${prefix}-rRNA --other ${OUT_DIR}/${prefix}-clean --num_alignments 1 --fastx --blast 1 --paired_out -v --threads $THREADS --workdir ${OUT_DIR}/tmp
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_3_J36478-R1-clean.fq.gz: unexpected end of file
+
+gzip: /exports/bngp_home/bpexa/metatrans-smk-hs/test/sortmerna/MA_PT2_3_J36478-R2-clean.fq.gz: unexpected end of file
+Done
+Runtime: '729'

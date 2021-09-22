@@ -10,7 +10,7 @@ start=`date +%s`
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate mtrans-smk-hs
 
-PARENT_DIR="/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs"
+PARENT_DIR="/project/202108-metatranscriptomics-ibedall"
 IN_DIR=${PARENT_DIR}"/sample-data/subset-trimmed-libs"
 OUT_DIR=${PARENT_DIR}"/test/sortmerna"
 DB_DIR=${PARENT_DIR}"/db/sortmerna"
@@ -55,8 +55,6 @@ for fwdpath in ${IN_DIR}/*_R1_*; do
   rm -r ${OUT_DIR}/tmp
 
 done
-
-rm tmpsortmerna_keys_*
 
 echo "Done"
 end=`date +%s`

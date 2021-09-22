@@ -1,20 +1,27 @@
 rule all:
-    input:
-        expand("fastqc_output.txt"), expand("run-trimomatic.log")
-
-rule fastQC:
 	input:
-		"sample.csv"
-	output:
-		"fastqc_output.txt"
-	shell:
-		"fastqc {input}"
+		"/home/s1119647/Bpexa/metatrans-smk-hs/test/trimmomatic/uitslag/", "/home/s1119647/Bpexa/metatrans-smk-hs/test/trinity-assemble/trinity-output/"
+
+#rule fastQC:
+#	input:
+#		"samples.csv"
+#	output:
+#		"fastqc_output.txt"
+#	shell:
+#		"fastqc {input}"
 
 rule trimmomatic:
 	input:
-		"/sample-data/subset-raw-libs"
+		"/home/s1119647/Bpexa/metatrans-smk-hs"
 	output:
-		"run-trimmomatic.log"
+		"/home/s1119647/Bpexa/metatrans-smk-hs/test/trimmomatic/uitslag/"
 	shell:
-		"bash run-trimmomatic.sh {input} {output}"
+		"bash /home/s1119647/Bpexa/metatrans-smk-hs/test/trimmomatic/run-trimmomatic.sh {input} {output}"
 
+rule trinity_assemble:
+	input:
+		"/home/s1119647/Bpexa/metatrans-smk-hs"
+	output:
+		"/home/s1119647/Bpexa/metatrans-smk-hs/test/trinity-assemble/trinity-output/"
+	shell:
+		"bash /home/s1119647/Bpexa/metatrans-smk-hs/test/trinity-assemble/run-trinity-assembly.sh {input} {output}"

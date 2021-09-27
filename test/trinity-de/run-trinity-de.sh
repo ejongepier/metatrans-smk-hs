@@ -10,7 +10,7 @@ start=`date +%s`
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate mtrans-smk-hs
 
-PARENT_DIR="/project/202108-metatranscriptomics-ibedall/github/metatrans-smk-hs"
+PARENT_DIR="/home/chezley/metatrans-smk-hs"
 ASSEMBLY_DIR=${PARENT_DIR}"/test/trinity-assemble/trinity-output"
 READ_DIR=${PARENT_DIR}"/sample-data/subset-trimmed-libs"
 OUT_DIR=${PARENT_DIR}"/test/trinity-de/trinity-output"

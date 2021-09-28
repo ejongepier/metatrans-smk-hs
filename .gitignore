@@ -29,6 +29,7 @@ data/*
 !notes/*
 !reports/
 !reports/*
+results/
 !rules/
 !rules/*
 !sample-data/

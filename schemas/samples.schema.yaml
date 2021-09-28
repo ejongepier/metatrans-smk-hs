@@ -1,0 +1,23 @@
+$schema:              "http://json-schema.org/draft-07/schema#"
+
+description:          an entry in the sample sheet
+properties:
+    run:
+        type:         string
+        description:  ID for current run. Multiple samples can be associated with the same run ID.
+    sample:
+        type:         string
+        description:  Sample ID for individual sample.
+    fwd:
+        type:         string
+        description:  Path to input file with raw forward reads in fastq.gz format.
+    rev:
+        type:         string
+        description:  Path to input file with raw reverse reads in fastq.gz format. 
+
+required:
+    - run
+    - sample
+    - fwd
+    - rev
+

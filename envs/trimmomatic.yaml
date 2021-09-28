@@ -1,0 +1,8 @@
+name: trimmomatic
+channels:
+  - defaults
+  - bioconda
+  - conda-forge
+dependencies:
+  - trimmomatic
+prefix: /home/pier/miniconda3/envs/trimmomatic

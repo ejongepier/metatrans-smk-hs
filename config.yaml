@@ -1,0 +1,5 @@
+samples:                           "samples.csv"
+
+trimmomatic:
+    environment:                   "../envs/trimmomatic.yaml"
+    threads:                       4

@@ -1,0 +1,17 @@
+run,sample,fwd,rev
+demo,CPT10,sample-data/subset-raw-libs/C_PT1_0_J36463_R1_subset.fq.gz,sample-data/subset-raw-libs/C_PT1_0_J36463_R2_subset.fq.gz
+demo,CPT11,sample-data/subset-raw-libs/C_PT1_1_J36443_R1_subset.fq.gz,sample-data/subset-raw-libs/C_PT1_1_J36443_R2_subset.fq.gz
+demo,CPT12,sample-data/subset-raw-libs/C_PT1_2_J36451_R1_subset.fq.gz,sample-data/subset-raw-libs/C_PT1_2_J36451_R2_subset.fq.gz
+demo,CPT13,sample-data/subset-raw-libs/C_PT1_3_J36458_R1_subset.fq.gz,sample-data/subset-raw-libs/C_PT1_3_J36458_R2_subset.fq.gz
+demo,CPT20,sample-data/subset-raw-libs/C_PT2_0_J36461_R1_subset.fq.gz,sample-data/subset-raw-libs/C_PT2_0_J36461_R2_subset.fq.gz
+demo,CPT21,sample-data/subset-raw-libs/C_PT2_1_J36457_R1_subset.fq.gz,sample-data/subset-raw-libs/C_PT2_1_J36457_R2_subset.fq.gz
+demo,CPT22,sample-data/subset-raw-libs/C_PT2_2_J36489_R1_subset.fq.gz,sample-data/subset-raw-libs/C_PT2_2_J36489_R2_subset.fq.gz
+demo,CPT23,sample-data/subset-raw-libs/C_PT2_3_J36467_R1_subset.fq.gz,sample-data/subset-raw-libs/C_PT2_3_J36467_R2_subset.fq.gz
+demo,MAPT10,sample-data/subset-raw-libs/MA_PT1_0_J36462_R1_subset.fq.gz,sample-data/subset-raw-libs/MA_PT1_0_J36462_R2_subset.fq.gz
+demo,MAPT11,sample-data/subset-raw-libs/MA_PT1_1_J36455_R1_subset.fq.gz,sample-data/subset-raw-libs/MA_PT1_1_J36455_R2_subset.fq.gz
+demo,MAPT12,sample-data/subset-raw-libs/MA_PT1_2_J36479_R1_subset.fq.gz,sample-data/subset-raw-libs/MA_PT1_2_J36479_R2_subset.fq.gz
+demo,MAPT13,sample-data/subset-raw-libs/MA_PT1_3_J36484_R1_subset.fq.gz,sample-data/subset-raw-libs/MA_PT1_3_J36484_R2_subset.fq.gz
+demo,MAPT20,sample-data/subset-raw-libs/MA_PT2_0_J36468_R1_subset.fq.gz,sample-data/subset-raw-libs/MA_PT2_0_J36468_R2_subset.fq.gz
+demo,MAPT21,sample-data/subset-raw-libs/MA_PT2_1_J36471_R1_subset.fq.gz,sample-data/subset-raw-libs/MA_PT2_1_J36471_R2_subset.fq.gz
+demo,MAPT22,sample-data/subset-raw-libs/MA_PT2_2_J36480_R1_subset.fq.gz,sample-data/subset-raw-libs/MA_PT2_2_J36480_R2_subset.fq.gz
+demo,MAPT23,sample-data/subset-raw-libs/MA_PT2_3_J36478_R1_subset.fq.gz,sample-data/subset-raw-libs/MA_PT2_3_J36478_R2_subset.fq.gz

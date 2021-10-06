@@ -15,7 +15,7 @@ wildcard_constraints:
 
 rule all:
 	input:
-		expand("results/{samples.run}/fastqc/{samples.sample}_fastqc.html",
+		expand("results/{samples.run}/fastqc/{samples.sample}",
 			samples=smpls.itertuples())
 		#expand("results/{samples.run}/trimmomatic/{samples.sample}.R1.paired.fastq.gz",
 		#	samples=smpls.itertuples()),

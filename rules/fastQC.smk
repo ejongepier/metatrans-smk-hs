@@ -6,7 +6,9 @@ rule fastQC:
 	input:
 		get_fastq
 	output:
-		html_out = "results/{run}/fastqc/{sample}_fastqc.html",
-       		zip_out = "results/{run}/fastqc/{sample}_fastqc.zip"
+		directory("results/{run}/fastqc/{sample}/")
 	shell:
-		"fastqc -o 'results/{wildcards.run}/fastqc' {input}"
+		"""
+		mkdir -p {output}
+		fastqc -o {output} {input}
+		"""

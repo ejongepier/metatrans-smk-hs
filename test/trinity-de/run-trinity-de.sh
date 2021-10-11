@@ -7,13 +7,12 @@ fi
 
 start=`date +%s`
 
-source ~/miniconda3/etc/profile.d/conda.sh
-conda activate mtrans-smk-hs
+#source ~/miniconda3/etc/profile.d/conda.sh
+#conda activate mtrans-smk-hs
 
-PARENT_DIR="/home/chezley/metatrans-smk-hs"
-ASSEMBLY_DIR=${PARENT_DIR}"/test/trinity-assemble/trinity-output"
-READ_DIR=${PARENT_DIR}"/sample-data/subset-trimmed-libs"
-OUT_DIR=${PARENT_DIR}"/test/trinity-de/trinity-output"
+PARENT_DIR="../metatrans-smk-hs"
+READ_DIR=${PARENT_DIR}"/results/${2}/trimmomatic"
+OUT_DIR=${PARENT_DIR}"/results/${2}/trinity_output/trinity_de"
 
 echo "Using the following directories:"
 echo "  assembly directory: "$ASSEMBLY_DIR
@@ -22,16 +21,16 @@ echo "  output directory: "$OUT_DIR
 
 ############################################
 
-for fwdpath in ${READ_DIR}/*_R1_*; do
+for fwdpath in ${READ_DIR}/*.R1.paired.fastq.gz; do
 
   fwd=$(basename $fwdpath)
-  rev=${fwd/_R1_paired-subset.fq.gz/_R2_paired-subset.fq.gz}
-  prefix=${fwd/_R1_paired-subset.fq.gz/}
+  rev=${fwd/.R1.paired.fastq.gz/.R2.paired.fastq.gz}
+  prefix=${fwd/.R1.paired.fastq.gz/}
 
   echo date" Starting alignment and abundance estimates of "$prefix
 
   align_and_estimate_abundance.pl \
-    --transcripts $ASSEMBLY_DIR/Trinity.fasta \
+    --transcripts ${1} \
     --seqType fq \
     --left $READ_DIR/$fwd \
     --right $READ_DIR/$rev \

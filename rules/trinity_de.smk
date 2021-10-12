@@ -1,7 +1,14 @@
+import os
 rule trinity_de:
 	input: 
-		"/home/chezley/metatrans-smk-hs"
+		assembly = "results/{run}/trinity_output/trinity_assemble/Trinity.fasta"
 	output: 
-		"/home/chezley/metatrans-smk-hs/test/trinity-de/trinity-output/"
+		directory("results/{run}/trinity_output/trinity_de")
+	params:
+		workdir = os.getcwd()
+	threads:
+		config["trinity"]["threads"]
+	conda:
+		config["mtrans-smk-hs"]["environment"]
 	shell:
-		"bash /home/chezley/metatrans-smk-hs/test/trinity-de/run-trinity-de.sh"
+		"bash scripts/run-trinity-de.sh {input.assembly} {wildcards.run} {params.workdir}"

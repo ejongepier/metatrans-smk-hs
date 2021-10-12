@@ -15,12 +15,15 @@ wildcard_constraints:
 
 rule all:
 	input:
-		expand("results/{samples.run}/fastqc/{samples.sample}",
-			samples=smpls.itertuples())
+		#expand("results/{samples.run}/fastqc/raw/{samples.sample}",
+		#	samples=smpls.itertuples()),
 		#expand("results/{samples.run}/trimmomatic/{samples.sample}.R1.paired.fastq.gz",
 		#	samples=smpls.itertuples()),
-		#"test/trinity-assemble/trinity-output/", 
-		#"test/trinity-de/trinity-output/"
+		#expand("results/{samples.run}/fastqc/trimmed/{samples.sample}",
+		#	samples=smpls.itertuples())
+		#expand("results/{samples.run}/trinity_output/trinity_assemble/Trinity_stats.txt",
+		#	samples=smpls.itertuples())
+		expand("results/{samples.run}/trinity_output/trinity_de", samples=smpls.itertuples())
 
 
 

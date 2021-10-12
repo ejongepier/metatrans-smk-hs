@@ -3,3 +3,11 @@ samples:                           "samples.csv"
 trimmomatic:
     environment:                   "../envs/trimmomatic.yaml"
     threads:                       4
+fastQC:
+    environment:                   "../envs/fastqc.yaml"
+    threads:                       4
+trinity:
+    environment:                   "../envs/trinity.yaml"
+    threads:                       4
+mtrans-smk-hs:
+    environment:                   "../envs/mtrans-smk-hs.yaml"

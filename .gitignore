@@ -44,6 +44,6 @@ data/*
 !scripts/*
 !src/
 !src/*
-!test/
-!test/*
-!test/*/*
+test/
+test/*
+test/*/*

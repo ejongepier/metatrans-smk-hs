@@ -23,7 +23,8 @@ rule all:
 		#	samples=smpls.itertuples())
 		#expand("results/{samples.run}/trinity_output/trinity_assemble/Trinity_stats.txt",
 		#	samples=smpls.itertuples())
-		expand("results/{samples.run}/trinity_output/trinity_de", samples=smpls.itertuples())
+		#expand("results/{samples.run}/trinity_output/trinity_de", samples=smpls.itertuples())
+		"results/demo/trinity_output/trinity_de.done"
 
 
 

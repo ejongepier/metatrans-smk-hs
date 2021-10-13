@@ -17,7 +17,7 @@ rule trim_trimmomatic:
     conda:
         config["trimmomatic"]["environment"]
     log:
-        "logs/{run}/{sample}-trimmomatic.log"
+        "logs/{run}/trimmomatic/{sample}-trimmomatic.log"
     benchmark:
         "benchmarks/{run}/{sample}-trimmomatic.txt"
     shell:

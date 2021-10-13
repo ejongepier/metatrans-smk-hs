@@ -21,28 +21,28 @@ echo "  output directory: "$OUT_DIR
 
 ############################################
 
-for fwdpath in ${READ_DIR}/*.R1.paired.fastq.gz; do
+#for fwdpath in ${READ_DIR}/*.R1.paired.fastq.gz; do
+#
+#  fwd=$(basename $fwdpath)
+#  rev=${fwd/.R1.paired.fastq.gz/.R2.paired.fastq.gz}
+#  prefix=${fwd/.R1.paired.fastq.gz/}
+#
+#  echo date" Starting alignment and abundance estimates of "$prefix
+#
+#  align_and_estimate_abundance.pl \
+#    --transcripts $1 \
+#    --seqType fq \
+#    --left $READ_DIR/$fwd \
+#    --right $READ_DIR/$rev \
+#    --prep_reference \
+#    --est_method RSEM \
+#    --aln_method bowtie2 \
+#    --trinity_mode \
+#    --output_dir $OUT_DIR/$prefix
+#
+#  echo date"  Finished alignment and abundance estimates of "$prefix
 
-  fwd=$(basename $fwdpath)
-  rev=${fwd/.R1.paired.fastq.gz/.R2.paired.fastq.gz}
-  prefix=${fwd/.R1.paired.fastq.gz/}
-
-  echo date" Starting alignment and abundance estimates of "$prefix
-
-  align_and_estimate_abundance.pl \
-    --transcripts $1 \
-    --seqType fq \
-    --left $READ_DIR/$fwd \
-    --right $READ_DIR/$rev \
-    --prep_reference \
-    --est_method RSEM \
-    --aln_method bowtie2 \
-    --trinity_mode \
-    --output_dir $OUT_DIR/$prefix
-
-  echo date"  Finished alignment and abundance estimates of "$prefix
-
-done
+#done
 
 ############################################
 
@@ -69,9 +69,9 @@ echo date" Starting differential expression analysis"
 #ls $READ_DIR/ | \
 #  awk -F "_" -v OFS='_' '{print $1"\t"$1, $2, $3, $4}' | \
 #  sort | uniq | egrep -r "R[1-2].paired.fastq.gz" > $OUT_DIR/edgeR-output/sample-file.txt
+#cat $PARENT_DIR/samples.csv | awk -F "," '{print substr($2, 1, length($2)-4)"\t"$2}' | awk 'NR!=1 {print}' | sort | uniq > $OUT_DIR/edgeR-output/sample-file.txt
 
-cat $PARENT_DIR/samples.csv | awk -F "," '{print substr($2, 1, length($2)-4)"\t"$2}' | awk 'NR!=1 {print}' | sort | uniq > $OUT_DIR/edgeR-output/sample-file.txt
-
+cat $PARENT_DIR/samples.csv | awk -F "," '{print $2"\t"$3}' | awk 'NR!=1 {print}' | sort | uniq > $OUT_DIR/edgeR-output/sample-file.txt
 for level in isoform; do
   run_DE_analysis.pl \
     --matrix $OUT_DIR/edgeR-output/trinity-de.$level.counts.matrix \

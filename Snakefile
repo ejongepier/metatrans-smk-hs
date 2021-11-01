@@ -24,7 +24,12 @@ rule all:
 		#expand("results/{samples.run}/trinity_output/trinity_assemble/Trinity_stats.txt",
 		#	samples=smpls.itertuples())
 		#expand("results/{samples.run}/trinity_output/trinity_de", samples=smpls.itertuples())
-		"results/demo/trinity_output/trinity_de.done"
+		##"results/demo/trinity_output/trinity_de.done"
+		#expand("results/{samples.run}/trinity_output/trinity_de/{samples.sample}/", samples=smpls.itertuples())
+		#expand("results/{samples.run}/trinity_output/trinity_de/edgeR-output/trinity-de.isoform.counts.matrix", samples=smpls.itertuples())
+		#"results/demo/trinity_output/trinity_de/isoform.done",
+		#"results/demo/trinity_output/trinity_de/genes.done"
+		"results/demo/trinity_output/trinity_script_test.done"
 
 
 

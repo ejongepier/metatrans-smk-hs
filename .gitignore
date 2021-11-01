@@ -47,3 +47,5 @@ data/*
 test/
 test/*
 test/*/*
+results/
+results/*

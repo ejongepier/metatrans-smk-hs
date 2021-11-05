@@ -1,22 +1,5 @@
 import os
 
-# rule trinity_de:
-# 	input: 
-# 		assembly = "results/{run}/trinity_output/trinity_assemble/Trinity.fasta",
-# 		align_estimate_abundance = expand("results/{samples.run}/trinity_output/trinity_de/{samples.sample}/", samples=smpls.itertuples())
-# 	output: 
-# 		touch("results/{run}/trinity_output/trinity_script_test.done")
-# 	params:
-# 		workdir = os.getcwd()
-# 	threads:
-# 		config["trinity"]["threads"]
-# 	conda:
-# 		config["mtrans-smk-hs"]["environment"]
-# 	log:
-# 		"logs/{run}/trinity_de.log"
-# 	shell:
-# 		"bash scripts/run-trinity-de.sh {input.assembly} {wildcards.run} {params.workdir} > {log}"
-
 rule trinty_align_estimate_abundance:
 	input: 
 		assembly="results/{run}/trinity_output/trinity_assemble/Trinity.fasta",
@@ -28,6 +11,8 @@ rule trinty_align_estimate_abundance:
 		config["mtrans-smk-hs"]["environment"]
 	log:
 		"logs/{run}/trinity_align_estimate_abundance/{sample}.log"
+	benchmark:
+		"benchmarks/{run}/{sample}-trinity_align_estimate_abundance.txt"
 	shell:
 		"""
 		align_and_estimate_abundance.pl \
@@ -39,27 +24,24 @@ rule trinty_align_estimate_abundance:
     	  --est_method RSEM \
     	  --aln_method bowtie2 \
     	  --trinity_mode \
-    	  --output_dir results/{wildcards.run}/trinity_output/trinity_de/{wildcards.sample} > {log}
+    	  --output_dir "results/{wildcards.run}/trinity_output/trinity_de/{wildcards.sample}" > {log}
 		"""
-
-#rule edgeR_dir:
-#	output:	
-#		edgeR=directory("results/{run}/trinity_output/trinity_de/edgeR-output")
-#	shell:	
-#		"""
-#		mkdir --parents {output.edgeR}
-#		"""
 
 rule isoform_matrix:
 	input:
 		align_estimate_abundance=expand("results/{samples.run}/trinity_output/trinity_de/{samples.sample}/", samples=smpls.itertuples())
 	output: 
 		isoform_path="results/{run}/trinity_output/trinity_de/isoform-file-paths.txt",
-		isoform_matrix="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.isoform.counts.matrix"
+		isoform_count="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.isoform.counts.matrix",
+		isoform_TMM="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.isoform.TMM.EXPR.matrix"
 	params:
 		edgeR_dir="results/{run}/trinity_output/trinity_de/edgeR-output"
 	conda:
 		config["mtrans-smk-hs"]["environment"]
+	log:
+		"logs/{run}/isoforms_abundance_estimates_to_matrix.log"
+	benchmark:
+		"benchmarks/{run}/isoforms_abundance_estimates_to_matrix.txt"
 	shell: 
 		"""
 		ls results/{wildcards.run}/trinity_output/trinity_de/*/RSEM.isoforms.results > {output.isoform_path}
@@ -68,7 +50,7 @@ rule isoform_matrix:
   			--out_prefix {params.edgeR_dir}/trinity-de \
   			--gene_trans_map none \
   			--name_sample_by_basedir \
-  			--quant_files {output.isoform_path}
+  			--quant_files {output.isoform_path} > {log}
 		"""
 
 rule gene_matrix:
@@ -77,11 +59,16 @@ rule gene_matrix:
 		gene_trans_map="results/{run}/trinity_output/trinity_assemble/Trinity.fasta.gene_trans_map"
 	output:
 		gene_path="results/{run}/trinity_output/trinity_de/gene-file-paths.txt",
-		gene_matrix="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.gene.counts.matrix"
+		gene_counts="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.gene.counts.matrix",
+		gene_TMM="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.gene.TMM.EXPR.matrix"
 	params:
 		edgeR_dir="results/{run}/trinity_output/trinity_de/edgeR-output"
 	conda:
 		config["mtrans-smk-hs"]["environment"]
+	log:
+		"logs/{run}/gene_abundance_estimates_to_matrix.log"
+	benchmark:
+		"benchmarks/{run}/gene_abundance_estimates_to_matrix.txt"
 	shell: 
 		"""
 		ls results/{wildcards.run}/trinity_output/trinity_de/*/RSEM.isoforms.results > {output.gene_path}
@@ -90,12 +77,12 @@ rule gene_matrix:
   			--out_prefix {params.edgeR_dir}/trinity-de \
   			--gene_trans_map {input.gene_trans_map} \
   			--name_sample_by_basedir \
-  			--quant_files {output.gene_path}
+  			--quant_files {output.gene_path} > {log}
 		"""
 
 rule sample_file:
 	input: 
-		samples="samples.csv"
+		samples=config["samples"]
 	output: 
 		sample_file="results/{run}/trinity_output/trinity_de/edgeR-output/sample-file.txt"
 	conda:
@@ -114,13 +101,17 @@ rule DE_analysis_isoform:
 		isoform_dir=directory("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform")
 	conda:
 		config["mtrans-smk-hs"]["environment"]
+	log:
+		"logs/{run}/isoform_DE_analysis.log"
+	benchmark:
+		"benchmarks/{run}/isoform_DE_analysis.txt"
 	shell: 
 		"""
 		run_DE_analysis.pl \
     		--matrix {input.matrix} \
     		--method edgeR \
     		--samples_file {input.sample_file} \
-    		--output {output.isoform_dir}
+    		--output {output.isoform_dir} > {log}
 		"""
 
 rule DE_analysis_gene:
@@ -131,38 +122,53 @@ rule DE_analysis_gene:
 		gene_dir=directory("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene")
 	conda:
 		config["mtrans-smk-hs"]["environment"]
+	log:
+		"logs/{run}/gene_DE_analysis.log"
+	benchmark:
+		"benchmarks/{run}/gene_DE_analysis.txt"
 	shell: 
 		"""
 		run_DE_analysis.pl \
     		--matrix {input.matrix} \
     		--method edgeR \
     		--samples_file {input.sample_file} \
-    		--output {output.gene_dir}
+    		--output {output.gene_dir} > {log}
 		"""
 
 rule isoform_analysis:
 	input: 
 		matrix="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.isoform.TMM.EXPR.matrix",
 		sample_file="results/{run}/trinity_output/trinity_de/edgeR-output/sample-file.txt",
-		direc="results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform"
+		direc="results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/"
 	output: 
 		touch("results/{run}/trinity_output/trinity_de/isoform.done")
+	params:
+		prefix=os.getcwd(),
+		P=config["trinity-DE"]["P_cutoff"],
+		C=config["trinity-DE"]["fold_change"],
+		PCA_components=config["trinity-DE"]["pca_components"]
 	conda:
 		config["mtrans-smk-hs"]["environment"]
+	log:
+		diff_expr="logs/{run}/isoform_analysis.log",
+		PtR="logs/{run}/isoform_PtR.log"
+	benchmark:
+		"benchmarks/{run}/isoform_analysis.txt"
 	shell:
 		"""
 		cd {input.direc}
+
 		analyze_diff_expr.pl \
-			--matrix {input.matrix} \
-			-P 0.01 \
-			-C 1 \
-			--samples {input.sample_file}
+			--matrix {params.prefix}/{input.matrix} \
+			--samples {params.prefix}/{input.sample_file} \
+			-P {params.P} \
+			-C {params.C} > {params.prefix}/{log.diff_expr}
 
 		PtR \
-			--matrix {input.matrix} \
-			--samples {input.sample_file} \
+			--matrix {params.prefix}/{input.matrix} \
+			--samples {params.prefix}/{input.sample_file} \
 			--log2 \
-			--prin_comp 3
+			--prin_comp {params.PCA_components} > {params.prefix}/{log.PtR}
 		"""
 
 rule gene_analysis:
@@ -172,20 +178,31 @@ rule gene_analysis:
 		direc="results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene"
 	output: 
 		touch("results/{run}/trinity_output/trinity_de/gene.done")
+	params:
+		prefix=os.getcwd(),
+		P=config["trinity-DE"]["P_cutoff"],
+		C=config["trinity-DE"]["fold_change"],
+		PCA_components=config["trinity-DE"]["pca_components"]
 	conda:
 		config["mtrans-smk-hs"]["environment"]
+	log:
+		diff_expr="logs/{run}/gene_analysis.log",
+		PtR="logs/{run}/isoform_PtR.log"
+	benchmark:
+		"benchmarks/{run}/gene_analysis.txt"
 	shell:
 		"""
 		cd {input.direc}
+
 		analyze_diff_expr.pl \
-			--matrix {input.matrix} \
-			-P 0.01 \
-			-C 1 \
-			--samples {input.sample_file}
+			--matrix {params.prefix}/{input.matrix} \
+			--samples {params.prefix}/{input.sample_file} \
+			-P {params.P} \
+			-C {params.C} > {params.prefix}/{log.diff_expr}
 
 		PtR \
-			--matrix {input.matrix} \
-			--samples {input.sample_file} \
+			--matrix {params.prefix}/{input.matrix} \
+			--samples {params.prefix}/{input.sample_file} \
 			--log2 \
-			--prin_comp 3
+			--prin_comp {params.PCA_components} > {params.prefix}/{log.PtR}
 		 """

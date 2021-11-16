@@ -11,10 +11,10 @@ trinity:
     environment:                   "../envs/trinity.yaml"
     threads:                       4
 trinity-assemble:
-    max_memory:                    "16G"
+    max_memory:                    "4G"
     min_kmer_cov:                  1
 trinity-DE:
-    P_cutoff:                      0.01
+    P_cutoff:                      1.0
     fold_change:                   1.0
     pca_components:                3
 mtrans-smk-hs:

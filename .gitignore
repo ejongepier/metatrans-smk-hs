@@ -27,6 +27,8 @@ data/*
 !lit/*
 !notes/
 !notes/*
+!report/
+!report/*
 !reports/
 !reports/*
 !rules/

@@ -10,7 +10,9 @@ rule fastQCraw:
 	input:
 		get_fastq
 	output:
+		#report(directory("results/{run}/fastqc/raw/{sample}/"), caption="report/fastQCraw.rst", patterns=["{sample}.txt"])
 		directory("results/{run}/fastqc/raw/{sample}/")
+	priority: 10
 	threads:
 		config["fastQC"]["threads"]
 	conda:
@@ -28,6 +30,7 @@ rule fastQCtrimmed:
 		get_trimmed_input
 	output:
 		directory("results/{run}/fastqc/trimmed/{sample}/")
+	priority: 10
 	threads:
 		config["fastQC"]["threads"]
 	conda:

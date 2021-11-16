@@ -1,6 +1,19 @@
 def get_fastq(wildcards):
     return smpls.loc[(wildcards.run, wildcards.sample), ["fwd","rev"]].dropna()
 
+rule help_trimmomatic:
+    shell: 
+        """
+        echo "This is the help for the trimmomatic rule"
+        echo "The trimmomatic rules retrieves the raw sample reads based on the file locations specified in the samples.csv file."
+        echo "To run the entire trimmomatic rule on it's own use the following command"
+        echo "'snakemake -c<n> --use-conda trim_trimmomatic'"
+        echo "These files are created by the trimmomatic"
+        echo "'{sample}.R1.paired.fastq.gz' These are the forward paired trimmed reads of the given sample"
+        echo "'{sample}.R2.paired.fastq.gz' These are the reverse paired trimmed reads of the given sample"
+        echo "'{sample}.R1.unpaired.fastq.gz' These are the forward unpaired trimmed reads of the given sample"
+        echo "'{sample}.R2.unpaired.fastq.gz' These are the reverse unpaired trimmed reads of the given sample"
+        """
 
 rule trim_trimmomatic:
     input:

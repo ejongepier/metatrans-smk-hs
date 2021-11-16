@@ -138,11 +138,15 @@ rule DE_analysis_gene:
 rule isoform_analysis:
 	input: 
 		matrix="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.isoform.TMM.EXPR.matrix",
-		sample_file="results/{run}/trinity_output/trinity_de/edgeR-output/sample-file.txt",
-		direc="results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/"
+		sample_file="results/{run}/trinity_output/trinity_de/edgeR-output/sample-file.txt"
 	output: 
-		touch("results/{run}/trinity_output/trinity_de/isoform.done")
+		touch("results/{run}/trinity_output/trinity_de/isoform.done"),
+		report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/diffExpr.P0.01_C1.0.matrix.log2.centered.genes_vs_samples_heatmap.pdf", category="Isoform analysis results", caption="../report/isoform_diffExpr_genes_vs_samples.rst"),
+		report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/diffExpr.P0.01_C1.0.matrix.log2.centered.sample_cor_matrix.pdf", category="Isoform analysis results", caption="../report/isoform_diffExpr_sample_cor_matrix.rst"),
+		report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/trinity-de.isoform.counts.matrix.C_vs_MA.edgeR.DE_results.MA_n_Volcano.pdf", category="Isoform analysis results", caption="../report/isoform_counts_C_vs_MA.rst"),
+		report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/trinity-de.isoform.TMM.EXPR.matrix.log2.prcomp.principal_components.pdf", category="Isoform analysis results", caption="../report/isoform_TMM_EXPR_prcomp.rst")
 	params:
+		isoform_dir="results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/",
 		prefix=os.getcwd(),
 		P=config["trinity-DE"]["P_cutoff"],
 		C=config["trinity-DE"]["fold_change"],
@@ -156,7 +160,7 @@ rule isoform_analysis:
 		"benchmarks/{run}/isoform_analysis.txt"
 	shell:
 		"""
-		cd {input.direc}
+		cd {params.isoform_dir}
 
 		analyze_diff_expr.pl \
 			--matrix {params.prefix}/{input.matrix} \
@@ -174,11 +178,15 @@ rule isoform_analysis:
 rule gene_analysis:
 	input: 
 		matrix="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.gene.TMM.EXPR.matrix",
-		sample_file="results/{run}/trinity_output/trinity_de/edgeR-output/sample-file.txt",
-		direc="results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene"
+		sample_file="results/{run}/trinity_output/trinity_de/edgeR-output/sample-file.txt"
 	output: 
-		touch("results/{run}/trinity_output/trinity_de/gene.done")
+		touch("results/{run}/trinity_output/trinity_de/gene.done"),
+		report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene/diffExpr.P0.01_C1.0.matrix.log2.centered.genes_vs_samples_heatmap.pdf", category="Gene analysis results", caption="../report/genes_diffExpr_genes_vs_samples.rst"),
+		report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene/diffExpr.P0.01_C1.0.matrix.log2.centered.sample_cor_matrix.pdf", category="Gene analysis results", caption="../report/genes_diffExpr_sample_cor_matrix.rst"),
+		report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene/trinity-de.gene.counts.matrix.C_vs_MA.edgeR.DE_results.MA_n_Volcano.pdf", category="Gene analysis results", caption="../report/genes_counts_C_vs_MA.rst"),
+		report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene/trinity-de.gene.TMM.EXPR.matrix.log2.prcomp.principal_components.pdf", category="Gene analysis results", caption="../report/genes_TMM_EXPR_prcomp.rst")
 	params:
+		gene_dir="results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene",
 		prefix=os.getcwd(),
 		P=config["trinity-DE"]["P_cutoff"],
 		C=config["trinity-DE"]["fold_change"],
@@ -192,7 +200,7 @@ rule gene_analysis:
 		"benchmarks/{run}/gene_analysis.txt"
 	shell:
 		"""
-		cd {input.direc}
+		cd {params.gene_dir}
 
 		analyze_diff_expr.pl \
 			--matrix {params.prefix}/{input.matrix} \

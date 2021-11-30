@@ -1,5 +1,14 @@
-def get_fastq(wildcards):
-    return smpls.loc[(wildcards.run, wildcards.sample), ["fwd","rev"]].dropna()
+## EJ: This function is also defined in fastqc.smk. Better to move such global functions to
+## the Snakefile in stead of defining twice.
+
+#def get_fastq(wildcards):
+#    return smpls.loc[(wildcards.run, wildcards.sample), ["fwd","rev"]].dropna()
+
+
+## The usage in the help_trimmomatic rule yields an error:
+## WorkflowError:
+## Target rules may not contain wildcards. Please specify concrete files or a rule without wildcards.
+## Perhaps replace the help_trimmomatic rule with a single general help rule
 
 rule help_trimmomatic:
     shell: 

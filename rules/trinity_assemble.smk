@@ -1,3 +1,4 @@
+## EJ: pls use consistent indentation (now there is a mix of tab and space)
 rule trinity_assemble:
 	input:
 		left = expand("results/{samples.run}/trimmomatic/{samples.sample}.R1.paired.fastq.gz", samples=smpls.itertuples()),

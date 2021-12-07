@@ -24,13 +24,13 @@ rule trinity_assemble:
 		cat {input.samples} | awk -F "," '{{print $1"\t"$3"\t"$4"\t"$5}}' | awk 'NR!=1 {{print}}' > results/{wildcards.run}/trinity_output/assemble_samples.txt
 		Trinity \
   		  --normalize_reads \
-  		  --seqType fq \
-  		  --max_memory {params.max_memory} \
-  		  --samples_file results/{wildcards.run}/trinity_output/assemble_samples.txt \
-  		  --output {output.out_dir} \
-  		  --min_kmer_cov {params.min_kmer_cov} > {log}
+		  --seqType fq \
+		  --max_memory {params.max_memory} \
+		  --samples_file results/{wildcards.run}/trinity_output/assemble_samples.txt \
+		  --output {output.out_dir} \
+		  --min_kmer_cov {params.min_kmer_cov} > {log}
 
 		TrinityStats.pl \
-  		  {output.out_fasta} \
-  		  > {output.out_stats}
+		  {output.out_fasta} \
+		  > {output.out_stats}
 		"""

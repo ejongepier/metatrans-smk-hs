@@ -31,6 +31,28 @@ rule all:
 		"results/demo/trinity_output/trinity_de/isoform.done",
 		"results/demo/trinity_output/trinity_de/gene.done"
 
+#====================================
+# GLOBAL FUNCTIONS
+#====================================
+
+def get_fastq(wildcards):
+    return smpls.loc[(wildcards.run, wildcards.sample), ["fwd","rev"]].dropna()
+
+def get_trimmed_input(wildcards):
+    return expand("results/{run}/trimmomatic/{sample}.{direction}.paired.fastq.gz", 
+                   run=wildcards.run, sample=wildcards.sample, direction=["R1","R2"])
+
+# ======================================================
+# Functions and Classes
+# ======================================================
+
+onsuccess:
+    print("<Name> finished!")
+    print("To generate a report run: snakemake --report reports/report.zip")
+
+#====================================
+# INCLUDE
+#====================================
 
 include: "rules/fastQC.smk"
 include: "rules/trimmomatic.smk"

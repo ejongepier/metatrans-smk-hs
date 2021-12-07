@@ -1,5 +1,3 @@
-import os
-
 rule trinty_align_estimate_abundance:
 	input: 
 		assembly="results/{run}/trinity_output/trinity_assemble/Trinity.fasta",
@@ -24,7 +22,7 @@ rule trinty_align_estimate_abundance:
     	  --est_method RSEM \
     	  --aln_method bowtie2 \
     	  --trinity_mode \
-    	  --output_dir "results/{wildcards.run}/trinity_output/trinity_de/{wildcards.sample}" > {log}
+		  --output_dir {output.sample_dir} > {log}
 		"""
 
 rule isoform_matrix:
@@ -73,11 +71,11 @@ rule gene_matrix:
 		"""
 		ls results/{wildcards.run}/trinity_output/trinity_de/*/RSEM.isoforms.results > {output.gene_path}
 		abundance_estimates_to_matrix.pl \
-  			--est_method RSEM \
-  			--out_prefix {params.edgeR_dir}/trinity-de \
-  			--gene_trans_map {input.gene_trans_map} \
-  			--name_sample_by_basedir \
-  			--quant_files {output.gene_path} > {log}
+  		  --est_method RSEM \
+  		  --out_prefix {params.edgeR_dir}/trinity-de \
+  		  --gene_trans_map {input.gene_trans_map} \
+  		  --name_sample_by_basedir \
+  		  --quant_files {output.gene_path} > {log}
 		"""
 
 rule sample_file:
@@ -92,7 +90,7 @@ rule sample_file:
 		cat {input.samples} | awk -F "," '{{print $2"\t"$3}}' | awk 'NR!=1 {{print}}' | sort | uniq > {output.sample_file}
 		"""
 
-
+#De outputdirectory is gedefinieerd bij params vanwege een childIO error.
 rule DE_analysis_isoform:
 	input: 
 		matrix="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.isoform.counts.matrix",
@@ -141,14 +139,17 @@ rule DE_analysis_gene:
 
 rule isoform_analysis:
 	input: 
-		#isoform_dir="results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform",
+		isoform_dir="results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform",
 		isoform_DE_done="results/{run}/trinity_output/trinity_de/isoform_DE.done",
 		matrix="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.isoform.TMM.EXPR.matrix",
 		sample_file="results/{run}/trinity_output/trinity_de/edgeR-output/sample-file.txt"
 	output: 
-		touch("results/{run}/trinity_output/trinity_de/isoform.done")
+		touch("results/{run}/trinity_output/trinity_de/isoform.done"),
+		touch(report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/diffExpr.P"+str(config["trinity-DE"]["P_cutoff"])+"_C"+str(config["trinity-DE"]["fold_change"])+".matrix.log2.centered.genes_vs_samples_heatmap.pdf", category="Isoform analysis results", caption="../report/isoform_diffExpr_genes_vs_samples.rst")),
+		touch(report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/diffExpr.P"+str(config["trinity-DE"]["P_cutoff"])+"_C"+str(config["trinity-DE"]["fold_change"])+".matrix.log2.centered.sample_cor_matrix.pdf", category="Isoform analysis results", caption="../report/isoform_diffExpr_sample_cor_matrix.rst")),
+		touch(report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/trinity-de.isoform.counts.matrix.C_vs_MA.edgeR.DE_results.MA_n_Volcano.pdf", category="Isoform analysis results", caption="../report/isoform_counts_C_vs_MA.rst")),
+		touch(report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/trinity-de.isoform.TMM.EXPR.matrix.log2.prcomp.principal_components.pdf", category="Isoform analysis results", caption="../report/isoform_TMM_EXPR_prcomp.rst"))
 	params:
-		isoform_dir="results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform",
 		prefix=os.getcwd(),
 		P=config["trinity-DE"]["P_cutoff"],
 		C=config["trinity-DE"]["fold_change"],
@@ -162,7 +163,7 @@ rule isoform_analysis:
 		"benchmarks/{run}/isoform_analysis.txt"
 	shell:
 		"""
-		cd {params.isoform_dir}
+		cd {input.isoform_dir}
 
 		analyze_diff_expr.pl \
 			--matrix {params.prefix}/{input.matrix} \
@@ -179,14 +180,17 @@ rule isoform_analysis:
 
 rule gene_analysis:
 	input: 
-		#gene_dir="results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene",
+		gene_dir="results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene",
 		gene_DE_done="results/{run}/trinity_output/trinity_de/gene_DE.done",
 		matrix="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.gene.TMM.EXPR.matrix",
 		sample_file="results/{run}/trinity_output/trinity_de/edgeR-output/sample-file.txt"
 	output: 
-		touch("results/{run}/trinity_output/trinity_de/gene.done")
+		touch("results/{run}/trinity_output/trinity_de/gene.done"),
+		touch(report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene/diffExpr.P"+str(config["trinity-DE"]["P_cutoff"])+"_C"+str(config["trinity-DE"]["fold_change"])+".matrix.log2.centered.genes_vs_samples_heatmap.pdf", category="Gene analysis results", caption="../report/genes_diffExpr_genes_vs_samples.rst")),
+		touch(report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene/diffExpr.P"+str(config["trinity-DE"]["P_cutoff"])+"_C"+str(config["trinity-DE"]["fold_change"])+".matrix.log2.centered.sample_cor_matrix.pdf", category="Gene analysis results", caption="../report/genes_diffExpr_sample_cor_matrix.rst")),
+		touch(report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene/trinity-de.gene.counts.matrix.C_vs_MA.edgeR.DE_results.MA_n_Volcano.pdf", category="Gene analysis results", caption="../report/genes_counts_C_vs_MA.rst")),
+		touch(report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene/trinity-de.gene.TMM.EXPR.matrix.log2.prcomp.principal_components.pdf", category="Gene analysis results", caption="../report/genes_TMM_EXPR_prcomp.rst"))
 	params:
-		gene_dir="results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene",
 		prefix=os.getcwd(),
 		P=config["trinity-DE"]["P_cutoff"],
 		C=config["trinity-DE"]["fold_change"],
@@ -200,7 +204,7 @@ rule gene_analysis:
 		"benchmarks/{run}/gene_analysis.txt"
 	shell:
 		"""
-		cd {params.gene_dir}
+		cd {input.gene_dir}
 
 		analyze_diff_expr.pl \
 			--matrix {params.prefix}/{input.matrix} \
@@ -214,18 +218,3 @@ rule gene_analysis:
 			--log2 \
 			--prin_comp {params.PCA_components} > {params.prefix}/{log.PtR}
 		 """
-
-rule report_DE:
-	input: 
-		isoform_done="results/{run}/trinity_output/trinity_de/isoform.done",
-		gene_done="results/{run}/trinity_output/trinity_de/gene.done"
-	output: 
-		report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/diffExpr.P"+str(config["trinity-DE"]["P_cutoff"])+"_C"+str(config["trinity-DE"]["fold_change"])+".matrix.log2.centered.genes_vs_samples_heatmap.pdf", category="Isoform analysis results", caption="../report/isoform_diffExpr_genes_vs_samples.rst"),
-		report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/diffExpr.P"+str(config["trinity-DE"]["P_cutoff"])+"_C"+str(config["trinity-DE"]["fold_change"])+".matrix.log2.centered.sample_cor_matrix.pdf", category="Isoform analysis results", caption="../report/isoform_diffExpr_sample_cor_matrix.rst"),
-		report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/trinity-de.isoform.counts.matrix.C_vs_MA.edgeR.DE_results.MA_n_Volcano.pdf", category="Isoform analysis results", caption="../report/isoform_counts_C_vs_MA.rst"),
-		report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/trinity-de.isoform.TMM.EXPR.matrix.log2.prcomp.principal_components.pdf", category="Isoform analysis results", caption="../report/isoform_TMM_EXPR_prcomp.rst"),
-
-		report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene/diffExpr.P"+str(config["trinity-DE"]["P_cutoff"])+"_C"+str(config["trinity-DE"]["fold_change"])+".matrix.log2.centered.genes_vs_samples_heatmap.pdf", category="Gene analysis results", caption="../report/genes_diffExpr_genes_vs_samples.rst"),
-		report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene/diffExpr.P"+str(config["trinity-DE"]["P_cutoff"])+"_C"+str(config["trinity-DE"]["fold_change"])+".matrix.log2.centered.sample_cor_matrix.pdf", category="Gene analysis results", caption="../report/genes_diffExpr_sample_cor_matrix.rst"),
-		report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene/trinity-de.gene.counts.matrix.C_vs_MA.edgeR.DE_results.MA_n_Volcano.pdf", category="Gene analysis results", caption="../report/genes_counts_C_vs_MA.rst"),
-		report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene/trinity-de.gene.TMM.EXPR.matrix.log2.prcomp.principal_components.pdf", category="Gene analysis results", caption="../report/genes_TMM_EXPR_prcomp.rst")

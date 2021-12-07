@@ -1,11 +1,3 @@
-def get_fastq(wildcards):
-	return smpls.loc[(wildcards.run, wildcards.sample), ["fwd","rev"]].dropna()
-
-def get_trimmed_input(wildcards):
-	return expand("results/{run}/trimmomatic/{sample}.{direction}.paired.fastq.gz", run=wildcards.run, 
-					sample=wildcards.sample, direction=["R1","R2"])
-
-
 rule fastQCraw:
 	input:
 		get_fastq
@@ -17,12 +9,14 @@ rule fastQCraw:
 		config["fastQC"]["threads"]
 	conda:
 		config["fastQC"]["environment"]
+	log:
+		"logs/{run}/fastqc/raw/{sample}.log"
 	benchmark:
-		"benchmarks/{run}/{sample}-fastQC.txt"
+		"benchmarks/{run}/fastqc_raw/{sample}-fastQC.txt"
 	shell:
 		"""
-		mkdir -p {output}
-		fastqc -o {output} {input}
+		mkdir -p {output} 
+		fastqc -o {output} {input} --threads {threads}
 		"""
 
 rule fastQCtrimmed:
@@ -35,11 +29,13 @@ rule fastQCtrimmed:
 		config["fastQC"]["threads"]
 	conda:
 		config["fastQC"]["environment"]
+	log:
+		"logs/{run}/fastqc/trimmed/{sample}.log"
 	benchmark:
-		"benchmarks/{run}/{sample}-fastQC.txt"
+		"benchmarks/{run}/fastqc_trimmed/{sample}-fastQC.txt"
 	shell:
 		"""
 		mkdir -p {output}
-		fastqc -o {output} {input}
+		fastqc -o {output} {input} --threads {threads}
 		"""
 

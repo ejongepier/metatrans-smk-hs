@@ -4,7 +4,7 @@ import pandas as pd
 #from snakemake.utils import min_version, validate
 
 configfile: "config.yaml"
-#report:	"report/workflow.rst"
+report:	"report/workflow.rst"
 
 smpls = pd.read_csv(config["samples"], dtype=str).set_index(["run", "sample"], drop=False)
 smpls.index = smpls.index.set_levels([i.astype(str) for i in smpls.index.levels])

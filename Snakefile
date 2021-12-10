@@ -24,10 +24,6 @@ rule all:
 			samples=smpls.itertuples()),
 		expand("results/{samples.run}/trinity_output/trinity_assemble/Trinity_stats.txt",
 			samples=smpls.itertuples()),
-		#expand("results/{samples.run}/trinity_output/trinity_de", samples=smpls.itertuples()),
-		#expand("results/{samples.run}/trinity_output/trinity_de/{samples.sample}/", samples=smpls.itertuples()),
-		#expand("results/{samples.run}/trinity_output/trinity_de/edgeR-output/trinity-de.isoform.counts.matrix", samples=smpls.itertuples()),
-		#expand("results/{samples.run}/trinity_output/trinity_de/edgeR-output/trinity-de.gene.counts.matrix", samples=smpls.itertuples()),
 		"results/demo/trinity_output/trinity_de/isoform.done",
 		"results/demo/trinity_output/trinity_de/gene.done"
 

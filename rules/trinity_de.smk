@@ -96,7 +96,7 @@ rule DE_analysis_isoform:
 		matrix="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.isoform.counts.matrix",
 		sample_file="results/{run}/trinity_output/trinity_de/edgeR-output/sample-file.txt"
 	output: 
-		isform_done=touch("results/{run}/trinity_output/trinity_de/isoform_DE.done")
+		isoform_done=touch("results/{run}/trinity_output/trinity_de/isoform_DE.done")
 	params:
 		isoform_dir=directory("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform")
 	conda:
@@ -139,7 +139,6 @@ rule DE_analysis_gene:
 
 rule isoform_analysis:
 	input: 
-		isoform_dir="results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform",
 		isoform_DE_done="results/{run}/trinity_output/trinity_de/isoform_DE.done",
 		matrix="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.isoform.TMM.EXPR.matrix",
 		sample_file="results/{run}/trinity_output/trinity_de/edgeR-output/sample-file.txt"
@@ -151,6 +150,7 @@ rule isoform_analysis:
 		touch(report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/trinity-de.isoform.TMM.EXPR.matrix.log2.prcomp.principal_components.pdf", category="Isoform analysis results", caption="../report/isoform_TMM_EXPR_prcomp.rst"))
 	params:
 		prefix=os.getcwd(),
+		isoform_dir="results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform",
 		P=config["trinity-DE"]["P_cutoff"],
 		C=config["trinity-DE"]["fold_change"],
 		PCA_components=config["trinity-DE"]["pca_components"]
@@ -163,7 +163,7 @@ rule isoform_analysis:
 		"benchmarks/{run}/isoform_analysis.txt"
 	shell:
 		"""
-		cd {input.isoform_dir}
+		cd {params.isoform_dir}
 
 		analyze_diff_expr.pl \
 			--matrix {params.prefix}/{input.matrix} \
@@ -180,7 +180,6 @@ rule isoform_analysis:
 
 rule gene_analysis:
 	input: 
-		gene_dir="results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene",
 		gene_DE_done="results/{run}/trinity_output/trinity_de/gene_DE.done",
 		matrix="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.gene.TMM.EXPR.matrix",
 		sample_file="results/{run}/trinity_output/trinity_de/edgeR-output/sample-file.txt"
@@ -192,6 +191,7 @@ rule gene_analysis:
 		touch(report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene/trinity-de.gene.TMM.EXPR.matrix.log2.prcomp.principal_components.pdf", category="Gene analysis results", caption="../report/genes_TMM_EXPR_prcomp.rst"))
 	params:
 		prefix=os.getcwd(),
+		gene_dir="results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene",
 		P=config["trinity-DE"]["P_cutoff"],
 		C=config["trinity-DE"]["fold_change"],
 		PCA_components=config["trinity-DE"]["pca_components"]
@@ -204,7 +204,7 @@ rule gene_analysis:
 		"benchmarks/{run}/gene_analysis.txt"
 	shell:
 		"""
-		cd {input.gene_dir}
+		cd {params.gene_dir}
 
 		analyze_diff_expr.pl \
 			--matrix {params.prefix}/{input.matrix} \

@@ -14,7 +14,7 @@ trinity-assemble:
     max_memory:                    "4G"
     min_kmer_cov:                  1
 trinity-DE:
-    P_cutoff:                      1.0
+    P_cutoff:                      0.05
     fold_change:                   1.0
     pca_components:                3
 mtrans-smk-hs:

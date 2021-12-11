@@ -5,6 +5,8 @@ rule trinty_align_estimate_abundance:
 		right="results/{run}/trimmomatic/{sample}.R2.paired.fastq.gz"
 	output: 
 		sample_dir=directory("results/{run}/trinity_output/trinity_de/{sample}")
+	params:
+		gene_trans_map="results/{run}/trinity_output/trinity_assemble/Trinity.fasta.gene_trans_map"
 	conda:
 		config["mtrans-smk-hs"]["environment"]
 	log:
@@ -21,7 +23,7 @@ rule trinty_align_estimate_abundance:
     	  --prep_reference \
     	  --est_method RSEM \
     	  --aln_method bowtie2 \
-    	  --trinity_mode \
+    	  --gene_trans_map {params.gene_trans_map} \
 		  --output_dir {output.sample_dir} > {log}
 		"""
 

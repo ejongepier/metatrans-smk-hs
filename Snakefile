@@ -1,7 +1,7 @@
 import os
 import yaml
 import pandas as pd
-#from snakemake.utils import min_version, validate
+from snakemake.utils import min_version, validate
 
 configfile: "config.yaml"
 report:	"report/workflow.rst"
@@ -24,8 +24,10 @@ rule all:
 			samples=smpls.itertuples()),
 		expand("results/{samples.run}/trinity_output/trinity_assemble/Trinity_stats.txt",
 			samples=smpls.itertuples()),
-		"results/demo/trinity_output/trinity_de/isoform.done",
-		"results/demo/trinity_output/trinity_de/gene.done"
+		expand("results/{samples.run}/trinity_output/trinity_de/isoform.done",
+			samples=smpls.itertuples()),
+		expand("results/demo/trinity_output/trinity_de/gene.done",
+			samples=smpls.itertuples())
 
 #====================================
 # GLOBAL FUNCTIONS

@@ -40,6 +40,38 @@ def get_trimmed_input(wildcards):
     return expand("results/{run}/trimmomatic/{sample}.{direction}.paired.fastq.gz", 
                    run=wildcards.run, sample=wildcards.sample, direction=["R1","R2"])
 
+#====================================
+# HELP FUNCTIONS
+#====================================
+
+rule help:
+	input:
+		"Help.txt"
+	shell:
+		"cat {input}"
+
+rule fastQC:
+	input:
+		expand("results/{samples.run}/fastqc/raw/{samples.sample}",
+			samples=smpls.itertuples()),
+		expand("results/{samples.run}/fastqc/trimmed/{samples.sample}",
+			samples=smpls.itertuples())
+
+rule trinity_assembly:
+	input:
+		expand("results/{samples.run}/trinity_output/trinity_assemble/Trinity_stats.txt",
+				samples=smpls.itertuples())
+
+rule isoforms_analysis:
+	input:
+		expand("results/{samples.run}/trinity_output/trinity_de/isoform.done",
+			samples=smpls.itertuples())
+
+rule genes_analysis:
+	input:
+		expand("results/demo/trinity_output/trinity_de/gene.done",
+			samples=smpls.itertuples())
+
 # ======================================================
 # Functions and Classes
 # ======================================================

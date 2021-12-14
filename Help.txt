@@ -3,31 +3,30 @@ This pipeline is a Snakemake --use-conda implementation of a meta-transcriptomic
 The pipeline will perform quality control, adaptor trimming, meta-transcriptome assembly and differential gene expression analyses.  
 
 Usage pipeline:
-The pipeline van be used with the next command line:
+The pipeline can be used with the next command line:
 	"snakemake --use-conda --cores <ncores> [RULE]"
 Data shown in the bracket is optional, but can be used as follows: 
 - RULE -->	At the end of the command line, a specific rule can be called. This rule 
 	will run. If the inputfiles are not present the rules that make the required 
-	file will be runned.
+	files will be runned.
 
 Example:
 Run the whole pipeline:
 	"snakemake --use-conda --cores <ncores>"
-Run the Quality Control and write the results to a specified directory:
-	"snakemake -d QC_results --use-conda --cores <ncores> fastQC"
+Run the Quality Control:
+	"snakemake --use-conda --cores <ncores> fastQC"
 
 ------------------------------------------------------------------------------------------
 
 Function per script:
 - fastQC.smk
 	Description:
-		FastQC is a quality control for high throughput sequence data. It 
-		provides a set of modular analysis; through these analyses it is 
+		FastQC is a quality control for high throughput sequence data. FastQC 
+		provides a set of modular analysis. Through these analyses it is 
 		possible to quickly understand if there are any problems with the data. 
-		There are two functions of the FastQC; one for the raw data and one for 
-		the trimmed data. The input data of both rules contains the direction of 
-		the samples, and the output data is a directory consists of the results 
-		of the analyses of every sample.
+		FastQC includes two functions, one for the raw data and one for the trimmed 
+		data. Both rules take as input the direction of the samples, and their output 
+		is a directory containing the results of every sample analysis.
 	Usage of fastqc.smk:
 		The FastQC can be runned by using the command line which is presented
 		by the example.
@@ -35,30 +34,16 @@ Function per script:
 		"snakemake --use-conda --cores <ncores> fastQC"
 - trinity_assemble.smk
 	Description:
-		This script will look for overlay between the sequences. The overlay 
+		Trinity assemble will look for overlay between the sequences. The overlay 
 		determined the order in which the sequences originally will be. Due this 
-		the original sequence will be formed. The input is the trimmomatic trimmed libraries.
-		The ouput will generate a directory for the two outputfiles: Trinity.fasta and Trinity_stats.txt.
+		the original sequence will be formed. The input is the trimmomatic trimmed 
+		libraries. The ouput will generate a directory for the two outputfiles: 
+		Trinity.fasta and Trinity_stats.txt.
 	Usage of trinity_assemble.smk:
 		The trinity_assemble can run by using the command line which is presented
 		by the example.
 	Example to call trinity_assemble.smk:
-		"snakemake --use-conda --cores <ncores> trinity_assemble"
-- trimmomatic.smk
-	Description:
-		The trimmomatic rules performs adapter trimming and quality filtering. 
-	Usage of trimmomatic.smk:
-		The trimmomatic can be runned by using the command line which is presented
-		by the example.
-	Example to call trimmomatic.smk:
-		To run the entire trimmomatic rule on it's own use the following command:
-			'snakemake -c<n> --use-conda trim_trimmomatic'
-
-		These files are created by the trimmomatic:
-		'{{sample}}.R1.paired.fastq.gz' These are the forward paired trimmed reads of the given sample
-		'{{sample}}.R2.paired.fastq.gz' These are the reverse paired trimmed reads of the given sample
-		'{{sample}}.R1.unpaired.fastq.gz' These are the forward unpaired trimmed reads of the given sample
-		'{{sample}}.R2.unpaired.fastq.gz' These are the reverse unpaired trimmed reads of the given sample
+		"snakemake --use-conda --cores <ncores> trinity_assembly"
 - trinity_de.smk
 	Description:
 		Trinity DE performs the differential expression on the trimmed data.
@@ -73,6 +58,7 @@ Function per script:
 		The trinity_de can be runned by using the command line which is presented
 		by the example.
 	Example to call trinity_de.smk:
-		This example only calls the isoform analysis. For the gene analysis use
-		gene_analysis.
-		"snakemake --use-conda --cores <ncores> isoform_analysis"
+		This example only calls the isoform analysis. 
+		"snakemake --use-conda --cores <ncores> isoforms_analysis"
+		This example only calls the gene analysis.
+		"snakemake --use-conda --cores <ncores> genes_analysis"

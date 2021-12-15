@@ -39,7 +39,9 @@ or download and extract the zip archive https://github.com/ejongepier/metatrans-
 
 The file samples.csv needs to be in the same path as given in the config.yaml. 
 To run snakemake, you simple run the next command: 
+'''bash 
 snakemake --use-conda --cores <ncores> 
+'''
 Where --cores are the number of the CPU cores/jobs that can be run in parallel on your system. 
 
 ### Customizing

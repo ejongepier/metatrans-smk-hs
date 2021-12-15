@@ -29,7 +29,9 @@ To run the pipeline, the required files need to be in the same path as given in 
 (naam) the Snakemake en Conda installation can be found in the following links.  https://snakemake.readthedocs.io/en/stable/getting_started/installation.html 
 https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html  
 You can either clone {name for pipeline}, like so: 
+```bash
 git clone https://github.com/ejongepier/metatrans-smk-hs.git  
+```
 or download and extract the zip archive https://github.com/ejongepier/metatrans-smk-hs  
 {name for pipeline} is immediately ready to use. 
 

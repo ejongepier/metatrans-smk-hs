@@ -1,0 +1,74 @@
+$schema:                              "http://json-schema.org/draft-07/schema#"
+
+description:                          snakemake configuration file
+
+type:                                 object
+
+properties:
+
+    samples:
+        type:                         string
+        default:                      "samples.csv"
+
+    trimmomatic:
+        type:                         object
+        properties:
+            environment:              
+                type:                 string
+                default:              "../envs/trimmomatic.yaml"
+            threads:
+                type:                 number
+                default:              4
+            adapters:   
+                type:                 string
+                default:              "db/adapters/adapters.fa"
+
+    fastQC:
+        type:                         object
+        properties:
+            environment:
+                type:                 string
+                default:              "../envs/fastqc.yaml"
+            threads:
+                type:                 number
+                default:              4
+
+    trinity:
+        type:                         object
+        properties:
+            environment:
+                type:                 string
+                default:              "../envs/trinity.yaml"
+            threads:
+                type:                 number
+                default:              4
+
+    trinity-assemble:
+        type:                         object
+        properties:
+            max_memory:
+                type:                 string
+                default:              "4G"
+            min_kmer_cov:
+                type:                 number
+                default:              1
+
+    trinity_DE:
+        type:                         object
+        properties:
+            P_cutoff:
+                type:                 number
+                default:              1.0
+            fold_change:
+                type:                 number
+                default:              1.0
+            pca_components:
+                type:                 number
+                default:              1.0
+
+    mtrans-smk-hs:
+        type:                         object
+        properties:
+            environment:
+                type:                 string
+                default:              "../envs/mtrans-smk-hs.yaml"

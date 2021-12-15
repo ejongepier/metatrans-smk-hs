@@ -1,0 +1,27 @@
+$schema:              "http://json-schema.org/draft-07/schema#"
+
+description:          an entry in the sample sheet
+
+properties:
+    run:
+        type:         string
+        description:  ID for the nanopore run. Can contain multiple sample IDs.
+    group:
+        type:         string
+        description:  Shows to what group the sample belongs to
+    sample:
+        type:         string
+        description:  Sample ID for individual sample.
+    fwd:
+        type:         string
+        description:  Forward reads
+    rev:
+        type:         string
+        description:  Reverse reads 
+
+required:
+    - run
+    - group
+    - sample
+    - fwd
+    - rev

@@ -1,6 +1,6 @@
-Function pipeline:
+Function DiFlex pipeline:
 This pipeline is a Snakemake --use-conda implementation of a meta-transcriptomic workflow.
-The pipeline will perform quality control, adaptor trimming, meta-transcriptome assembly and differential gene expression analyses.  
+DiFlex will perform quality control, adaptor trimming, meta-transcriptome assembly and differential gene expression analyses.  
 
 Usage pipeline:
 The pipeline can be used with the next command line:

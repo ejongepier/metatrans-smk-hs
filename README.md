@@ -1,6 +1,6 @@
-# README - (naam)
+# README - DiFlex
 
-(naam) is a de novo meta-transcriptome assembly and differential gene expression pipeline. For the input the pipeline takes raw Illumina paired-end RNAseq libraries. The output contains the transcriptome assembly and the differential gene expression between treatments. The main tools that are used by the pipeline are FastQC, Trimmomatic and Trinity. (naam) is a flexible, open source, user-friendly pipeline.
+DiFlex is a de novo meta-transcriptome assembly and differential gene expression pipeline. For the input the pipeline takes raw Illumina paired-end RNAseq libraries. The output contains the transcriptome assembly and the differential gene expression between treatments. The main tools that are used by the pipeline are FastQC, Trimmomatic and Trinity. DiFlex is a flexible, open source, user-friendly pipeline.
 
 ## Repo content
 
@@ -22,20 +22,20 @@
 The pipeline has been created and tested on a Linux system.  
 The pipeline requires the file samples.csv. The first must contain the following columns: run, sample type, sample, forward and reverse. The columns forward and reverse consists of the pathnames of the samples. 
 To run the pipeline, the required files need to be in the same path as given in the config.yaml. 
-(naam) makes use of the tool Snakemake.  
+DiFlex makes use of the tool Snakemake.  
 
 ### Installation
 
-(naam) the Snakemake en Conda installation can be found in the following links.  
+DiFlex the Snakemake en Conda installation can be found in the following links.  
 - [Snakemake installation](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html) 
 - [Conda installation](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html)
 
-You can either clone {name for pipeline}, like so: 
+You can either clone DiFlex, like so: 
 ```bash
 git clone https://github.com/ejongepier/metatrans-smk-hs.git  
 ```
-or download and extract the zip archive [(Naam pipeline)](https://github.com/ejongepier/metatrans-smk-hs)  
-{name for pipeline} is immediately ready to use. 
+or download and extract the zip archive [DiFlex](https://github.com/ejongepier/metatrans-smk-hs)  
+DiFlex is immediately ready to use. 
 
 ## Usage 
 

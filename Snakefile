@@ -77,7 +77,7 @@ rule genes_analysis:
 # ======================================================
 
 onsuccess:
-    print("<Name> finished!")
+    print("DiFlex finished!")
     print("To generate a report run: snakemake --report reports/report.zip")
 
 #====================================

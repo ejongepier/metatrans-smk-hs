@@ -1,0 +1,6 @@
+name: trimmomatic
+channels:
+  - defaults
+  - bioconda
+dependencies:
+  - sortmerna

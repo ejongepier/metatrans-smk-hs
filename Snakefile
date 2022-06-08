@@ -20,14 +20,16 @@ rule all:
 			samples=smpls.itertuples()),
 		expand("results/{samples.run}/trimmomatic/{samples.sample}.R1.paired.fastq.gz",
 			samples=smpls.itertuples()),
-		expand("results/{samples.run}/fastqc/trimmed/{samples.sample}",
+		expand("results/{samples.run}/sortmerna/{samples.sample}",
 			samples=smpls.itertuples()),
-		expand("results/{samples.run}/trinity_output/trinity_assemble/Trinity_stats.txt",
-			samples=smpls.itertuples()),
-		expand("results/{samples.run}/trinity_output/trinity_de/isoform.done",
-			samples=smpls.itertuples()),
-		expand("results/demo/trinity_output/trinity_de/gene.done",
-			samples=smpls.itertuples())
+		#expand("results/{samples.run}/fastqc/trimmed/{samples.sample}",
+		#	samples=smpls.itertuples()),
+		#expand("results/{samples.run}/trinity_output/trinity_assemble/Trinity_stats.txt",
+		#	samples=smpls.itertuples()),
+		#expand("results/{samples.run}/trinity_output/trinity_de/isoform.done",
+		#	samples=smpls.itertuples()),
+		#expand("results/demo/trinity_output/trinity_de/gene.done",
+		#	samples=smpls.itertuples())
 
 #====================================
 # GLOBAL FUNCTIONS
@@ -56,6 +58,11 @@ rule fastQC:
 			samples=smpls.itertuples()),
 		expand("results/{samples.run}/fastqc/trimmed/{samples.sample}",
 			samples=smpls.itertuples())
+
+rule sort_rna:
+	input:
+		expand("results/{samples.run}/sortmerna/{samples.sample}/aligned.fasta",
+			samples = smpls.itertuples())
 
 rule trinity_assembly:
 	input:
@@ -86,5 +93,6 @@ onsuccess:
 
 include: "rules/fastQC.smk"
 include: "rules/trimmomatic.smk"
+include: "rules/sortmerna.smk"
 include: "rules/trinity_assemble.smk"
 include: "rules/trinity_de.smk"

@@ -4,6 +4,11 @@ trimmomatic:
     environment:                   "../envs/trimmomatic.yaml"
     threads:                       4
     adapters:                      "db/adapters/adapters.fa"
+sortmerna:
+    environment:                   "../envs/sortmerna.yaml"
+    aantal_alignments:             1
+    aantal_best:                   1
+    paired_optie:                  "paired_in"
 fastQC:
     environment:                   "../envs/fastqc.yaml"
     threads:                       4

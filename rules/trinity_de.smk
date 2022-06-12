@@ -1,14 +1,14 @@
 rule trinty_align_estimate_abundance:
 	input: 
-		assembly="results/{run}/trinity_output/trinity_assemble/Trinity.fasta",
-		left="results/{run}/trimmomatic/{sample}.R1.paired.fastq.gz",
-		right="results/{run}/trimmomatic/{sample}.R2.paired.fastq.gz"
+		assembly="results/{run}/trinity_output/trinity_assemble.Trinity.fasta",
+		left="results/{run}/sortmerna/{sample}/paired_left.fq",
+		right="results/{run}/sortmerna/{sample}/paired_right.fq"
 	output: 
 		sample_dir=directory("results/{run}/trinity_output/trinity_de/{sample}")
 	params:
-		gene_trans_map="results/{run}/trinity_output/trinity_assemble/Trinity.fasta.gene_trans_map"
+		gene_trans_map="results/{run}/trinity_output/trinity_assemble.Trinity.fasta.gene_trans_map"
 	conda:
-		config["mtrans-smk-hs"]["environment"]
+		config["trinity"]["environment"]
 	log:
 		"logs/{run}/trinity_align_estimate_abundance/{sample}.log"
 	benchmark:
@@ -37,7 +37,7 @@ rule isoform_matrix:
 	params:
 		edgeR_dir="results/{run}/trinity_output/trinity_de/edgeR-output"
 	conda:
-		config["mtrans-smk-hs"]["environment"]
+		config["trinity"]["environment"]
 	log:
 		"logs/{run}/isoforms_abundance_estimates_to_matrix.log"
 	benchmark:
@@ -56,7 +56,7 @@ rule isoform_matrix:
 rule gene_matrix:
 	input:
 		align_estimate_abundance=expand("results/{samples.run}/trinity_output/trinity_de/{samples.sample}/", samples=smpls.itertuples()),
-		gene_trans_map="results/{run}/trinity_output/trinity_assemble/Trinity.fasta.gene_trans_map"
+		gene_trans_map="results/{run}/trinity_output/trinity_assemble.Trinity.fasta.gene_trans_map"
 	output:
 		gene_path="results/{run}/trinity_output/trinity_de/gene-file-paths.txt",
 		gene_counts="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.gene.counts.matrix",
@@ -64,7 +64,7 @@ rule gene_matrix:
 	params:
 		edgeR_dir="results/{run}/trinity_output/trinity_de/edgeR-output"
 	conda:
-		config["mtrans-smk-hs"]["environment"]
+		config["trinity"]["environment"]
 	log:
 		"logs/{run}/gene_abundance_estimates_to_matrix.log"
 	benchmark:
@@ -86,7 +86,7 @@ rule sample_file:
 	output: 
 		sample_file="results/{run}/trinity_output/trinity_de/edgeR-output/sample-file.txt"
 	conda:
-		config["mtrans-smk-hs"]["environment"]
+		config["trinity"]["environment"]
 	shell: 
 		"""
 		cat {input.samples} | awk -F "," '{{print $2"\t"$3}}' | awk 'NR!=1 {{print}}' | sort | uniq > {output.sample_file}
@@ -102,7 +102,7 @@ rule DE_analysis_isoform:
 	params:
 		isoform_dir=directory("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform")
 	conda:
-		config["mtrans-smk-hs"]["environment"]
+		config["trinity"]["environment"]
 	log:
 		"logs/{run}/isoform_DE_analysis.log"
 	benchmark:
@@ -125,7 +125,7 @@ rule DE_analysis_gene:
 	params:
 		gene_dir=directory("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-gene")
 	conda:
-		config["mtrans-smk-hs"]["environment"]
+		config["trinity"]["environment"]
 	log:
 		"logs/{run}/gene_DE_analysis.log"
 	benchmark:
@@ -157,7 +157,7 @@ rule isoform_analysis:
 		C=config["trinity-DE"]["fold_change"],
 		PCA_components=config["trinity-DE"]["pca_components"]
 	conda:
-		config["mtrans-smk-hs"]["environment"]
+		config["trinity"]["environment"]
 	log:
 		diff_expr="logs/{run}/isoform_analysis.log",
 		PtR="logs/{run}/isoform_PtR.log"
@@ -198,7 +198,7 @@ rule gene_analysis:
 		C=config["trinity-DE"]["fold_change"],
 		PCA_components=config["trinity-DE"]["pca_components"]
 	conda:
-		config["mtrans-smk-hs"]["environment"]
+		config["trinity"]["environment"]
 	log:
 		diff_expr="logs/{run}/gene_analysis.log",
 		PtR="logs/{run}/isoform_PtR.log"

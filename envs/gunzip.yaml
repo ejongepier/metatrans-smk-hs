@@ -1,0 +1,6 @@
+name: gunzip
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - gzip

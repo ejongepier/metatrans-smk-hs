@@ -13,7 +13,6 @@ wildcard_constraints:
 	sample = '[A-Za-z0-9]+',
 	run = '[A-Za-z0-9]+'
 
-
 rule all:
 	input:
 		expand("results/{samples.run}/fastqc/raw/{samples.sample}",
@@ -22,14 +21,14 @@ rule all:
 			samples=smpls.itertuples()),
 		expand("results/{samples.run}/sortmerna/{samples.sample}",
 			samples=smpls.itertuples()),
-		#expand("results/{samples.run}/fastqc/trimmed/{samples.sample}",
-		#	samples=smpls.itertuples()),
-		#expand("results/{samples.run}/trinity_output/trinity_assemble/Trinity_stats.txt",
-		#	samples=smpls.itertuples()),
-		#expand("results/{samples.run}/trinity_output/trinity_de/isoform.done",
-		#	samples=smpls.itertuples()),
-		#expand("results/demo/trinity_output/trinity_de/gene.done",
-		#	samples=smpls.itertuples())
+		expand("results/{samples.run}/fastqc/trimmed_filtered/{samples.sample}",
+			samples=smpls.itertuples()),
+		expand("results/{samples.run}/trinity_output/trinity_assemble/Trinity_stats.txt",
+			samples=smpls.itertuples()),
+		expand("results/{samples.run}/trinity_output/trinity_de/isoform.done",
+			samples=smpls.itertuples()),
+		expand("results/demo/trinity_output/trinity_de/gene.done",
+			samples=smpls.itertuples())
 
 #====================================
 # GLOBAL FUNCTIONS
@@ -39,8 +38,8 @@ def get_fastq(wildcards):
     return smpls.loc[(wildcards.run, wildcards.sample), ["fwd","rev"]].dropna()
 
 def get_trimmed_input(wildcards):
-    return expand("results/{run}/trimmomatic/{sample}.{direction}.paired.fastq.gz", 
-                   run=wildcards.run, sample=wildcards.sample, direction=["R1","R2"])
+    return expand("results/{run}/sortmerna/{sample}/paired_{direction}.fq", 
+                   run=wildcards.run, sample=wildcards.sample, direction=["left","right"])
 
 #====================================
 # HELP FUNCTIONS
@@ -56,13 +55,13 @@ rule fastQC:
 	input:
 		expand("results/{samples.run}/fastqc/raw/{samples.sample}",
 			samples=smpls.itertuples()),
-		expand("results/{samples.run}/fastqc/trimmed/{samples.sample}",
+		expand("results/{samples.run}/fastqc/trimmed_filtered/{samples.sample}",
 			samples=smpls.itertuples())
 
-rule sort_rna:
+rule filter_rna:
 	input:
-		expand("results/{samples.run}/sortmerna/{samples.sample}/aligned.fasta",
-			samples = smpls.itertuples())
+		expand("results/{samples.run}/sortmerna/{samples.sample}/paired_{direction}.fq",
+				samples=smpls.itertuples(), direction=["left","right"])
 
 rule trinity_assembly:
 	input:

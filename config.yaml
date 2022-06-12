@@ -1,5 +1,7 @@
 samples:                           "samples.csv"
 
+gunzip:
+    environment:                   "../envs/gunzip.yaml"
 trimmomatic:
     environment:                   "../envs/trimmomatic.yaml"
     threads:                       4

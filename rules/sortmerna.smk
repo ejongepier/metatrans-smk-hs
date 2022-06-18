@@ -31,9 +31,9 @@ rule sortmerna:
     conda:
         config["sortmerna"]["environment"]
     threads:
-        4
+        config["sortmerna"]["threads"]
     resources:
-        mem_mb = 2000
+        mem_mb = config["sortmerna"]["max_memory"]
     log:
         "logs/{run}/sortmerna/{sample}_sortmerna.log"
     shell: 

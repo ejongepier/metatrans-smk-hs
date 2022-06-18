@@ -22,7 +22,7 @@ rule fastQCtrimmed:
 	input:
 		get_trimmed_input
 	output:
-		directory("results/{run}/fastqc/trimmed/{sample}/")
+		directory("results/{run}/fastqc/trimmed_filtered/{sample}/")
 	priority: 10
 	threads:
 		config["fastQC"]["threads"]
@@ -37,4 +37,3 @@ rule fastQCtrimmed:
 		mkdir -p {output}
 		fastqc -o {output} {input} --threads {threads}
 		"""
-

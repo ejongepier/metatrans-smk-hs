@@ -13,14 +13,15 @@ wildcard_constraints:
 	sample = '[A-Za-z0-9]+',
 	run = '[A-Za-z0-9]+'
 
-
 rule all:
 	input:
 		expand("results/{samples.run}/fastqc/raw/{samples.sample}",
 			samples=smpls.itertuples()),
 		expand("results/{samples.run}/trimmomatic/{samples.sample}.R1.paired.fastq.gz",
 			samples=smpls.itertuples()),
-		expand("results/{samples.run}/fastqc/trimmed/{samples.sample}",
+		expand("results/{samples.run}/sortmerna/{samples.sample}",
+			samples=smpls.itertuples()),
+		expand("results/{samples.run}/fastqc/trimmed_filtered/{samples.sample}",
 			samples=smpls.itertuples()),
 		expand("results/{samples.run}/trinity_output/trinity_assemble/Trinity_stats.txt",
 			samples=smpls.itertuples()),
@@ -37,8 +38,8 @@ def get_fastq(wildcards):
     return smpls.loc[(wildcards.run, wildcards.sample), ["fwd","rev"]].dropna()
 
 def get_trimmed_input(wildcards):
-    return expand("results/{run}/trimmomatic/{sample}.{direction}.paired.fastq.gz", 
-                   run=wildcards.run, sample=wildcards.sample, direction=["R1","R2"])
+    return expand("results/{run}/sortmerna/{sample}/paired_{direction}.fq", 
+                   run=wildcards.run, sample=wildcards.sample, direction=["left","right"])
 
 #====================================
 # HELP FUNCTIONS
@@ -54,8 +55,17 @@ rule fastQC:
 	input:
 		expand("results/{samples.run}/fastqc/raw/{samples.sample}",
 			samples=smpls.itertuples()),
-		expand("results/{samples.run}/fastqc/trimmed/{samples.sample}",
+		expand("results/{samples.run}/fastqc/trimmed_filtered/{samples.sample}",
 			samples=smpls.itertuples())
+
+rule rrna_databasen:
+	input:
+		expand("db/sortmerna/smr_v4.3_{database_type}_db.fasta", database_type=config["sortmerna"]["ref_database"])
+
+rule filter_rna:
+	input:
+		expand("results/{samples.run}/sortmerna/{samples.sample}/paired_{direction}.fq",
+				samples=smpls.itertuples(), direction=["left","right"])
 
 rule trinity_assembly:
 	input:
@@ -86,5 +96,6 @@ onsuccess:
 
 include: "rules/fastQC.smk"
 include: "rules/trimmomatic.smk"
+include: "rules/sortmerna.smk"
 include: "rules/trinity_assemble.smk"
 include: "rules/trinity_de.smk"

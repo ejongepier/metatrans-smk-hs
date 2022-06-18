@@ -1,0 +1,6 @@
+name: sortmerna
+channels:
+  - defaults
+  - bioconda
+dependencies:
+  - sortmerna

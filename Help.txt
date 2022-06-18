@@ -13,7 +13,7 @@ Data shown in the bracket is optional, but can be used as follows:
 Example:
 Run the whole pipeline:
 	"snakemake --use-conda --cores <ncores>"
-Run the Quality Control:
+Run only the Quality Control and rules that generate QC input files:
 	"snakemake --use-conda --cores <ncores> fastQC"
 
 ------------------------------------------------------------------------------------------
@@ -21,7 +21,7 @@ Run the Quality Control:
 Function per script:
 - fastQC.smk
 	Description:
-		FastQC is a quality control for high throughput sequence data. FastQC 
+		FastQC performs quality control for high throughput sequence data. FastQC 
 		provides a set of modular analysis. Through these analyses it is 
 		possible to quickly understand if there are any problems with the data. 
 		FastQC includes two functions, one for the raw data and one for the trimmed 
@@ -32,6 +32,18 @@ Function per script:
 		by the example.
 	Example to call fastQC.smk:
 		"snakemake --use-conda --cores <ncores> fastQC"
+
+- sortmerna.smk
+	Description:
+		SortMeRNA filters NGS reads in metagenomic and metatranscriptomics data.
+		The main use of sortmerna is to filter ribosomal RNA from metatranscriptomics 
+		data so that the rRNA does not affect the differential expression analysis.
+	usage of sortmerna.smk:
+		SortmeRNA can be runned by using the command line which is presented
+		by the example.
+	Example to call sortmerna.smk:
+		"snakemake --use-conda --cores <ncores> filter_rna"
+
 - trinity_assemble.smk
 	Description:
 		Trinity assemble will look for overlay between the sequences. The overlay 
@@ -44,6 +56,7 @@ Function per script:
 		by the example.
 	Example to call trinity_assemble.smk:
 		"snakemake --use-conda --cores <ncores> trinity_assembly"
+
 - trinity_de.smk
 	Description:
 		Trinity DE performs the differential expression on the trimmed data.

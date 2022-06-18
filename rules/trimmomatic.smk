@@ -15,7 +15,7 @@ rule trim_trimmomatic:
     log:
         "logs/{run}/trimmomatic/{sample}-trimmomatic.log"
     benchmark:
-        "benchmarks/{run}/{sample}-trimmomatic.txt"
+        "benchmarks/{run}/trimmomatic/{sample}-trimmomatic.txt"
     shell:
         """
         trimmomatic PE \

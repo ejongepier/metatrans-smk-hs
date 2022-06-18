@@ -58,6 +58,10 @@ rule fastQC:
 		expand("results/{samples.run}/fastqc/trimmed_filtered/{samples.sample}",
 			samples=smpls.itertuples())
 
+rule rrna_databasen:
+	input:
+		expand("db/sortmerna/smr_v4.3_{database_type}_db.fasta", database_type=config["sortmerna"]["ref_database"])
+
 rule filter_rna:
 	input:
 		expand("results/{samples.run}/sortmerna/{samples.sample}/paired_{direction}.fq",

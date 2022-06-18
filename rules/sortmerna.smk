@@ -1,11 +1,25 @@
+#wget commando voor database downloaden 'wget https://github.com/biocore/sortmerna/releases/download/v4.3.3/database.tar.gz'
+rule reference_database:
+    input:
+        fol = "db/sortmerna/"
+    output: 
+        database = "db/sortmerna/smr_v4.3_{database_type}_db.fasta"
+    params:
+        db = "smr_v4.3_"+config["sortmerna"]["ref_database"]+"_db.fasta"
+    shell: 
+        """
+        mkdir -p 'db/sortmerna/download'
+        wget -nc -P 'db/sortmerna/download/' 'https://github.com/biocore/sortmerna/releases/download/v4.3.3/database.tar.gz'
+        tar -xzvf db/sortmerna/download/database.tar.gz -C db/sortmerna/download
+        mv 'db/sortmerna/download/{params.db}' '{input.fol}' 
+        rm -r 'db/sortmerna/download'
+        """
+
 rule sortmerna:
     input: 
         fow = "results/{run}/trimmomatic/{sample}.R1.paired.fastq.gz",
         rev = "results/{run}/trimmomatic/{sample}.R2.paired.fastq.gz",
-        ref1 = "db/sortmerna/set1-database.fasta",
-        ref2 = "db/sortmerna/set2-database.fasta",
-        ref3 = "db/sortmerna/set3-database.fasta",
-        ref4 = "db/sortmerna/set4-database.fasta"
+        ref = "db/sortmerna/smr_v4.3_"+config["sortmerna"]["ref_database"]+"_db.fasta"
     output: 
         work = directory("results/{run}/sortmerna/{sample}"),
         aligned = "results/{run}/sortmerna/{sample}/out/aligned.fq.gz",
@@ -16,6 +30,10 @@ rule sortmerna:
         paired_optie = config["sortmerna"]["paired_optie"]
     conda:
         config["sortmerna"]["environment"]
+    threads:
+        4
+    resources:
+        mem_mb = 2000
     log:
         "logs/{run}/sortmerna/{sample}_sortmerna.log"
     shell: 
@@ -23,13 +41,12 @@ rule sortmerna:
         sortmerna \
         --reads {input.fow} \
         --reads {input.rev} \
-        --ref {input.ref1} \
-        --ref {input.ref2} \
-        --ref {input.ref3} \
-        --ref {input.ref4} \
+        --ref {input.ref} \
         --workdir {output.work} \
         --num_alignments {params.num_alignments} \
-        -fastx -other -{params.paired_optie} > {log}
+        --threads {threads} \
+        -m {resources.mem_mb} \
+        -{params.paired_optie} -v -fastx -other > {log}
         """
 
 rule ungzip:
@@ -38,7 +55,7 @@ rule ungzip:
     output: 
         "{path}.fq"
     conda:
-        config["gunzip"]["environment"]
+        config["general"]["environment"]
     shell: 
         "gzip -k -d -c {input} > {output}"
 

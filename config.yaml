@@ -1,7 +1,7 @@
 samples:                           "samples.csv"
 
-gunzip:
-    environment:                   "../envs/gunzip.yaml"
+general:
+    environment:                   "../envs/general.yaml"
 trimmomatic:
     environment:                   "../envs/trimmomatic.yaml"
     threads:                       4
@@ -11,6 +11,7 @@ sortmerna:
     aantal_alignments:             1
     aantal_best:                   1
     paired_optie:                  "paired_in"
+    ref_database:                  "fast"
 fastQC:
     environment:                   "../envs/fastqc.yaml"
     threads:                       4

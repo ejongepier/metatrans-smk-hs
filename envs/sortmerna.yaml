@@ -1,4 +1,4 @@
-name: trimmomatic
+name: sortmerna
 channels:
   - defaults
   - bioconda

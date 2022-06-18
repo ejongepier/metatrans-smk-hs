@@ -12,7 +12,7 @@ rule trinty_align_estimate_abundance:
 	log:
 		"logs/{run}/trinity_align_estimate_abundance/{sample}.log"
 	benchmark:
-		"benchmarks/{run}/{sample}-trinity_align_estimate_abundance.txt"
+		"benchmarks/{run}/trinity_estimate_align_abundance/{sample}-trinity_align_estimate_abundance.txt"
 	shell:
 		"""
 		align_and_estimate_abundance.pl \

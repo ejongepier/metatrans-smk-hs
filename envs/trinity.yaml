@@ -1,9 +1,9 @@
 name: trinity
 channels:
-  - defaults
-  - anaconda
   - conda-forge
   - bioconda
+  - defaults
+  - anaconda
 dependencies:
-  - trinity
+  - trinity=2.13.2
   - rsem

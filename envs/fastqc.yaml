@@ -1,7 +1,8 @@
 name: fastQC
 channels:
-  - defaults
-  - bioconda
   - conda-forge
+  - bioconda
+  - defaults
+  - anaconda
 dependencies:
   - fastqc

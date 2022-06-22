@@ -1,7 +1,8 @@
 name: trimmomatic
 channels:
-  - defaults
-  - bioconda
   - conda-forge
+  - bioconda
+  - defaults
+  - anaconda
 dependencies:
   - trimmomatic

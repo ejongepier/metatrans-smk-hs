@@ -13,16 +13,15 @@ sortmerna:
     paired_optie:                  "paired_in"
     ref_database:                  "fast"
     threads:                       4
-    max_memory:                    4000
+    max_memory:                    6000
 fastQC:
     environment:                   "../envs/fastqc.yaml"
     threads:                       4
 trinity:
     environment:                   "../envs/trinity.yaml"
-    threads:                       4
+    threads:                       32
 trinity-assemble:
-    max_memory:                    "4G"
-    threads:                       4
+    max_memory:                    "120G"
     min_kmer_cov:                  1
 trinity-DE:
     P_cutoff:                      0.05

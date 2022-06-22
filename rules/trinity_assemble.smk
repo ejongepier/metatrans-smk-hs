@@ -33,6 +33,8 @@ rule trinity_assemble:
 		min_kmer_cov = config["trinity-assemble"]["min_kmer_cov"]
 	threads:
 		config["trinity"]["threads"]
+	resources:
+		mem_mb = (int(config["trinity-assemble"]["max_memory"][:-1]) *1000)
 	conda:
 		config["trinity"]["environment"]
 	log:
@@ -45,6 +47,7 @@ rule trinity_assemble:
   		  --normalize_reads \
 		  --seqType fq \
 		  --max_memory {params.max_memory} \
+		  --CPU {threads} \
 		  --samples_file results/{wildcards.run}/trinity_output/assemble_samples.txt \
 		  --output {output.out_dir} \
 		  --min_kmer_cov {params.min_kmer_cov} > {log}

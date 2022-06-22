@@ -1,35 +1,54 @@
+rule align_samples:
+	input: 
+		assem_samples="results/{run}/trinity_output/assemble_samples.txt"
+	output: 
+		align_samples="results/{run}/trinity_output/align_samples.txt"
+	run:
+		samples_list = []
+		with open(input.assem_samples, "r") as in_sample:
+			in_sample.readline()
+			samples_list = in_sample.readlines()
+		with open(output.align_samples, "w") as out_sample:
+			for line_str in samples_list:
+				line = line_str.split("\t")
+				out_sample.write(f"{line[0]}\tresults/{wildcards.run}/trinity_output/trinity_de/{line[1]}\t{line[2]}\t{line[3]}")
+
 rule trinty_align_estimate_abundance:
 	input: 
 		assembly="results/{run}/trinity_output/trinity_assemble.Trinity.fasta",
-		left="results/{run}/sortmerna/{sample}/paired_left.fq",
-		right="results/{run}/sortmerna/{sample}/paired_right.fq"
-	output: 
-		sample_dir=directory("results/{run}/trinity_output/trinity_de/{sample}")
+		assemble_samples="results/{run}/trinity_output/assemble_samples.txt",
+		left = expand("results/{samples.run}/sortmerna/{samples.sample}/paired_left.fq", samples=smpls.itertuples()),
+		right = expand("results/{samples.run}/sortmerna/{samples.sample}/paired_right.fq", samples=smpls.itertuples())
+	output:
+		touch("results/{run}/trinity_output/align_estimate.done")
 	params:
 		gene_trans_map="results/{run}/trinity_output/trinity_assemble.Trinity.fasta.gene_trans_map"
+	shadow:
+		"shallow"
+	threads:
+		config["trinity"]["threads"]
 	conda:
 		config["trinity"]["environment"]
 	log:
-		"logs/{run}/trinity_align_estimate_abundance/{sample}.log"
+		"logs/{run}/trinity_align_estimate_abundance.log"
 	benchmark:
-		"benchmarks/{run}/trinity_estimate_align_abundance/{sample}-trinity_align_estimate_abundance.txt"
+		"benchmarks/{run}/trinity_estimate_align_abundance.txt"
 	shell:
 		"""
 		align_and_estimate_abundance.pl \
     	  --transcripts {input.assembly} \
     	  --seqType fq \
-    	  --left {input.left} \
-    	  --right {input.right} \
+    	  --samples_file {input.assemble_samples} \
+		  --thread_count {threads} \
     	  --prep_reference \
     	  --est_method RSEM \
     	  --aln_method bowtie2 \
-    	  --gene_trans_map {params.gene_trans_map} \
-		  --output_dir {output.sample_dir} > {log}
+    	  --gene_trans_map {params.gene_trans_map} > {log}
 		"""
 
 rule isoform_matrix:
 	input:
-		align_estimate_abundance=expand("results/{samples.run}/trinity_output/trinity_de/{samples.sample}/", samples=smpls.itertuples())
+		done_file="results/{run}/trinity_output/align_estimate.done"
 	output: 
 		isoform_path="results/{run}/trinity_output/trinity_de/isoform-file-paths.txt",
 		isoform_count="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.isoform.counts.matrix",
@@ -55,7 +74,7 @@ rule isoform_matrix:
 
 rule gene_matrix:
 	input:
-		align_estimate_abundance=expand("results/{samples.run}/trinity_output/trinity_de/{samples.sample}/", samples=smpls.itertuples()),
+		done_file="results/{run}/trinity_output/align_estimate.done",
 		gene_trans_map="results/{run}/trinity_output/trinity_assemble.Trinity.fasta.gene_trans_map"
 	output:
 		gene_path="results/{run}/trinity_output/trinity_de/gene-file-paths.txt",

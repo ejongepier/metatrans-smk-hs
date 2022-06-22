@@ -186,11 +186,10 @@ dependencies:
   - tk=8.6.10=hbc83047_0
   - tktable=2.10=h14c3975_0
   - trimmomatic=0.39=hdfd78af_2
-  - trinity=2.8.5=h8b12597_5
+  - trinity=2.13.*=h15cb65e_2
   - tzdata=2021a=h5d7bf9c_0
   - ucsc-bigwigsummary=357=1
   - wheel=0.37.0=pyhd3eb1b0_0
   - xz=5.2.5=h7b6447c_0
   - zlib=1.2.11=h7b6447c_3
   - zstd=1.4.9=haebb681_0
-prefix: /home/pier/miniconda3/envs/mtrans-smk-hs

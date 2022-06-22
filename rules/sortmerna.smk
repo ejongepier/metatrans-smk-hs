@@ -3,7 +3,7 @@ rule reference_database:
     input:
         fol = "db/sortmerna/"
     output: 
-        database = "db/sortmerna/smr_v4.3_{database_type}_db.fasta"
+        temp("db/sortmerna/smr_v4.3_{database_type}_db.fasta")
     params:
         db = "smr_v4.3_"+config["sortmerna"]["ref_database"]+"_db.fasta"
     shell: 
@@ -54,8 +54,6 @@ rule ungzip:
         "{path}.fq.gz"
     output: 
         "{path}.fq"
-    conda:
-        config["general"]["environment"]
     shell: 
         "gzip -k -d -c {input} > {output}"
 

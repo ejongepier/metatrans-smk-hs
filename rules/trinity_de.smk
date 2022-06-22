@@ -6,7 +6,6 @@ rule align_samples:
 	run:
 		samples_list = []
 		with open(input.assem_samples, "r") as in_sample:
-			in_sample.readline()
 			samples_list = in_sample.readlines()
 		with open(output.align_samples, "w") as out_sample:
 			for line_str in samples_list:
@@ -16,7 +15,7 @@ rule align_samples:
 rule trinty_align_estimate_abundance:
 	input: 
 		assembly="results/{run}/trinity_output/trinity_assemble.Trinity.fasta",
-		align_samples="results/{run}/trinity_output/aalign_samples.txt",
+		align_samples="results/{run}/trinity_output/align_samples.txt",
 		left = expand("results/{samples.run}/sortmerna/{samples.sample}/paired_left.fq", samples=smpls.itertuples()),
 		right = expand("results/{samples.run}/sortmerna/{samples.sample}/paired_right.fq", samples=smpls.itertuples())
 	output:

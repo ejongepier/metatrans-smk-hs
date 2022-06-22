@@ -43,11 +43,20 @@ rule trinty_align_estimate_abundance:
     	  --gene_trans_map {params.gene_trans_map} > {log}
 		"""
 
-rule isoform_matrix:
-	input:
+rule isoform_path:
+	input: 
+		RSEM=expand("results/{samples.run}/trinity_output/trinity_de/{samples.sample}/RSEM.isoforms.results", samples=smpls.itertuples()),
 		done_file="results/{run}/trinity_output/align_estimate.done"
 	output: 
-		isoform_path="results/{run}/trinity_output/trinity_de/isoform-file-paths.txt",
+		isoform_path="results/{run}/trinity_output/trinity_de/isoform-file-paths.txt"
+	shell: 
+		"""ls results/{wildcards.run}/trinity_output/trinity_de/*/RSEM.isoforms.results > {output.isoform_path}"""
+
+rule isoform_matrix:
+	input:
+		done_file="results/{run}/trinity_output/align_estimate.done",
+		isoform_path="results/{run}/trinity_output/trinity_de/isoform-file-paths.txt"
+	output: 
 		isoform_count="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.isoform.counts.matrix",
 		isoform_TMM="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.isoform.TMM.EXPR.matrix"
 	params:
@@ -60,21 +69,20 @@ rule isoform_matrix:
 		"benchmarks/{run}/isoforms_abundance_estimates_to_matrix.txt"
 	shell: 
 		"""
-		ls results/{wildcards.run}/trinity_output/trinity_de/*/RSEM.isoforms.results > {output.isoform_path}
 		abundance_estimates_to_matrix.pl \
   			--est_method RSEM \
   			--out_prefix {params.edgeR_dir}/trinity-de \
   			--gene_trans_map none \
   			--name_sample_by_basedir \
-  			--quant_files {output.isoform_path} > {log}
+  			--quant_files {input.isoform_path} > {log}
 		"""
 
 rule gene_matrix:
 	input:
 		done_file="results/{run}/trinity_output/align_estimate.done",
+		isoform_path="results/{run}/trinity_output/trinity_de/isoform-file-paths.txt",
 		gene_trans_map="results/{run}/trinity_output/trinity_assemble.Trinity.fasta.gene_trans_map"
 	output:
-		gene_path="results/{run}/trinity_output/trinity_de/gene-file-paths.txt",
 		gene_counts="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.gene.counts.matrix",
 		gene_TMM="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.gene.TMM.EXPR.matrix"
 	params:
@@ -87,13 +95,12 @@ rule gene_matrix:
 		"benchmarks/{run}/gene_abundance_estimates_to_matrix.txt"
 	shell: 
 		"""
-		ls results/{wildcards.run}/trinity_output/trinity_de/*/RSEM.isoforms.results > {output.gene_path}
 		abundance_estimates_to_matrix.pl \
   		  --est_method RSEM \
   		  --out_prefix {params.edgeR_dir}/trinity-de \
   		  --gene_trans_map {input.gene_trans_map} \
   		  --name_sample_by_basedir \
-  		  --quant_files {output.gene_path} > {log}
+  		  --quant_files {input.isoform_path} > {log}
 		"""
 
 rule sample_file:

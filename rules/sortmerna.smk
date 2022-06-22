@@ -51,9 +51,9 @@ rule sortmerna:
 
 rule ungzip:
     input: 
-        "{path}.fq.gz"
+        "results/{run}/sortmerna/{sample}/out/other.fq.gz"
     output: 
-        "{path}.fq"
+        "results/{run}/sortmerna/{sample}/out/other.fq"
     shell: 
         "gzip -d -c {input} > {output}"
 

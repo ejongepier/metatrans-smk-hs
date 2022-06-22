@@ -16,15 +16,13 @@ rule align_samples:
 rule trinty_align_estimate_abundance:
 	input: 
 		assembly="results/{run}/trinity_output/trinity_assemble.Trinity.fasta",
-		assemble_samples="results/{run}/trinity_output/assemble_samples.txt",
+		align_samples="results/{run}/trinity_output/aalign_samples.txt",
 		left = expand("results/{samples.run}/sortmerna/{samples.sample}/paired_left.fq", samples=smpls.itertuples()),
 		right = expand("results/{samples.run}/sortmerna/{samples.sample}/paired_right.fq", samples=smpls.itertuples())
 	output:
 		touch("results/{run}/trinity_output/align_estimate.done")
 	params:
 		gene_trans_map="results/{run}/trinity_output/trinity_assemble.Trinity.fasta.gene_trans_map"
-	shadow:
-		"shallow"
 	threads:
 		config["trinity"]["threads"]
 	conda:
@@ -38,7 +36,7 @@ rule trinty_align_estimate_abundance:
 		align_and_estimate_abundance.pl \
     	  --transcripts {input.assembly} \
     	  --seqType fq \
-    	  --samples_file {input.assemble_samples} \
+    	  --samples_file {input.align_samples} \
 		  --thread_count {threads} \
     	  --prep_reference \
     	  --est_method RSEM \

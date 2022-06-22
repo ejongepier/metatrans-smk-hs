@@ -55,7 +55,7 @@ rule ungzip:
     output: 
         "{path}.fq"
     shell: 
-        "gzip -k -d -c {input} > {output}"
+        "gzip -d -c {input} > {output}"
 
 rule split_reads:
     input: 

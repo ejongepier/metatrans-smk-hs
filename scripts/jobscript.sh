@@ -4,7 +4,7 @@
 
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=32
-#SBATCH --time=1000
+#SBATCH --time=48:00:00
 #SBATCH --mem=128000
 
 ##SBATCH --mailtype=END,FAIL,TIME_LIMIT
@@ -15,7 +15,7 @@ start='date "+%s"'
 echo "$SLURM_JOB_NAME started at `date` on node $SLURM_NODEID using $SLURM_CPUS_ON_NODE cpus."
 
 #Conda init
-source /zfs/omics/personal/$USER/miniconda3/etc/profile.d/conda.sh
+source ~/personal/miniconda3/etc/profile.d/conda.sh
 #Conda activatie
 conda_env='/zfs/omics/personal/$USER/miniconda3/envs/snakemake'
 init_cmd="conda activate $conda_env"

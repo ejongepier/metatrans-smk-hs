@@ -10,8 +10,7 @@ smpls = pd.read_csv(config["samples"], dtype=str).set_index(["run", "sample"], d
 smpls.index = smpls.index.set_levels([i.astype(str) for i in smpls.index.levels])
 
 wildcard_constraints:
-	sample = '[A-Za-z0-9]+',
-	run = '[A-Za-z0-9]+'
+	sample = '[A-Za-z0-9_]+',
 
 rule all:
 	input:
@@ -19,7 +18,7 @@ rule all:
 			samples=smpls.itertuples()),
 		expand("results/{samples.run}/trimmomatic/{samples.sample}.R1.paired.fastq.gz",
 			samples=smpls.itertuples()),
-		expand("results/{samples.run}/sortmerna/{samples.sample}",
+		expand("results/{samples.run}/sortmerna/{samples.sample}/paired_left.fq",
 			samples=smpls.itertuples()),
 		expand("results/{samples.run}/fastqc/trimmed_filtered/{samples.sample}",
 			samples=smpls.itertuples()),

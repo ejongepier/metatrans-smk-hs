@@ -5,6 +5,8 @@ rule assemble_samples:
 		samples = config["samples"]
 	output: 
 		assemble_samples = "results/{run}/trinity_output/assemble_samples.txt"
+	shadow:
+		"copy-minimal"
 	run: 
 		samples_list = []
 		i = 0

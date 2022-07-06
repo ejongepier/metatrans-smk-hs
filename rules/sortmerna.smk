@@ -3,7 +3,7 @@ rule reference_database:
     input:
         fol = "db/sortmerna/"
     output: 
-        temp("db/sortmerna/smr_v4.3_{database_type}_db.fasta")
+        "db/sortmerna/smr_v4.3_{database_type}_db.fasta"
     params:
         db = "smr_v4.3_"+config["sortmerna"]["ref_database"]+"_db.fasta"
     shell: 

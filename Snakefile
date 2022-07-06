@@ -26,7 +26,7 @@ rule all:
 			samples=smpls.itertuples()),
 		expand("results/{samples.run}/trinity_output/trinity_de/isoform.done",
 			samples=smpls.itertuples()),
-		expand("results/demo/trinity_output/trinity_de/gene.done",
+		expand("results/{samples.run}/trinity_output/trinity_de/gene.done",
 			samples=smpls.itertuples())
 
 #====================================

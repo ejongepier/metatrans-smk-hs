@@ -1,31 +1,39 @@
-samples:                           "samples.csv"
+samples:                            "samples.csv"
 
 general:
-    environment:                   "../envs/general.yaml"
+    environment:                    "../envs/general.yaml"
 trimmomatic:
-    environment:                   "../envs/trimmomatic.yaml"
-    threads:                       4
-    adapters:                      "db/adapters/adapters.fa"
+    environment:                    "../envs/trimmomatic.yaml"
+    threads:                    4
+    adapters:                       "db/adapters/adapters.fa"
 sortmerna:
-    environment:                   "../envs/sortmerna.yaml"
-    aantal_alignments:             1
-    aantal_best:                   1
-    paired_optie:                  "paired_in"
-    ref_database:                  "fast"
-    threads:                       4
-    max_memory:                    6000
+    environment:                    "../envs/sortmerna.yaml"
+    aantal_alignments:              1
+    aantal_best:                    1
+    paired_optie:                   "paired_in"
+    ref_database:                   "fast"
+    threads:                        4
+    max_memory:                     6000
 fastQC:
-    environment:                   "../envs/fastqc.yaml"
-    threads:                       4
+    environment:                    "../envs/fastqc.yaml"
+    threads:                        4
 trinity:
-    environment:                   "../envs/trinity.yaml"
-    threads:                       32
+    environment:                    "../envs/trinity.yaml"
+    threads:                        32
 trinity-assemble:
-    max_memory:                    "120G"
-    min_kmer_cov:                  1
+    max_memory:                     "120G"
+    min_kmer_cov:                   1
 trinity-DE:
-    P_cutoff:                      0.05
-    fold_change:                   1.0
-    pca_components:                3
-mtrans-smk-hs:
-    environment:                   "../envs/mtrans-smk-hs.yaml"
+    P_cutoff:                       0.05
+    fold_change:                    1.0
+    pca_components:                 3
+interproscan:
+    environment:                    "../envs/interproscan.yaml"
+    database:                       ""
+    analyses:
+        - ProSiteProfiles
+        - Pfam
+        - Gene3D
+        - PANTHER
+        - PIRSF
+

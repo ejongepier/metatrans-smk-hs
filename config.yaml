@@ -13,7 +13,7 @@ sortmerna:
     paired_optie:                   "paired_in"
     ref_database:                   "fast"
     threads:                        4
-    max_memory:                     6000
+    max_memory:                     5000
 fastQC:
     environment:                    "../envs/fastqc.yaml"
     threads:                        4

@@ -49,30 +49,50 @@ rule sortmerna:
         -{params.paired_optie} -v -fastx -other > {log}
         """
 
-rule ungzip:
+rule uninterleave_reads:
     input: 
-        "results/{run}/sortmerna/{sample}/out/other.fq.gz"
+        other = "results/{run}/sortmerna/{sample}/out/other.fq.gz"
     output: 
-        "results/{run}/sortmerna/{sample}/out/other.fq"
-    shell: 
-        "gzip -d -c {input} > {output}"
+        paired_left = "results/{run}/sortmerna/{sample}/paired_left.fq.gz",
+        paired_right = "results/{run}/sortmerna/{sample}/paired_right.fq.gz"
+    conda:
+        config["sortmerna"]["environment"]
+    threads:
+        4
+    resources:
+        mem_mb = 3000
+    log:
+        "logs/{run}/sortmerna/{sample}_bbmap.log"
+    shell:
+        """
+        reformat.sh -Xmx{resources.mem_mb}m in={input.other} int=t zl=4 out1={output.paired_left} out2={output.paired_right} verifypairing > {log}
+        """
 
-rule split_reads:
-    input: 
-        other_reads = "results/{run}/sortmerna/{sample}/out/other.fq"
-    output: 
-        left_reads = "results/{run}/sortmerna/{sample}/paired_left.fq",
-        right_reads = "results/{run}/sortmerna/{sample}/paired_right.fq"
-    run: 
-        counter = 0
-        write_left = True
-        with open(input.other_reads, "r") as in_reads, open(output.left_reads, "w") as out_left, open(output.right_reads, "w") as out_right:
-                for line in in_reads:
-                    if counter % 4 == 0 and counter > 0:
-                        write_left = not write_left
-                        counter = 0
-                    if write_left:
-                        out_left.write(line)
-                    else:
-                        out_right.write(line)
-                    counter += 1
+
+# rule ungzip:
+#     input: 
+#         "results/{run}/sortmerna/{sample}/out/other.fq.gz"
+#     output: 
+#         "results/{run}/sortmerna/{sample}/out/other.fq"
+#     shell: 
+#         "gzip -d -c {input} > {output}"
+
+# rule split_reads:
+#     input: 
+#         other_reads = "results/{run}/sortmerna/{sample}/out/other.fq"
+#     output: 
+#         left_reads = "results/{run}/sortmerna/{sample}/paired_left.fq",
+#         right_reads = "results/{run}/sortmerna/{sample}/paired_right.fq"
+#     run: 
+#         counter = 0
+#         write_left = True
+#         with open(input.other_reads, "r") as in_reads, open(output.left_reads, "w") as out_left, open(output.right_reads, "w") as out_right:
+#                 for line in in_reads:
+#                     if counter % 4 == 0 and counter > 0:
+#                         write_left = not write_left
+#                         counter = 0
+#                     if write_left:
+#                         out_left.write(line)
+#                     else:
+#                         out_right.write(line)
+#                     counter += 1

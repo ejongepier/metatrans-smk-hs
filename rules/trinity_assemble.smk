@@ -1,7 +1,7 @@
 rule assemble_samples:
 	input: 
-		left = expand("results/{samples.run}/sortmerna/{samples.sample}/paired_left.fq", samples=smpls.itertuples()),
-		right = expand("results/{samples.run}/sortmerna/{samples.sample}/paired_right.fq", samples=smpls.itertuples()),
+		left = expand("results/{samples.run}/sortmerna/{samples.sample}/paired_left.fq.gz", samples=smpls.itertuples()),
+		right = expand("results/{samples.run}/sortmerna/{samples.sample}/paired_right.fq.gz", samples=smpls.itertuples()),
 		samples = config["samples"]
 	output: 
 		assemble_samples = "results/{run}/trinity_output/assemble_samples.txt"
@@ -22,8 +22,8 @@ rule assemble_samples:
 
 rule trinity_assemble:
 	input:
-		left = expand("results/{samples.run}/sortmerna/{samples.sample}/paired_left.fq", samples=smpls.itertuples()),
-		right = expand("results/{samples.run}/sortmerna/{samples.sample}/paired_right.fq", samples=smpls.itertuples()),
+		left = expand("results/{samples.run}/sortmerna/{samples.sample}/paired_left.fq.gz", samples=smpls.itertuples()),
+		right = expand("results/{samples.run}/sortmerna/{samples.sample}/paired_right.fq.gz", samples=smpls.itertuples()),
 		samples = "results/{run}/trinity_output/assemble_samples.txt"
 	output:
 		out_dir = directory("results/{run}/trinity_output/trinity_assemble"),

@@ -16,8 +16,8 @@ rule trinty_align_estimate_abundance:
 	input: 
 		assembly="results/{run}/trinity_output/trinity_assemble.Trinity.fasta",
 		align_samples="results/{run}/trinity_output/align_samples.txt",
-		left = expand("results/{samples.run}/sortmerna/{samples.sample}/paired_left.fq", samples=smpls.itertuples()),
-		right = expand("results/{samples.run}/sortmerna/{samples.sample}/paired_right.fq", samples=smpls.itertuples())
+		left = expand("results/{samples.run}/sortmerna/{samples.sample}/paired_left.fq.gz", samples=smpls.itertuples()),
+		right = expand("results/{samples.run}/sortmerna/{samples.sample}/paired_right.fq.gz", samples=smpls.itertuples())
 	output:
 		touch("results/{run}/trinity_output/align_estimate.done")
 	params:

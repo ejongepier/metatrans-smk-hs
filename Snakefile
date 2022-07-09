@@ -18,7 +18,7 @@ rule all:
 			samples=smpls.itertuples()),
 		expand("results/{samples.run}/trimmomatic/{samples.sample}.R1.paired.fastq.gz",
 			samples=smpls.itertuples()),
-		expand("results/{samples.run}/sortmerna/{samples.sample}/paired_left.fq",
+		expand("results/{samples.run}/sortmerna/{samples.sample}/paired_left.fq.gz",
 			samples=smpls.itertuples()),
 		expand("results/{samples.run}/fastqc/trimmed_filtered/{samples.sample}",
 			samples=smpls.itertuples()),
@@ -37,7 +37,7 @@ def get_fastq(wildcards):
     return smpls.loc[(wildcards.run, wildcards.sample), ["fwd","rev"]].dropna()
 
 def get_trimmed_input(wildcards):
-    return expand("results/{run}/sortmerna/{sample}/paired_{direction}.fq", 
+    return expand("results/{run}/sortmerna/{sample}/paired_{direction}.fq.gz", 
                    run=wildcards.run, sample=wildcards.sample, direction=["left","right"])
 
 #====================================
@@ -63,7 +63,7 @@ rule rrna_databasen:
 
 rule filter_rna:
 	input:
-		expand("results/{samples.run}/sortmerna/{samples.sample}/paired_{direction}.fq",
+		expand("results/{samples.run}/sortmerna/{samples.sample}/paired_{direction}.fq.gz",
 				samples=smpls.itertuples(), direction=["left","right"])
 
 rule trinity_assembly:

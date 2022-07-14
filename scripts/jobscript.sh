@@ -6,6 +6,8 @@
 #SBATCH --cpus-per-task=32
 #SBATCH --time=120:00:00
 #SBATCH --mem=400000
+#SBATCH --nodes=1
+#SBATCH --nodelist=omics-cn001,omics-cn002,omics-cn003,omics-cn004,omics-cn005
 
 ##SBATCH --mailtype=END,FAIL,TIME_LIMIT
 ##SBATCH --mail-user
@@ -14,7 +16,7 @@
 START=`date +"%Y%m%dT%H%M%S"`
 echo "$SLURM_JOB_NAME started at $START on node $SLURM_NODEID using $SLURM_CPUS_ON_NODE cpus."
 
-OUTDIR=/zfs/omics/personal/$USER/DiFlex/
+export OUTDIR='/zfs/omics/personal/$USER/DiFlex/metatrans-smk-hs/'
 #Conda init
 source ~/personal/miniconda3/etc/profile.d/conda.sh
 
@@ -24,32 +26,45 @@ init_cmd="conda activate $conda_env"
 eval $init_cmd
 
 #Setup scratch folder vars
-RUNDIR=/scratch/$USER/$START/
-TMPDIR=/scratch/$USER/tmp/$START/
+export RUNDIR=/scratch/$USER/
+export TMPDIR=/scratch/$USER/tmp/
 
 srun mkdir -p $RUNDIR
 srun mkdir -p $TMPDIR
 
 #Copy pipeline to scratch
 echo "Copying pipeline data"
-srun cp -fr '/zfs/omics/personal/$USER/DiFlex/metatrans-smk-hs/' $RUNDIR
+srun cp -fr '/zfs/omics/personal/$USER/DiFlex/metatrans-smk-hs/*' $RUNDIR
 echo "Done Copying"
 
 #DiFlex pipeline command
-cmd="srun --cores $SLURM_CPUS_ON_NODE snakemake --use-conda --cores $SLURM_CPUS_ON_NODE --nolock --rerun-incomplete --directory $RUNDIR --resources mem_mb=$SLURM_MEM_PER_NODE tmpdir=$TMPDIR"
+cmd="srun snakemake --use-conda --snakefile $RUNDIR/Snakefile --cores $SLURM_CPUS_ON_NODE --directory $RUNDIR --nolock --ri --resources mem_mb=$SLURM_MEM_PER_NODE"
+echo "running: $cmd"
 eval $cmd
 
-#DiFlex generate report
-cmd="srun snakemake --report reports/DiFLex_report_`date "+%Y%m%dT%H%M"`.zip"
-eval $cmd
+if [ $? -eq 0 ]; then
+    #DiFlex generate report
+    cmd="srun snakemake --snakefile $RUNDIR/Snakefile --directory $RUNDIR --report reports/DiFLex_report_`date "+%Y%m%dT%H%M"`.zip"
+    echo "running: $cmd"
+    eval $cmd
+else
+    echo "An error has occured. The report will not be generated."
+fi
 
-#Copy results back to USER
-srun cp -fr $RUNDIR $OUTDIR
+if [ $? -eq 0 ]; then
+    #Copy results back to USER
+    echo "Copying back result data"
+    srun cp -fr $RUNDIR/* $OUTDIR
+    echo "Copying complete"
 
-#Delete the scratch folder
-srun rm -fr $TMPDIR
-srun rm -fr $RUNDIR
+    #Delete the scratch folder
+    echo "Deleteing scratch folders"
+    srun rm -fr $TMPDIR
+    srun rm -fr $RUNDIR
+    echo "Scratch folders deleted"
+else
+    echo "An error has occured running the pipeline. Scratch data has not been deleted so that the pipeline can be restarted. Use the node ID: $SLURM_JOB_NODELIST when rerunning the pipeline."
+fi
 
 #Eindtijd in seconde en runtime
-END= `date +"%Y%m%dT%H%M%S"`
-echo "$SLURM_JOB_NAME finished at $END"
+echo "$SLURM_JOB_NAME finished"

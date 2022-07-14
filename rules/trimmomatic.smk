@@ -1,6 +1,6 @@
 rule trim_trimmomatic:
     input:
-        get_fastq
+        get_raw_input
     output:
         fwd_p = "results/{run}/trimmomatic/{sample}.R1.paired.fastq.gz",
         rev_p = "results/{run}/trimmomatic/{sample}.R2.paired.fastq.gz",

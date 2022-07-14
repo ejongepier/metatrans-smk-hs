@@ -27,18 +27,36 @@ rule all:
 		expand("results/{samples.run}/trinity_output/trinity_de/isoform.done",
 			samples=smpls.itertuples()),
 		expand("results/{samples.run}/trinity_output/trinity_de/gene.done",
+			samples=smpls.itertuples()),
+		expand("results/{samples.run}/processed_reads.pdf",
 			samples=smpls.itertuples())
 
 #====================================
 # GLOBAL FUNCTIONS
 #====================================
 
-def get_fastq(wildcards):
+def get_raw_input(wildcards):
     return smpls.loc[(wildcards.run, wildcards.sample), ["fwd","rev"]].dropna()
 
-def get_trimmed_input(wildcards):
+def get_all_raw_input(wildcards):
+	raw = smpls.loc[(wildcards.run), ["fwd","rev"]].dropna().values.tolist()
+	flat_raw = []
+	for item in raw:
+		if type(item) == list:
+			flat_raw.extend(item)
+		else:
+			flat_raw.append(item)
+	return flat_raw
+
+
+
+def get_trim_input(wildcards):
+	return expand("results/{run}/trimmomatic/{sample}.R{direction}.paired.fastq.gz",
+		run=wildcards.run, sample=wildcards.sample, direction=["1","2"])
+
+def get_filter_input(wildcards):
     return expand("results/{run}/sortmerna/{sample}/paired_{direction}.fq.gz", 
-                   run=wildcards.run, sample=wildcards.sample, direction=["left","right"])
+    	run=wildcards.run, sample=wildcards.sample, direction=["left","right"])
 
 #====================================
 # HELP FUNCTIONS
@@ -78,7 +96,12 @@ rule isoforms_analysis:
 
 rule genes_analysis:
 	input:
-		expand("results/demo/trinity_output/trinity_de/gene.done",
+		expand("results/{samples.run}/trinity_output/trinity_de/gene.done",
+			samples=smpls.itertuples())
+
+rule read_analysis:
+	input: 
+		expand("results/{samples.run}/processed_reads.pdf",
 			samples=smpls.itertuples())
 
 # ======================================================
@@ -98,3 +121,4 @@ include: "rules/trimmomatic.smk"
 include: "rules/sortmerna.smk"
 include: "rules/trinity_assemble.smk"
 include: "rules/trinity_de.smk"
+include: "rules/read_analyse.smk"

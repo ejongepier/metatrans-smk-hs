@@ -1,6 +1,6 @@
 rule fastQCraw:
 	input:
-		get_fastq
+		get_raw_input
 	output:
 		directory("results/{run}/fastqc/raw/{sample}/")
 	priority: 10
@@ -20,7 +20,7 @@ rule fastQCraw:
 
 rule fastQCtrimmed:
 	input:
-		get_trimmed_input
+		get_filter_input
 	output:
 		directory("results/{run}/fastqc/trimmed_filtered/{sample}/")
 	priority: 10

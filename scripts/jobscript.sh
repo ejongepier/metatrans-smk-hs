@@ -26,16 +26,23 @@ init_cmd="conda activate $conda_env"
 eval $init_cmd
 
 #Setup scratch folder vars
-export RUNDIR=/scratch/$USER/
+export RUNDIR=/scratch/$USER/snakemake/
 export TMPDIR=/scratch/$USER/tmp/
+export INDIR=/scratch/$USER/input/
 
 srun mkdir -p $RUNDIR
 srun mkdir -p $TMPDIR
+srun mkdir -p $INDIR
 
 #Copy pipeline to scratch
 echo "Copying pipeline data"
 srun cp -fr '/zfs/omics/personal/$USER/DiFlex/metatrans-smk-hs/*' $RUNDIR
-echo "Done Copying"
+echo "Done copying pipeline data"
+
+#Copy input data to folder
+echo "copying input data"
+srun cp -fr '/zfs/omics/personal/$USER/workflow-input-data/*' $INDIR
+echo "Done copying input data"
 
 #DiFlex pipeline command
 cmd="srun snakemake --use-conda --snakefile $RUNDIR/Snakefile --cores $SLURM_CPUS_ON_NODE --directory $RUNDIR --nolock --ri --resources mem_mb=$SLURM_MEM_PER_NODE"
@@ -60,6 +67,7 @@ if [ $? -eq 0 ]; then
     #Delete the scratch folder
     echo "Deleteing scratch folders"
     srun rm -fr $TMPDIR
+    srun rm -fr $INDIR
     srun rm -fr $RUNDIR
     echo "Scratch folders deleted"
 else

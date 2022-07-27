@@ -1,15 +1,15 @@
 args <- commandArgs(trailingOnly = TRUE)
 
-inreads <- read.delim(args[1], header = T, sep = "\t")
-amount_samples <- (nrow(inreads)-1)/3
+inreads <- read.delim(args[1], header = F, sep = "\t")
+colnames(inreads) <- c("run", "sample", "method", "nreads")
 
-raw <- sum(inreads[1:amount_samples,"num_seqs"])
-trimmomatic <- sum(inreads[(amount_samples+1):(amount_samples*2),"num_seqs"])
-sortmerna <- sum(inreads[(amount_samples*2+1):(amount_samples*3),"num_seqs"])
+res <- aggregate(inreads$nreads, by=list(inreads$run,inreads$method), FUN=sum)
+colnames(res) <- c("run", "method", "nreads")
 
-reads <- c(raw, trimmomatic, sortmerna)
-names(reads) <- c("raw","trimmomatic","sortmerna")
+resplot <- res$nreads
+names(resplot) <- res$method
+resplot <- sort(resplot, decreasing = T)
 
-pdf(args[2], width = 10, height = 8)
-barplot(reads, main = "Aantal reads van specifieke dataset", ylab = "Aantal reads")
+pdf(args[2], width = 8, height = 10)
+barplot(resplot, main = "Aantal reads van specifieke dataset", ylab = "Aantal reads")
 dev.off()

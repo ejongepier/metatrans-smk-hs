@@ -1,4 +1,4 @@
-#!/bin/bash
+ #!/bin/bash
 
 #SBATCH --job-name=DiFlex
 
@@ -7,7 +7,6 @@
 #SBATCH --time=120:00:00
 #SBATCH --mem=230000
 #SBATCH --nodes=1
-##SBATCH --nodelist=omics-cn001,omics-cn002,omics-cn003,omics-cn004,omics-cn005
 
 ##SBATCH --mailtype=END,FAIL,TIME_LIMIT
 ##SBATCH --mail-user
@@ -16,34 +15,41 @@
 START=`date +"%Y%m%dT%H%M%S"`
 echo "$SLURM_JOB_NAME started at $START on node $SLURM_NODEID using $SLURM_CPUS_ON_NODE cpus."
 
-OUTDIR="/zfs/omics/personal/$USER/DiFlex/metatrans-smk-hs/"
+
+startdir=$(pwd)
+cd "${0%/*}"
+head -n 2 ../config.yaml | sed '/^[[:space:]]*$/d' | sed 's/:\s*/=/' > ../config.tmp
+source ../config.tmp
+cd $startdir
+
+echo $condaenv_path
+echo $snakefile_path
+
 #Conda init
 source ~/personal/miniconda3/etc/profile.d/conda.sh
 
 #Conda activatie
-conda_env="/zfs/omics/personal/$USER/miniconda3/envs/snakemake"
-init_cmd="conda activate $conda_env"
+#conda_env="/zfs/omics/personal/$USER/miniconda3/envs/snakemake"
+init_cmd="conda activate $condaenv_path"
 eval $init_cmd
 
 #Setup scratch folder vars
 RUNDIR="/scratch/$USER/snakemake/"
 export TMPDIR="/scratch/$USER/tmp/"
-INDIR="/scratch/$USER/input/"
 
 srun mkdir -p $RUNDIR
 srun mkdir -p $TMPDIR
-srun mkdir -p $INDIR
 
 #Copy pipeline to scratch
 echo "Copying pipeline data"
-srun cp -fr $OUTDIR/* $RUNDIR
+srun cp -fr $snakefile_path/* $RUNDIR
 #srun cp -fr "/zfs/omics/personal/$USER/DiFlex/metatrans-smk-hs/*" $RUNDIR
 echo "Done copying pipeline data"
 
 #Copy input data to folder
-echo "copying input data"
-srun cp -fr "/zfs/omics/personal/$USER/workflow-input-data/*" $INDIR
-echo "Done copying input data"
+#echo "copying input data"
+#srun cp -fr "/zfs/omics/personal/$USER/workflow-input-data/*" $INDIR
+#echo "Done copying input data"
 
 #DiFlex pipeline command
 cmd="srun snakemake -useconda --snakefile $RUNDIR/Snakefile --cores $SLURM_CPUS_ON_NODE --directory $RUNDIR --nolock --ri -n --resources mem_mb=$SLURM_MEM_PER_NODE"
@@ -52,7 +58,7 @@ eval $cmd
 
 #if [ $? -eq 0 ]; then
 #    #DiFlex generate report
-#    cmd="srun snakemake --snakefile $RUNDIR/Snakefile --directory $RUNDIR --report reports/DiFLex_report_`date "+%Y%m%dT%H%M"`.zip"
+#    cmd="srun snakemake --snakefile $RUNDIR/Snakefile --directory $RUNDIR --report reports/DiFLex_report.zip"
 #    echo "running: $cmd"
 #    eval $cmd
 #else
@@ -62,13 +68,25 @@ eval $cmd
 if [ $? -eq 0 ]; then
     #Copy results back to USER
     echo "Copying back result data"
-    #srun cp -fr $RUNDIR/* $OUTDIR
+    srun cp -f $RUNDIR/reports/DiFlex_report.zip $snakefile_path/reports/
+    for run in $RUNDIR/results/*; do
+        srun cp -fr $RUNDIR/results/$run/fastqc $snakefile_path/results/$run/
+        srun cp -fr $RUNDIR/results/$run/trimmomatic/*.R1.paired.fastq.gz $snakefile_path/results/$run/trimmomatic/
+        srun cp -fr $RUNDIR/results/$run/trimmomatic/*.R2.paired.fastq.gz $snakefile_path/results/$run/trimmomatic/
+        for sample in $RUNDIR/results/sortmerna/*; do
+            srun cp -f $RUNDIR/results/$run/sortmerna/$sample/paired_*.fq.gz $snakefile_path/results/$run/sortmerna/$sample/
+            srun cp -fr $RUNDIR/results/$run/sortmerna/$sample/out $snakefile_path/results/$run/sortmerna/$sample/
+        done
+        srun cp -fr $RUNDIR/results/$run/trinity_output/trinity_de/ $snakefile_path/results/$run/trinity_output/
+        srun cp -f $RUNDIR/results/$run/trinity_output/trinity_assemble.Trinity.fasta $snakefile_path/results/$run/trinity_output/
+        srun cp -f $RUNDIR/results/$run/trinity_output/trinity_assemble.Trinity.fasta.gene_trans_map $snakefile_path/results/$run/trinity_output/
+        srun cp -fr $RUNDIR/results/$run/plots/ $snakefile_path/results/$run/
+    done
     echo "Copying complete"
 
     #Delete the scratch folder
     echo "Deleting scratch folders"
     srun rm -fr $TMPDIR
-    srun rm -fr $INDIR
     srun rm -fr $RUNDIR
     echo "Scratch folders deleted"
 else

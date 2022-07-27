@@ -1,3 +1,6 @@
+condaenv_path:                     "/zfs/omics/personal/$USER/miniconda3/envs/snakemake"
+snakefile_path:                     "/zfs/omics/personal/$USER/DiFlex/metatrans-smk-hs/"
+
 samples:                            "samples.csv"
 
 general:
@@ -34,9 +37,16 @@ interproscan:
     environment:                    "../envs/interproscan.yaml"
     database:                       ""
     analyses:
-        - ProSiteProfiles
-        - Pfam
+        - CDD
+        - COILS
         - Gene3D
+        - HAMAP
+        - MOBIDB
         - PANTHER
+        - Pfam
         - PIRSF
+        - PRINTS
+        - SFLD
+        - SMART
+        - TIGRFAMs
 

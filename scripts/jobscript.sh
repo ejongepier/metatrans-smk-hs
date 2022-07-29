@@ -1,4 +1,4 @@
- #!/bin/bash
+#!/bin/bash
 
 #SBATCH --job-name=DiFlex
 
@@ -16,26 +16,41 @@ START=`date +"%Y%m%dT%H%M%S"`
 echo "$SLURM_JOB_NAME started at $START on node $SLURM_NODEID using $SLURM_CPUS_ON_NODE cpus."
 
 
-startdir=$(pwd)
-cd "${0%/*}"
-head -n 2 ../config.yaml | sed '/^[[:space:]]*$/d' | sed 's/:\s*/=/' > ../config.tmp
-source ../config.tmp
-cd $startdir
+if [ -z "$1" ]
+then
+  echo "No config file given"
+fi
 
-echo $condaenv_path
-echo $snakefile_path
+head -n 2 $1 | sed '/^[[:space:]]*$/d' | sed 's/:\s*/=/' | tr -d "\r" > $TMPDIR/config.tmp
+source $TMPDIR/config.tmp
+
+if [ -z "$snakemake_env_path" ]
+then
+  echo "No snakemake env path given"
+  exit 2
+fi
+
+if [ -z "$snakefile_path" ]
+then
+  echo "No snakefile path given"
+  exit 2
+fi
+
+echo "path vars"
+echo "$snakefile_path"
+echo "$snakemake_env_path"
 
 #Conda init
-source ~/personal/miniconda3/etc/profile.d/conda.sh
+source /zfs/omics/personal/$USER/miniconda3/etc/profile.d/conda.sh
 
 #Conda activatie
-#conda_env="/zfs/omics/personal/$USER/miniconda3/envs/snakemake"
-init_cmd="conda activate $condaenv_path"
+##conda_env="/zfs/omics/personal/$USER/miniconda3/envs/snakemake"
+init_cmd="conda activate $snakemake_env_path"
 eval $init_cmd
 
 #Setup scratch folder vars
-RUNDIR="/scratch/$USER/snakemake/"
-export TMPDIR="/scratch/$USER/tmp/"
+RUNDIR="/scratch/$USER/diflexrun"
+export TMPDIR="/scratch/$USER/tmp"
 
 srun mkdir -p $RUNDIR
 srun mkdir -p $TMPDIR
@@ -52,7 +67,7 @@ echo "Done copying pipeline data"
 #echo "Done copying input data"
 
 #DiFlex pipeline command
-cmd="srun snakemake -useconda --snakefile $RUNDIR/Snakefile --cores $SLURM_CPUS_ON_NODE --directory $RUNDIR --nolock --ri -n --resources mem_mb=$SLURM_MEM_PER_NODE"
+cmd="srun snakemake --use-conda --snakefile $RUNDIR/Snakefile --cores $SLURM_CPUS_ON_NODE --directory $RUNDIR --nolock --ri -n --resources mem_mb=$SLURM_MEM_PER_NODE"
 echo "running: $cmd"
 eval $cmd
 

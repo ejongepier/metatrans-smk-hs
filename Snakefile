@@ -28,7 +28,7 @@ rule all:
 			samples=smpls.itertuples()),
 		expand("results/{samples.run}/trinity_output/trinity_de/gene.done",
 			samples=smpls.itertuples()),
-		expand("results/{samples.run}/processed_reads.pdf",
+		expand("results/{samples.run}/plots/processed_reads.pdf",
 			samples=smpls.itertuples())
 
 #====================================
@@ -101,7 +101,7 @@ rule genes_analysis:
 
 rule read_analysis:
 	input: 
-		expand("results/{samples.run}/processed_reads.pdf",
+		expand("results/{samples.run}/plots/processed_reads.pdf",
 			samples=smpls.itertuples())
 
 # ======================================================

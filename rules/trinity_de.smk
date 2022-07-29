@@ -45,7 +45,7 @@ rule trinty_align_estimate_abundance:
 
 rule isoform_path:
 	input: 
-		RSEM=expand("results/{samples.run}/trinity_output/trinity_de/{samples.sample}/RSEM.isoforms.results", samples=smpls.itertuples()),
+		#RSEM=expand("results/{samples.run}/trinity_output/trinity_de/{samples.sample}/RSEM.isoforms.results", samples=smpls.itertuples()),
 		done_file="results/{run}/trinity_output/align_estimate.done"
 	output: 
 		isoform_path="results/{run}/trinity_output/trinity_de/isoform-file-paths.txt"

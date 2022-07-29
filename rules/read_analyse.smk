@@ -25,9 +25,11 @@ rule krijg_read_info:
 
 rule krijg_bam_info:
     input: 
-        bam = "results/{run}/trinity_output/trinity_de/{sample}/bowtie2.bam"
+        align_done="results/{run}/trinity_output/align_estimate.done"
     output: 
         outfile = "results/{run}/trinity_output/trinity_de/{sample}/flagstats.tsv"
+    params:
+        bam = "results/{run}/trinity_output/trinity_de/{sample}/bowtie2.bam"
     conda:
         config["trinity"]["environment"]
     threads:

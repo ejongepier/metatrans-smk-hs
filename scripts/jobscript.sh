@@ -67,31 +67,33 @@ echo "Done copying pipeline data"
 #echo "Done copying input data"
 
 #DiFlex pipeline command
-cmd="srun snakemake --use-conda --snakefile $RUNDIR/Snakefile --cores $SLURM_CPUS_ON_NODE --directory $RUNDIR --nolock --ri -n --resources mem_mb=$SLURM_MEM_PER_NODE"
+cmd="srun snakemake --use-conda --snakefile $RUNDIR/Snakefile --cores $SLURM_CPUS_ON_NODE --directory $RUNDIR --nolock --ri --resources mem_mb=$SLURM_MEM_PER_NODE"
 echo "running: $cmd"
 eval $cmd
 
-#if [ $? -eq 0 ]; then
-#    #DiFlex generate report
-#    cmd="srun snakemake --snakefile $RUNDIR/Snakefile --directory $RUNDIR --report reports/DiFLex_report.zip"
-#    echo "running: $cmd"
-#    eval $cmd
-#else
-#    echo "An error has occured. The report will not be generated."
-#fi
-
 if [ $? -eq 0 ]; then
+    #DiFlex generate report
+    cmd="srun snakemake --snakefile $RUNDIR/Snakefile --directory $RUNDIR --report reports/Diflex_report.zip"
+    echo "running: $cmd"
+    eval $cmd
+    echo "Report generated"
+
     #Copy results back to USER
     echo "Copying back result data"
-    srun cp -f $RUNDIR/reports/DiFlex_report.zip $snakefile_path/reports/
-    for run in $RUNDIR/results/*; do
-        srun cp -fr $RUNDIR/results/$run/fastqc $snakefile_path/results/$run/
-        srun cp -fr $RUNDIR/results/$run/trimmomatic/*.R1.paired.fastq.gz $snakefile_path/results/$run/trimmomatic/
-        srun cp -fr $RUNDIR/results/$run/trimmomatic/*.R2.paired.fastq.gz $snakefile_path/results/$run/trimmomatic/
-        for sample in $RUNDIR/results/sortmerna/*; do
-            srun cp -f $RUNDIR/results/$run/sortmerna/$sample/paired_*.fq.gz $snakefile_path/results/$run/sortmerna/$sample/
-            srun cp -fr $RUNDIR/results/$run/sortmerna/$sample/out $snakefile_path/results/$run/sortmerna/$sample/
-        done
+    srun cp -f $RUNDIR/reports/Diflex_report.zip $snakefile_path/reports/
+    for runp in $RUNDIR/results/*; do
+	run=${runp#"$RUNDIR/results/"}
+	echo "$run"
+        srun cp -fr $RUNDIR/results/$run/fastqc/ $snakefile_path/results/$run/fastqc
+	srun mkdir -p $snakefile_path/results/$run/trimmomatic
+        srun cp -f $RUNDIR/results/$run/trimmomatic/*.R1.paired.fastq.gz $snakefile_path/results/$run/trimmomatic/
+        srun cp -f $RUNDIR/results/$run/trimmomatic/*.R2.paired.fastq.gz $snakefile_path/results/$run/trimmomatic/
+	for samplep in $RUNDIR/results/$run/sortmerna/*; do
+	    sample=${samplep#"$RUNDIR/results/$run/sortmerna/"}
+	    srun mkdir -p $snakefile_path/results/$run/sortmerna/$sample/
+	    srun cp -f $RUNDIR/results/$run/sortmerna/$sample/paired_*.fq.gz $snakefile_path/results/$run/sortmerna/$sample/
+	    srun cp -fr $RUNDIR/results/$run/sortmerna/$sample/out $snakefile_path/results/$run/sortmerna/$sample/
+	done
         srun cp -fr $RUNDIR/results/$run/trinity_output/trinity_de/ $snakefile_path/results/$run/trinity_output/
         srun cp -f $RUNDIR/results/$run/trinity_output/trinity_assemble.Trinity.fasta $snakefile_path/results/$run/trinity_output/
         srun cp -f $RUNDIR/results/$run/trinity_output/trinity_assemble.Trinity.fasta.gene_trans_map $snakefile_path/results/$run/trinity_output/

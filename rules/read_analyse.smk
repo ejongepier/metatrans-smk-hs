@@ -35,7 +35,7 @@ rule krijg_bam_info:
     threads:
         4
     shell: 
-        """samtools flagstats -@ {threads} -O tsv {input} > {output}"""
+        """samtools flagstats -@ {threads} -O tsv {params.bam} > {output}"""
 
 rule combine_bam_info:
     input: 

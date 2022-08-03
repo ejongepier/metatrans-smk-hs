@@ -1,5 +1,6 @@
 snakemake_env_path:         "/zfs/omics/personal/thamer/miniconda3/envs/snakemake"
 snakefile_path:             "/zfs/omics/personal/thamer/DiFlex/metatrans-smk-hs"
+return_all_results:         "true"
 
 samples:                    "samples.csv"
 

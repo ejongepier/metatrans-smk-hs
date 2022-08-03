@@ -21,7 +21,7 @@ then
   echo "No config file given"
 fi
 
-head -n 2 $1 | sed '/^[[:space:]]*$/d' | sed 's/:\s*/=/' | tr -d "\r" > $TMPDIR/config.tmp
+head -n 3 $1 | sed '/^[[:space:]]*$/d' | sed 's/:\s*/=/' | tr -d "\r" > $TMPDIR/config.tmp
 source $TMPDIR/config.tmp
 
 if [ -z "$snakemake_env_path" ]
@@ -61,11 +61,6 @@ srun cp -fr $snakefile_path/* $RUNDIR
 #srun cp -fr "/zfs/omics/personal/$USER/DiFlex/metatrans-smk-hs/*" $RUNDIR
 echo "Done copying pipeline data"
 
-#Copy input data to folder
-#echo "copying input data"
-#srun cp -fr "/zfs/omics/personal/$USER/workflow-input-data/*" $INDIR
-#echo "Done copying input data"
-
 #DiFlex pipeline command
 cmd="srun snakemake --use-conda --snakefile $RUNDIR/Snakefile --cores $SLURM_CPUS_ON_NODE --directory $RUNDIR --nolock --ri --resources mem_mb=$SLURM_MEM_PER_NODE"
 echo "running: $cmd"
@@ -81,24 +76,31 @@ if [ $? -eq 0 ]; then
     #Copy results back to USER
     echo "Copying back result data"
     srun cp -f $RUNDIR/reports/Diflex_report.zip $snakefile_path/reports/
-    for runp in $RUNDIR/results/*; do
-	run=${runp#"$RUNDIR/results/"}
-	echo "$run"
-        srun cp -fr $RUNDIR/results/$run/fastqc/ $snakefile_path/results/$run/fastqc
-	srun mkdir -p $snakefile_path/results/$run/trimmomatic
-        srun cp -f $RUNDIR/results/$run/trimmomatic/*.R1.paired.fastq.gz $snakefile_path/results/$run/trimmomatic/
-        srun cp -f $RUNDIR/results/$run/trimmomatic/*.R2.paired.fastq.gz $snakefile_path/results/$run/trimmomatic/
-	for samplep in $RUNDIR/results/$run/sortmerna/*; do
-	    sample=${samplep#"$RUNDIR/results/$run/sortmerna/"}
-	    srun mkdir -p $snakefile_path/results/$run/sortmerna/$sample/
-	    srun cp -f $RUNDIR/results/$run/sortmerna/$sample/paired_*.fq.gz $snakefile_path/results/$run/sortmerna/$sample/
-	    srun cp -fr $RUNDIR/results/$run/sortmerna/$sample/out $snakefile_path/results/$run/sortmerna/$sample/
-	done
-        srun cp -fr $RUNDIR/results/$run/trinity_output/trinity_de/ $snakefile_path/results/$run/trinity_output/
-        srun cp -f $RUNDIR/results/$run/trinity_output/trinity_assemble.Trinity.fasta $snakefile_path/results/$run/trinity_output/
-        srun cp -f $RUNDIR/results/$run/trinity_output/trinity_assemble.Trinity.fasta.gene_trans_map $snakefile_path/results/$run/trinity_output/
-        srun cp -fr $RUNDIR/results/$run/plots/ $snakefile_path/results/$run/
-    done
+    if [ $return_all_results = "true" ]; then
+      echo "Copying all results in a tar.gz file"
+      tar -czvf $TMPDIR/diflex_all_results.tar.gz $RUNDIR/results/*
+      cp -f $TMPDIR/diflex_all_results.tar.gz $snakefile_path/results/
+    else
+      echo "Copying only relevant results"
+      for runp in $RUNDIR/results/*; do
+	      run=${runp#"$RUNDIR/results/"}
+	        echo "$run"
+          srun cp -fr $RUNDIR/results/$run/fastqc/ $snakefile_path/results/$run/fastqc
+	        srun mkdir -p $snakefile_path/results/$run/trimmomatic
+          srun cp -f $RUNDIR/results/$run/trimmomatic/*.R1.paired.fastq.gz $snakefile_path/results/$run/trimmomatic/
+          srun cp -f $RUNDIR/results/$run/trimmomatic/*.R2.paired.fastq.gz $snakefile_path/results/$run/trimmomatic/
+	        for samplep in $RUNDIR/results/$run/sortmerna/*; do
+	          sample=${samplep#"$RUNDIR/results/$run/sortmerna/"}
+	          srun mkdir -p $snakefile_path/results/$run/sortmerna/$sample/
+	          srun cp -f $RUNDIR/results/$run/sortmerna/$sample/paired_*.fq.gz $snakefile_path/results/$run/sortmerna/$sample/
+	          srun cp -fr $RUNDIR/results/$run/sortmerna/$sample/out $snakefile_path/results/$run/sortmerna/$sample/
+	        done
+          srun cp -fr $RUNDIR/results/$run/trinity_output/trinity_de/ $snakefile_path/results/$run/trinity_output/
+          srun cp -f $RUNDIR/results/$run/trinity_output/trinity_assemble.Trinity.fasta $snakefile_path/results/$run/trinity_output/
+          srun cp -f $RUNDIR/results/$run/trinity_output/trinity_assemble.Trinity.fasta.gene_trans_map $snakefile_path/results/$run/trinity_output/
+          srun cp -fr $RUNDIR/results/$run/plots/ $snakefile_path/results/$run/
+      done
+    fi
     echo "Copying complete"
 
     #Delete the scratch folder

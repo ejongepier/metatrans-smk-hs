@@ -91,9 +91,10 @@ rule reads_plot:
         reads_results = "results/{run}/plots/reads_results.tsv"
     output: 
         plot="results/{run}/plots/processed_reads.pdf"
+        plotdir=directory("results/{run}/plots")
     conda:
         config["read-analyse"]["environment"]
     log:
         "logs/{run}/read_analyse_plot.log"
     shell: 
-        """Rscript scripts/plot_reads.r {input.reads_results} {output.plot} > {log}"""
+        """Rscript scripts/plot_reads.r {input.reads_results} {output.plot} {output.plotdir} > {log}"""

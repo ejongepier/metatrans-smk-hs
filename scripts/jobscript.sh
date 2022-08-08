@@ -57,7 +57,8 @@ srun mkdir -p $TMPDIR
 
 #Copy pipeline to scratch
 echo "Copying pipeline data"
-srun cp -fr $snakefile_path/* $RUNDIR
+#srun cp -fr $snakefile_path/* $RUNDIR
+srun rsync -r $snakefile_path/* $RUNDIR --exclude=results/
 #srun cp -fr "/zfs/omics/personal/$USER/DiFlex/metatrans-smk-hs/*" $RUNDIR
 echo "Done copying pipeline data"
 

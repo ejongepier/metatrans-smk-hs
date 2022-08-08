@@ -1,4 +1,4 @@
-name: fastQC
+name: read_analyse
 channels:
   - conda-forge
   - bioconda
@@ -8,3 +8,4 @@ channels:
 dependencies:
   - seqkit
   - r
+  - r-ggplot2

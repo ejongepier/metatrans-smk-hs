@@ -1,7 +1,5 @@
 #wget commando voor database downloaden 'wget https://github.com/biocore/sortmerna/releases/download/v4.3.3/database.tar.gz'
 rule reference_database:
-    input:
-        fol = "db/sortmerna/"
     output: 
         "db/sortmerna/smr_v4.3_{database_type}_db.fasta"
     params:

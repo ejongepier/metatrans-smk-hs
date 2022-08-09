@@ -37,6 +37,9 @@ trinity-DE:
 interproscan:
     environment:            "../envs/interproscan.yaml"
     database:               ""
+    major_version:          "5.55"
+    minor_version:          "88.0"
+    protein-max-length:     30
     analyses:
         - CDD
         - COILS

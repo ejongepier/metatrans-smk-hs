@@ -12,6 +12,8 @@ smpls.index = smpls.index.set_levels([i.astype(str) for i in smpls.index.levels]
 wildcard_constraints:
 	sample = '[A-Za-z0-9_]+',
 
+PARTS, = glob_wildcards("results/interproscan/split_proteins/{part}.pep")
+
 rule all:
 	input:
 		expand("results/{samples.run}/fastqc/raw/{samples.sample}",
@@ -29,7 +31,11 @@ rule all:
 		expand("results/{samples.run}/trinity_output/trinity_de/gene.done",
 			samples=smpls.itertuples()),
 		expand("results/{samples.run}/plots/processed_reads.pdf",
-			samples=smpls.itertuples())
+			samples=smpls.itertuples()),
+		expand("results/{samples.run}/interproscan/split_proteins",
+			samples=smpls.itertuples()),
+		expand("results/{samples.run}/interproscan/output_{part}",
+			samples=smpls.itertuples(), part=PARTS)
 
 #====================================
 # GLOBAL FUNCTIONS
@@ -47,8 +53,6 @@ def get_all_raw_input(wildcards):
 		else:
 			flat_raw.append(item)
 	return flat_raw
-
-
 
 def get_trim_input(wildcards):
 	return expand("results/{run}/trimmomatic/{sample}.R{direction}.paired.fastq.gz",
@@ -122,3 +126,4 @@ include: "rules/sortmerna.smk"
 include: "rules/trinity_assemble.smk"
 include: "rules/trinity_de.smk"
 include: "rules/read_analyse.smk"
+include: "rules/interproscan.smk"

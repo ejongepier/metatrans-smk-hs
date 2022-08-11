@@ -100,6 +100,7 @@ if [ $? -eq 0 ]; then
           srun cp -f $RUNDIR/results/$run/trinity_output/trinity_assemble.Trinity.fasta $snakefile_path/results/$run/trinity_output/
           srun cp -f $RUNDIR/results/$run/trinity_output/trinity_assemble.Trinity.fasta.gene_trans_map $snakefile_path/results/$run/trinity_output/
           srun cp -fr $RUNDIR/results/$run/plots/ $snakefile_path/results/$run/
+	  srun cp -fr $RUNDIR/results/$run/interproscan/ $snakefile_path/results/$run/
       done
     fi
     echo "Copying complete"

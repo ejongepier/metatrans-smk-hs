@@ -1,6 +1,6 @@
 rule interprodb:
     output: 
-        touch("interprodb.done")
+        touch("results/interprodb.done")
     shadow:
         "full"
     params:
@@ -21,7 +21,7 @@ rule translate_transcripts:
     input: 
         "results/{run}/trinity_output/trinity_assemble.Trinity.fasta"
     output: 
-        temp("results/{run}/interproscan/trinity_proteins.fasta"),
+        directory("results/{run}/interproscan/trinity_proteins"),
         "results/{run}/interproscan/trinity_proteins_fil.fasta"
     params:
         pep_max_len=config["interproscan"]["protein-max-length"]
@@ -30,12 +30,12 @@ rule translate_transcripts:
     shell:
         """
         TransDecoder.LongOrfs -t {input} -m {params.pep_max_len} -O {output[0]}
-        cat {output[0]} | egrep -A1 complete | sed '/^--/d' > {output[1]}
+        cat {output[0]}/*.pep | egrep -A1 complete | sed '/^--/d' > {output[1]}
         """ 
 
 rule split_transcripts:
     input: 
-        "results/{run}/interproscan/trinity_proteins.fasta"
+        "results/{run}/interproscan/trinity_proteins_fil.fasta"
     output:
         directory("results/{run}/interproscan/split_proteins")
     conda:
@@ -43,18 +43,9 @@ rule split_transcripts:
     shell: 
         """seqkit split -i -s 40 --out-dir {output} {input}"""
 
-# rule longest_orf:
-#     input: 
-#     output: 
-#     run:
-#         #Loop door file en bewaar de trinity isoform ID
-#         #sla entry op met de lengte
-#         #als lengte van volgende met dezelfde trinity ID langer is sla deze dan op.
-#         #herhaal voor elk trinity ID
-
-
 rule interproscan:
     input: 
+        "results/interprodb.done",
         "results/{run}/interproscan/split_proteins/{part}.pep"
     output: 
         directory("results/{run}/interproscan/output_{part}")
@@ -70,5 +61,5 @@ rule interproscan:
             --output-dir {output} \
             --tempdir {resources.tmpdir} \
             --seqtype p \
-            --input {input} > {log}
+            --input {input[1]} > {log}
         """

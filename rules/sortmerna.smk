@@ -9,7 +9,7 @@ rule reference_database:
         mkdir -p 'db/sortmerna/download'
         wget -nc -nv -P 'db/sortmerna/download/' 'https://github.com/biocore/sortmerna/releases/download/v4.3.3/database.tar.gz'
         tar -xzvf db/sortmerna/download/database.tar.gz -C db/sortmerna/download
-        mv 'db/sortmerna/download/{params.db}' '{input}' 
+        mv 'db/sortmerna/download/{params.db}' 'db/sortmerna/' 
         rm -r 'db/sortmerna/download'
         """
 

@@ -10,9 +10,9 @@ smpls = pd.read_csv(config["samples"], dtype=str).set_index(["run", "sample"], d
 smpls.index = smpls.index.set_levels([i.astype(str) for i in smpls.index.levels])
 
 wildcard_constraints:
-	sample = '[A-Za-z0-9_]+',
+	sample = '[A-Za-z0-9_]+'
 
-PARTS, = glob_wildcards("results/interproscan/split_proteins/{part}.pep")
+PARTS, = glob_wildcards("results/demo/interproscan/split_proteins/{part}.pep")
 
 rule all:
 	input:
@@ -34,8 +34,8 @@ rule all:
 			samples=smpls.itertuples()),
 		expand("results/{samples.run}/interproscan/split_proteins",
 			samples=smpls.itertuples()),
-		expand("results/{samples.run}/interproscan/output_{part}",
-			samples=smpls.itertuples(), part=PARTS)
+		expand("results/{samples.run}/interproscan/output",
+			samples=smpls.itertuples())
 
 #====================================
 # GLOBAL FUNCTIONS

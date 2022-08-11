@@ -45,21 +45,42 @@ rule split_transcripts:
 
 rule interproscan:
     input: 
-        "results/interprodb.done",
-        "results/{run}/interproscan/split_proteins/{part}.pep"
+        "results/{run}/interproscan/trinity_proteins_fil.fasta",
+        "results/interprodb.done"
     output: 
-        directory("results/{run}/interproscan/output_{part}")
+        directory("results/{run}/interproscan/output")
     params:
         applications=config["interproscan"]["analyses"]
     conda:
         config["interproscan"]["environment"]
     log:
-        "logs/{run}/output_{part}_interproscan.log"
+        "logs/{run}/interproscan.log"
     shell: 
         """
         ./interproscan.sh --applications {params.applications} \
             --output-dir {output} \
             --tempdir {resources.tmpdir} \
             --seqtype p \
-            --input {input[1]} > {log}
+            --input {input[0]} > {log}
         """
+
+
+# rule interproscan:
+#     input: 
+#         "results/{run}/interproscan/split_proteins/{part}.pep"
+#     output: 
+#         directory("results/{run}/interproscan/output_{part}")
+#     params:
+#         applications=config["interproscan"]["analyses"]
+#     conda:
+#         config["interproscan"]["environment"]
+#     log:
+#         "logs/{run}/output_{part}_interproscan.log"
+#     shell: 
+#         """
+#         ./interproscan.sh --applications {params.applications} \
+#             --output-dir {output} \
+#             --tempdir {resources.tmpdir} \
+#             --seqtype p \
+#             --input {input} > {log}
+#         """

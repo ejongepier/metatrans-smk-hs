@@ -9,12 +9,11 @@ rule interprodb:
     shell: 
         """
             mkdir -p '{resources.tmpdir}/interprodb'
-            wget -nv -P '{resources.tmpdir}/interprodb/' 'http://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/{params.major}-{params.minor}/interproscan-{params.major}-{params.minor}-64-bit.tar.gz.md5'
+	    rm -f '{resources.tmpdir}/interprodb/*.tar.gz.*'
             wget -nv -P '{resources.tmpdir}/interprodb/' 'http://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/{params.major}-{params.minor}/interproscan-{params.major}-{params.minor}-64-bit.tar.gz'
-            md5sum -c '{resources.tmpdir}/interprodb/interproscan-{params.major}-{params.minor}-64-bit.tar.gz.md5'
-            tar -xvzf '{resources.tmpdir}/interprodb/interproscan-{params.major}-{params.minor}-64-bit.tar.gz'
+            tar -xzvf '{resources.tmpdir}/interprodb/interproscan-{params.major}-{params.minor}-64-bit.tar.gz' -C '{resources.tmpdir}/interprodb/'
             rm -fr .snakemake/conda/*/share/InterProScan/data/
-            mv -r {resources.tmpdir}/interprodb/interproscan-{params.major}-{params.minor}/data .snakemake/conda/*/share/InterProScan/
+            mv -f {resources.tmpdir}/interprodb/interproscan-{params.major}-{params.minor}/data .snakemake/conda/*/share/InterProScan/
         """
 
 rule translate_transcripts:

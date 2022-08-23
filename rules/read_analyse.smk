@@ -85,15 +85,51 @@ rule final_read_info:
     shell: 
         """cat {input.seqkit} {input.bam} > {output.read_info}"""
 
+rule sample_id:
+    input: 
+        "results/{run}/plots/reads_results.tsv"
+    output: 
+        "results/{run}/plots/reads_results_fin.tsv"
+    params:
+        sample_file = config["samples"]
+    run: 
+        sample_dic = {}
+        with open(params.sample_file, "r") as sf:
+            sf.readline()
+            for line in sf:
+                line = line.strip("\n")
+                sline = line.split(",")
+                for i in range(2):
+                    sample_dic[sline[3+i].split("/")[-1]] = sline[2]
+        with open(input[0], "r") as inf, open(output[0], "w") as outf:
+            for line in inf:
+                    line = line.strip("\n")
+                    sline = line.split("\t")
+                    if "raw" in line:
+                        sample = sample_dic[sline[1]]
+                        outf.write(line + "\t" + sample + "\n")
+                    if "trimmomatic" in line:
+                        sample = sline[1].split(".")[0]
+                        outf.write(line + "\t" + sample + "\n")
+                    if "sortmerna" in line:
+                        if ".paired_left.fq.gz" in line:
+                            sample = sline[1].strip(".paired_left.fq.gz")
+                            outf.write(line + "\t" + sample + "\n")
+                        if ".paired_right.fq.gz" in line:
+                            sample = sline[1].strip(".paired_right.fq.gz")
+                            outf.write(line + "\t" + sample + "\n")
+                    if "trinity" in line:
+                        outf.write(line + "\t" + sline[1] + "\n")
 
 rule reads_plot:
     input: 
-        reads_results = "results/{run}/plots/reads_results.tsv"
+        reads_results = "results/{run}/plots/reads_results_fin.tsv"
     output: 
-        plot="results/{run}/plots/processed_reads.pdf"
+        plot="results/{run}/plots/processed_reads.pdf",
+        sample_plot="results/{run}/plots/reads_by_sample.pdf"
     conda:
         config["read-analyse"]["environment"]
     log:
         "logs/{run}/read_analyse_plot.log"
     shell: 
-        """Rscript scripts/plot_reads.r {input.reads_results} {output.plot} results/{wildcards.run}/plots > {log}"""
+        """Rscript scripts/plot_reads.r {input.reads_results} {output.plot} {output.sample_plot} > {log}"""

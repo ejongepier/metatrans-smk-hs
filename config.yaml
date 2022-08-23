@@ -20,7 +20,7 @@ sortmerna:
     paired_optie:           "paired_in"
     ref_database:           "fast"
     threads:                4
-    max_memory:             5000
+    max_memory:             6000
 fastQC:
     environment:            "../envs/fastqc.yaml"
     threads:                4
@@ -36,6 +36,7 @@ trinity-DE:
     pca_components:         3
 interproscan:
     environment:            "../envs/interproscan.yaml"
+    dir_path:               "/zfs/omics/projects/amplicomics/bin/interproscan/interproscan-5.36-75.0"
     database:               ""
     major_version:          "5.55"
     minor_version:          "88.0"
@@ -45,8 +46,6 @@ interproscan:
         - COILS
         - Gene3D
         - HAMAP
-        - MOBIDB
-        - PANTHER
         - Pfam
         - PIRSF
         - PRINTS

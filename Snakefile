@@ -32,8 +32,6 @@ rule all:
 			samples=smpls.itertuples()),
 		expand("results/{samples.run}/plots/processed_reads.pdf",
 			samples=smpls.itertuples()),
-		expand("results/{samples.run}/interproscan/split_proteins",
-			samples=smpls.itertuples()),
 		expand("results/{samples.run}/interproscan/output",
 			samples=smpls.itertuples())
 

@@ -1,27 +1,9 @@
-rule interprodb:
-    output: 
-        touch("results/interprodb.done")
-    shadow:
-        "full"
-    params:
-        major=config["interproscan"]["major_version"],
-        minor=config["interproscan"]["minor_version"]
-    shell: 
-        """
-            mkdir -p '{resources.tmpdir}/interprodb'
-	    rm -f '{resources.tmpdir}/interprodb/*.tar.gz.*'
-            wget -nv -P '{resources.tmpdir}/interprodb/' 'http://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/{params.major}-{params.minor}/interproscan-{params.major}-{params.minor}-64-bit.tar.gz'
-            tar -xzvf '{resources.tmpdir}/interprodb/interproscan-{params.major}-{params.minor}-64-bit.tar.gz' -C '{resources.tmpdir}/interprodb/'
-            rm -fr .snakemake/conda/*/share/InterProScan/data/
-            mv -f {resources.tmpdir}/interprodb/interproscan-{params.major}-{params.minor}/data .snakemake/conda/*/share/InterProScan/
-        """
-
 rule translate_transcripts:
     input: 
         "results/{run}/trinity_output/trinity_assemble.Trinity.fasta"
     output: 
         directory("results/{run}/interproscan/trinity_proteins"),
-        "results/{run}/interproscan/trinity_proteins_fil.fasta"
+        "results/{run}/interproscan/trinity_proteins/longest_orfs.pep"
     params:
         pep_max_len=config["interproscan"]["protein-max-length"]
     conda:
@@ -29,34 +11,61 @@ rule translate_transcripts:
     shell:
         """
         TransDecoder.LongOrfs -t {input} -m {params.pep_max_len} -O {output[0]}
-        cat {output[0]}/*.pep | egrep -A1 complete | sed '/^--/d' > {output[1]}
         """ 
 
-rule split_transcripts:
+rule temp_pep_file:
     input: 
-        "results/{run}/interproscan/trinity_proteins_fil.fasta"
-    output:
-        directory("results/{run}/interproscan/split_proteins")
-    conda:
-        config["read-analyse"]["environment"]
+        "results/{run}/interproscan/trinity_proteins/longest_orfs.pep"
+    output: 
+        temp("results/{run}/interproscan/longest_orfs.pep.tmp")
     shell: 
-        """seqkit split -i -s 40 --out-dir {output} {input}"""
+        """cat {input[0]} | tr -d '\n' | sed "s_>_\n>_g" | tail -n +2 > {output}""".encode('unicode_escape').decode('utf-8')
+
+rule select_proteins:
+    input: 
+        "results/{run}/interproscan/longest_orfs.pep.tmp"
+    output: 
+        "results/{run}/interproscan/trinity_proteins_fil.fasta"
+    run: 
+        with open(input[0], "r") as inf, open(output[0], "w") as outf:
+            current_best = ["", 0, ""]
+            print("start")
+            for line in inf:
+                print("line")
+                sline = line.split(" ")
+                if sline[0].split(".")[0] != current_best[0] and current_best[0]:
+                    print("write")
+                    outf.write(f"{current_best[0]} len:{current_best[1]}\n")
+                    outf.write(f"{current_best[2]}")
+                    current_best = ["", -1, ""]
+                if not current_best[0]:
+                    print("empty")
+                    current_best[0] = sline[0].split(".")[0]
+                    current_best[1] = sline[2].split(":")[1]
+                    current_best[2] = line.split(")")[1].replace("*","X")
+                elif sline[0].split(".")[0] == current_best[0]:
+                    print("same")
+                    if sline[2].split(":")[1] > current_best[1]:
+                        print("better")
+                        current_best[0] = sline[0].split(".")[0]
+                        current_best[1] = sline[2].split(":")[1]
+                        current_best[2] = line.split(")")[1].replace("*","X")
+
+
 
 rule interproscan:
     input: 
-        "results/{run}/interproscan/trinity_proteins_fil.fasta",
-        "results/interprodb.done"
+        "results/{run}/interproscan/trinity_proteins_fil.fasta"
     output: 
         directory("results/{run}/interproscan/output")
     params:
-        applications=config["interproscan"]["analyses"]
-    conda:
-        config["interproscan"]["environment"]
+        applications=config["interproscan"]["analyses"],
+        interproscandir=config["interproscan"]["dir_path"]
     log:
         "logs/{run}/interproscan.log"
     shell: 
         """
-        ./interproscan.sh --applications {params.applications} \
+        {params.interproscandir}/interproscan.sh --applications {params.applications} \
             --output-dir {output} \
             --tempdir {resources.tmpdir} \
             --seqtype p \

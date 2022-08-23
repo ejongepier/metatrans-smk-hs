@@ -94,13 +94,13 @@ if [ $? -eq 0 ]; then
 	          sample=${samplep#"$RUNDIR/results/$run/sortmerna/"}
 	          srun mkdir -p $snakefile_path/results/$run/sortmerna/$sample/
 	          srun cp -f $RUNDIR/results/$run/sortmerna/$sample/paired_*.fq.gz $snakefile_path/results/$run/sortmerna/$sample/
-	          srun cp -fr $RUNDIR/results/$run/sortmerna/$sample/out $snakefile_path/results/$run/sortmerna/$sample/
+            srun cp -fr $RUNDIR/results/$run/sortmerna/$sample/out $snakefile_path/results/$run/sortmerna/$sample/
 	        done
           srun cp -fr $RUNDIR/results/$run/trinity_output/trinity_de/ $snakefile_path/results/$run/trinity_output/
           srun cp -f $RUNDIR/results/$run/trinity_output/trinity_assemble.Trinity.fasta $snakefile_path/results/$run/trinity_output/
           srun cp -f $RUNDIR/results/$run/trinity_output/trinity_assemble.Trinity.fasta.gene_trans_map $snakefile_path/results/$run/trinity_output/
           srun cp -fr $RUNDIR/results/$run/plots/ $snakefile_path/results/$run/
-	  srun cp -fr $RUNDIR/results/$run/interproscan/ $snakefile_path/results/$run/
+	        srun cp -fr $RUNDIR/results/$run/interproscan/ $snakefile_path/results/$run/
       done
     fi
     echo "Copying complete"

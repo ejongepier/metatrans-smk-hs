@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 DiFlex
-=================================================
+========
 
 DiFlex is a meta-transcriptomics pipeline for Illumina sequenced data. A single command is used to install the required programs, 
 run all processes, manage the created files and distributes the computational resources between processes.
@@ -37,7 +37,7 @@ much RAM can be used in the pipeline, defined in Megabytes (Mb).
 To generate a report describing the process executed by the pipeline and containing the generated results, the following command is used.
 
 .. code-block:: console
-   
+
    snakemake --report reports/DiFlex_report.zip 
 
 
@@ -49,9 +49,9 @@ Documentation
 
    objective
    getting_started
+   parameters
    pipeline
    results
-   parameters
 
 
 Indices and tables

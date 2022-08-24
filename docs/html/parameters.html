@@ -1,97 +1,302 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Parameters &#8212; DiFlex  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
-    
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parameters &mdash; DiFlex  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Results" href="results.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="results.html" title="Results"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">DiFlex  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Parameters</a></li> 
-      </ul>
-    </div>  
+    <link rel="next" title="Pipeline" href="pipeline.html" />
+    <link rel="prev" title="Getting started" href="getting_started.html" /> 
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> DiFlex
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="objective.html">The objectives of the DiFlex pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Parameters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#all-parameters-in-diflex">All parameters in DiFlex</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fastqc">FastQC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trimmomatic">Trimmomatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sortmerna">SortMeRNA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trinity">Trinity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interproscan">InterProscan</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Results</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DiFlex</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Parameters</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/parameters.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="parameters">
-<h1>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h1>
+<h1>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h1>
+<p>The parameters of the different tools in the pipeline can be modified using the ‘config.yaml’ file.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">snakemake_env_path:         &quot;/zfs/omics/personal/thamer/miniconda3/envs/snakemake&quot;</span>
+<span class="go">snakefile_path:             &quot;/zfs/omics/personal/thamer/DiFlex/metatrans-smk-hs&quot;</span>
+<span class="go">return_all_results:         &quot;false&quot;</span>
+
+<span class="go">samples:                    &quot;samples.csv&quot;</span>
+
+<span class="go">general:</span>
+<span class="go">    environment:            &quot;../envs/general.yaml&quot;</span>
+<span class="go">read-analyse:</span>
+<span class="go">    environment:            &quot;../envs/read_analyse.yaml&quot;</span>
+<span class="go">    threads:                4</span>
+<span class="go">trimmomatic:</span>
+<span class="go">    environment:            &quot;../envs/trimmomatic.yaml&quot;</span>
+<span class="go">    threads:                4</span>
+<span class="go">    adapters:               &quot;db/adapters/adapters.fa&quot;</span>
+<span class="go">sortmerna:</span>
+<span class="go">    environment:            &quot;../envs/sortmerna.yaml&quot;</span>
+<span class="go">    aantal_alignments:      1</span>
+<span class="go">    aantal_best:            1</span>
+<span class="go">    paired_optie:           &quot;paired_in&quot;</span>
+<span class="go">    ref_database:           &quot;fast&quot;</span>
+<span class="go">    threads:                4</span>
+<span class="go">    max_memory:             6000</span>
+<span class="go">fastQC:</span>
+<span class="go">    environment:            &quot;../envs/fastqc.yaml&quot;</span>
+<span class="go">    threads:                4</span>
+<span class="go">trinity:</span>
+<span class="go">    environment:            &quot;../envs/trinity.yaml&quot;</span>
+<span class="go">    threads:                32</span>
+<span class="go">trinity-assemble:</span>
+<span class="go">    max_memory:             &quot;200G&quot;</span>
+<span class="go">    min_kmer_cov:           1</span>
+<span class="go">trinity-DE:</span>
+<span class="go">    P_cutoff:               0.05</span>
+<span class="go">    fold_change:            1.0</span>
+<span class="go">    pca_components:         3</span>
+<span class="go">interproscan:</span>
+<span class="go">    environment:            &quot;../envs/interproscan.yaml&quot;</span>
+<span class="go">    dir_path:               &quot;/zfs/omics/projects/amplicomics/bin/interproscan/interproscan-5.36-75.0&quot;</span>
+<span class="go">    protein-max-length:     30</span>
+<span class="go">    analyses:</span>
+<span class="go">        - CDD</span>
+<span class="go">        - COILS</span>
+<span class="go">        - Gene3D</span>
+<span class="go">        - HAMAP</span>
+<span class="go">        - Pfam</span>
+<span class="go">        - PIRSF</span>
+<span class="go">        - PRINTS</span>
+<span class="go">        - SFLD</span>
+<span class="go">        - SMART</span>
+</pre></div>
+</div>
+<p>The indentation of the yaml file is important. Only tabs can be used, not spaces.</p>
+<section id="all-parameters-in-diflex">
+<h2>All parameters in DiFlex<a class="headerlink" href="#all-parameters-in-diflex" title="Permalink to this heading"></a></h2>
+<dl class="simple">
+<dt><em>snakemake_env_path</em> [string] (default: “”)</dt><dd><p>The absolute file path that points to the Anaconda environment with snakemake installed.
+Usually the ‘miniconda3/envs/<em>environment_name</em>’ folder.</p>
+</dd>
+<dt><em>snakefile_path</em> [string] (default: “”)</dt><dd><p>The absolute file path that points to the folder containing the Snakefile. This is the folder that is cloned from the github.</p>
+</dd>
+<dt><em>return_all_results</em> [boolean] (default: “false”)</dt><dd><p>Set this option to true in order to return the entire results folder as a tar.gz file. Refer to results section of the
+documentation for more information.</p>
+</dd>
+<dt><em>samples</em> [string] (default: samples.csv)</dt><dd><p>comma seperated file containing the run, sample group, individual samples and file paths to foward and reverse reads.
+This file should be stored within the same folder as the Snakefile.
+Each sample name should be unique.
+the sample name can only contain letters, numbers and underscores (_).
+the forward and reverse reads must be a fastQ file.</p>
+</dd>
+</dl>
+<section id="fastqc">
+<h3>FastQC<a class="headerlink" href="#fastqc" title="Permalink to this heading"></a></h3>
+<p>FastQC is a tool that performs quality control on raw sequence data and is used to evaluate if the sequenced data
+should be used for analysis. It generates a graphic HTML report for an easy overview. <a class="reference external" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/</a></p>
+<dl class="simple">
+<dt><em>threads</em> [integer] (default: 4)</dt><dd><p>The number of threads that will be used by a single running job of fastQC. A larger number of threads will
+speed up analyses but will result in less jobs running in parralel to eachother. Snakemake will automatically
+scale down the amount of cores specified in the <code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">--use-conda</span> <span class="pre">--cores</span> <span class="pre">&lt;ncores&gt;</span></code> option.</p>
+</dd>
+<dt><em>environment</em> [string] (default: “../envs/fastqc.yaml”)</dt><dd><p>The recipe for conda to create the fastqc environment including all of it’s dependencies. If this environment is
+not installed then snakemake will install it automatically by the <code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">--use-conda</span></code> option. Changes to
+this recipe are not recommended unless you are an advanced user.</p>
+</dd>
+</dl>
+</section>
+<section id="trimmomatic">
+<h3>Trimmomatic<a class="headerlink" href="#trimmomatic" title="Permalink to this heading"></a></h3>
+<p>Trimmomatic is a tool used to trim, clip and remove adapters of Illumina sequenced reads. <a class="reference external" href="http://www.usadellab.org/cms/?page=trimmomatic">http://www.usadellab.org/cms/?page=trimmomatic</a></p>
+<dl class="simple">
+<dt><em>threads</em> [integer] (default: 4)</dt><dd><p>The number of threads that will be used by a single running job of trimmomatic. A larger number of threads will
+speed up analyses but will result in less jobs running in parralel to eachother. Snakemake will automatically
+scale down the amount of cores specified in the <code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">--use-conda</span> <span class="pre">--cores</span> <span class="pre">&lt;ncores&gt;</span></code> option.</p>
+</dd>
+<dt><em>environment</em> [string] (default: “../envs/trimmomatic.yaml”)</dt><dd><p>The recipe for conda to create the trimmomatic environment including all of it’s dependencies. If this environment is
+not installed then snakemake will install it automatically by the <code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">--use-conda</span></code> option. Changes to
+this recipe are not recommended unless you are an advanced user.</p>
+</dd>
+<dt><em>adapters</em> [string] (default: “db/adapters/adapters.fa”)</dt><dd><p>A FASTA file containing the Illumina adapter sequences to be trimmed of the reads.</p>
+</dd>
+</dl>
+</section>
+<section id="sortmerna">
+<h3>SortMeRNA<a class="headerlink" href="#sortmerna" title="Permalink to this heading"></a></h3>
+<p>SortMeRNA is a tool that filters next generation sequencing metatranscriptomics data to seperate rRNA and non-rRNA
+reads from eachother. <a class="reference external" href="https://github.com/biocore/sortmerna">https://github.com/biocore/sortmerna</a></p>
+<dl>
+<dt><em>threads</em> [integer] (default: 4)</dt><dd><p>The number of threads that will be used by a single running job of SortMeRNA. A larger number of threads will
+speed up analyses but will result in less jobs running in parralel to eachother. Snakemake will automatically
+scale down the amount of cores specified in the <code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">--use-conda</span> <span class="pre">--cores</span> <span class="pre">&lt;ncores&gt;</span></code> option.</p>
+</dd>
+<dt><em>environment</em> [string] (default: “../envs/sortmerna.yaml”)</dt><dd><p>The recipe for conda to create the SortMeRNA environment including all of it’s dependencies. If this environment is
+not installed then snakemake will install it automatically by the <code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">--use-conda</span></code> option. Changes to
+this recipe are not recommended unless you are an advanced user.</p>
+</dd>
+<dt><em>max_memory</em> [integer] (default: 6000)</dt><dd><p>The maximum amount of memory a single SortMeRNA job will use. Snakemake will automatically limit the number of parralel jobs
+running so as not to exceed the amount of memory specified in the <code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">--use-conda</span> <span class="pre">--resources</span> <span class="pre">mem_mb=&lt;amount_memory&gt;</span></code> option.</p>
+</dd>
+<dt><em>aantal_best</em> [integer] (default: 1)</dt><dd><p>The amount of reference sequences that will be searched for alignments. A higher number means more alignments will be made but only
+the best one will be output. A value of zero means that all high-candidate reference sequences will be searched for alignments. The
+more reference sequenced that have to be searched the longer the process will take.</p>
+</dd>
+<dt><em>aantal_alignments</em> [integer] (default: 1)</dt><dd><p>The amount of outputed alignments that reach the E-value threshold. A value of zero means all alignments that reach the E-value threshold
+will be outputted. The more alignments that need to be outputed, the longer the process will take</p>
+</dd>
+<dt><em>paired_optie</em> [string] (default: paired_in)</dt><dd><p>This option controls which type of RNA ends up in which file. There are two options: <code class="docutils literal notranslate"><span class="pre">paired_in</span></code> and <code class="docutils literal notranslate"><span class="pre">paired_out</span></code>.
+The paired_in option makes it so that all reads in the other.fasta file will be non-rRNA. There are small chances that
+some non-rRNA reads ends up in the aligned.fasta file.
+The paired_out option makes it so that all reads in the aligned.fasta will be rRNA. There are small chances that
+some rRNA reads ends up in the other.fasta file.
+Since the DiFlex pipeline performs differential expression analysis only non-rRNA reads are of interest. There
+should not be any reason to change this parameter.</p>
+</dd>
+<dt><em>ref_database</em> [string] (default: fast)</dt><dd><p>The type of database used for the filtering of rRNA. the options are: <code class="docutils literal notranslate"><span class="pre">fast</span></code>, <code class="docutils literal notranslate"><span class="pre">default</span></code> and <code class="docutils literal notranslate"><span class="pre">sensitive</span></code>.
+The difference between these databases is the identity percentage for the clustering of sequences for each kingdom.</p>
+<p>fast -&gt; unknown
+default -&gt; bac-16S 90%, 5S &amp; 5.8S seeds, rest 95% identity.
+sensitive -&gt; all 97% identity.</p>
+</dd>
+</dl>
+</section>
+<section id="trinity">
+<h3>Trinity<a class="headerlink" href="#trinity" title="Permalink to this heading"></a></h3>
+<p>Trinity is a RNA-seq de novo transcriptome assembly tool. Trinity can also perform downstream analysis on the constructed transcriptome,
+such as a differential expression analysis. <a class="reference external" href="https://github.com/trinityrnaseq/trinityrnaseq/wiki">https://github.com/trinityrnaseq/trinityrnaseq/wiki</a></p>
+<dl class="simple">
+<dt><em>threads</em> [integer] (default: 32)</dt><dd><p>The number of threads that will be used by Trinity. Since the assemble of a transcriptome is a single snakemake job it is recommended
+to set this value equal to the amoutn of cores on your system. Snakemake will make sure all cores
+specified in the <code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">--use-conda</span> <span class="pre">--cores</span> <span class="pre">&lt;ncores&gt;</span></code> option are available to use.</p>
+</dd>
+<dt><em>environment</em> [string] (default: “../envs/trinity.yaml”)</dt><dd><p>The recipe for conda to create the Trinity environment including all of it’s dependencies. If this environment is
+not installed then snakemake will install it automatically by the <code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">--use-conda</span></code> option. Changes to
+this recipe are not recommended unless you are an advanced user.</p>
+</dd>
+<dt><em>max_memory</em> [string] (default: 120G)</dt><dd><p>The maximum amount of memory that trinity will use during the assembly. It is a string containing the amount of
+Gigabytes of memory that is to be used. This value cannot be changed by Snakemake itself so it must be correctly specified beforehand.</p>
+</dd>
+<dt><em>min_kmer_cov</em> [integer] (default: 1)</dt><dd><p>A higher value than 1 is useful to reduce the memory requirement for larger datasets. A value of 1 should still be used for small datasets
+to retain maximum sensitivity</p>
+</dd>
+<dt><em>P_cutoff</em> [float] (default: 0.05)</dt><dd><p>The P value cutoff used in the differential expression analysis to determine significantly differentially expressed transcripts.</p>
+</dd>
+</dl>
+<p><em>fold_change</em> [float] (default: 1.0)</p>
+<dl class="simple">
+<dt><em>pca_components</em> [integer] (default: 3)</dt><dd><p>The amount of PCA components used in the Principal analysis component plot.</p>
+</dd>
+</dl>
+</section>
+<section id="interproscan">
+<h3>InterProscan<a class="headerlink" href="#interproscan" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt><em>dir_path</em> [string] (default: “/zfs/omics/projects/amplicomics/bin/interproscan/interproscan-5.36-75.0”)</dt><dd><p>The directory path that contains the interproscan.sh script installed on the cluster server.</p>
+</dd>
+<dt><em>protein-min-length</em> [integer] (default: 30)</dt><dd><p>The minimum length of the open reading frames that are used by InterProscan. DiFlex only uses a single longest ORF for every Trinity isoform.</p>
+</dd>
+<dt><em>analyses</em> [list]</dt><dd><p>A list with all the analyses that are to be performed by InterProscan. Not all analyses can be used due to the cluster using an older version of InterProscan.
+These analyses are: PANTHER, MOBIDB, PROSITEPATTERNS and PROSITEPROFILES.</p>
+</dd>
+</dl>
+</section>
+</section>
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="results.html"
-                          title="previous chapter">Results</a></p>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pipeline.html" class="btn btn-neutral float-right" title="Pipeline" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Thomas den Hamer.</p>
   </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/parameters.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="results.html" title="Results"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">DiFlex  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Parameters</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2022, Thomas den Hamer.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

@@ -2,7 +2,7 @@ snakemake_env_path:         "/zfs/omics/personal/thamer/miniconda3/envs/snakemak
 snakefile_path:             "/zfs/omics/personal/thamer/DiFlex/metatrans-smk-hs"
 return_all_results:         "false"
 
-samples:                    "samples.csv"
+samples:                    "dataset_samples.csv"
 
 general:
     environment:            "../envs/general.yaml"
@@ -51,5 +51,4 @@ interproscan:
         - PRINTS
         - SFLD
         - SMART
-        - TIGRFAMs
 

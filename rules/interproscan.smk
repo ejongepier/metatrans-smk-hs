@@ -29,24 +29,18 @@ rule select_proteins:
     run: 
         with open(input[0], "r") as inf, open(output[0], "w") as outf:
             current_best = ["", 0, ""]
-            print("start")
             for line in inf:
-                print("line")
                 sline = line.split(" ")
                 if sline[0].split(".")[0] != current_best[0] and current_best[0]:
-                    print("write")
                     outf.write(f"{current_best[0]} len:{current_best[1]}\n")
                     outf.write(f"{current_best[2]}")
                     current_best = ["", -1, ""]
                 if not current_best[0]:
-                    print("empty")
                     current_best[0] = sline[0].split(".")[0]
                     current_best[1] = sline[2].split(":")[1]
                     current_best[2] = line.split(")")[1].replace("*","X")
                 elif sline[0].split(".")[0] == current_best[0]:
-                    print("same")
                     if sline[2].split(":")[1] > current_best[1]:
-                        print("better")
                         current_best[0] = sline[0].split(".")[0]
                         current_best[1] = sline[2].split(":")[1]
                         current_best[2] = line.split(")")[1].replace("*","X")
@@ -57,18 +51,18 @@ rule interproscan:
     input: 
         "results/{run}/interproscan/trinity_proteins_fil.fasta"
     output: 
-        directory("results/{run}/interproscan/output")
+        "results/{run}/interproscan/interproscan_output/output.tsv"
     params:
         applications=config["interproscan"]["analyses"],
-        interproscandir=config["interproscan"]["dir_path"]
+        interproscandir=config["interproscan"]["dir_path"],
+	output_base_name="results/{run}/interproscan/interproscan_output/output"
     log:
         "logs/{run}/interproscan.log"
     shell: 
         """
         {params.interproscandir}/interproscan.sh --applications {params.applications} \
-            --output-dir {output} \
+            --output-file-base {params.output_base_name} \
             --tempdir {resources.tmpdir} \
-            --seqtype p \
             --input {input[0]} > {log}
         """
 

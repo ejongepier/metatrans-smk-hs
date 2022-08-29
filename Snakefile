@@ -12,8 +12,6 @@ smpls.index = smpls.index.set_levels([i.astype(str) for i in smpls.index.levels]
 wildcard_constraints:
 	sample = '[A-Za-z0-9_]+'
 
-PARTS, = glob_wildcards("results/demo/interproscan/split_proteins/{part}.pep")
-
 rule all:
 	input:
 		expand("results/{samples.run}/fastqc/raw/{samples.sample}",
@@ -32,7 +30,7 @@ rule all:
 			samples=smpls.itertuples()),
 		expand("results/{samples.run}/plots/processed_reads.pdf",
 			samples=smpls.itertuples()),
-		expand("results/{samples.run}/interproscan/output",
+		expand("results/{samples.run}/interproscan/interproscan_output/output.tsv",
 			samples=smpls.itertuples())
 
 #====================================

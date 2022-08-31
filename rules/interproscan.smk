@@ -55,7 +55,7 @@ rule interproscan:
     params:
         applications=config["interproscan"]["analyses"],
         interproscandir=config["interproscan"]["dir_path"],
-	output_base_name="results/{run}/interproscan/interproscan_output/output"
+	    output_base_name="results/{run}/interproscan/interproscan_output/output"
     log:
         "logs/{run}/interproscan.log"
     shell: 
@@ -66,23 +66,25 @@ rule interproscan:
             --input {input[0]} > {log}
         """
 
+rule pfam_entries:
+    input: 
+        "results/{run}/interproscan/interproscan_output/output.tsv"
+    output: 
+        "results/{run}/interproscan/interproscan_pfam_entries.tsv"
+    shell: 
+        """cat {input} | egrep "Pfam" > {output}"""
 
-# rule interproscan:
-#     input: 
-#         "results/{run}/interproscan/split_proteins/{part}.pep"
-#     output: 
-#         directory("results/{run}/interproscan/output_{part}")
-#     params:
-#         applications=config["interproscan"]["analyses"]
-#     conda:
-#         config["interproscan"]["environment"]
-#     log:
-#         "logs/{run}/output_{part}_interproscan.log"
-#     shell: 
-#         """
-#         ./interproscan.sh --applications {params.applications} \
-#             --output-dir {output} \
-#             --tempdir {resources.tmpdir} \
-#             --seqtype p \
-#             --input {input} > {log}
-#         """
+rule topGO:
+    input:
+        pfam = "results/{run}/interproscan/interproscan_pfam_entries.tsv",
+        expr = "results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/trinity-de.isoform.counts.matrix.C_vs_MA.edgeR.DE_results"
+    output:
+        "results/{run}/"
+    params:
+        nodesize = config["topGO"]["nodesize"]
+    conda:
+        config["topGO"]["environment"]
+    log:
+        "logs/{run}/topGO.log"
+    shell:
+        """Rscript scripts/topGO.r {input.pfam} {input.expr} {params.nodesize} > {log}"""

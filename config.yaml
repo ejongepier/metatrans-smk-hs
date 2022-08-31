@@ -51,4 +51,6 @@ interproscan:
         - PRINTS
         - SFLD
         - SMART
-
+topGO:
+    environment:            "../envs/topgo.yaml"
+    nodesize:               10

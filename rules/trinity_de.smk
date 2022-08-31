@@ -168,6 +168,7 @@ rule isoform_analysis:
 		matrix="results/{run}/trinity_output/trinity_de/edgeR-output/trinity-de.isoform.TMM.EXPR.matrix",
 		sample_file="results/{run}/trinity_output/trinity_de/edgeR-output/sample-file.txt"
 	output: 
+		"results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/trinity-de.isoform.counts.matrix.C_vs_MA.edgeR.DE_results",
 		touch("results/{run}/trinity_output/trinity_de/isoform.done"),
 		touch(report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/diffExpr.P"+str(config["trinity-DE"]["P_cutoff"])+"_C"+str(config["trinity-DE"]["fold_change"])+".matrix.log2.centered.genes_vs_samples_heatmap.pdf", category="Isoform analysis results", caption="../report/isoform_diffExpr_genes_vs_samples.rst")),
 		touch(report("results/{run}/trinity_output/trinity_de/edgeR-output/edgeR-isoform/diffExpr.P"+str(config["trinity-DE"]["P_cutoff"])+"_C"+str(config["trinity-DE"]["fold_change"])+".matrix.log2.centered.sample_cor_matrix.pdf", category="Isoform analysis results", caption="../report/isoform_diffExpr_sample_cor_matrix.rst")),

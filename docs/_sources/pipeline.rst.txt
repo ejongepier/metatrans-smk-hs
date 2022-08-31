@@ -1,7 +1,7 @@
 Pipeline
 ==========
 
-The DiFlex pipeline performs metatranscriptomic analysis of raw RNA-seq data by using different tools strung together with snakemake =.
+The DiFlex pipeline performs metatranscriptomic analysis of raw RNA-seq data by using different tools strung together with snakemake.
 
 The main function of the pipeline can be categorized in six different substeps.
 
@@ -52,11 +52,4 @@ The database is already installed with this installation.
 For more information see: `https://interproscan-docs.readthedocs.io/en/latest/ <https://interproscan-docs.readthedocs.io/en/latest/>`
 
 TopGO
-
-
-
-
-
-
-
 

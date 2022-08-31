@@ -10,7 +10,7 @@ itself, installed using conda.
 Installing Conda
 ------------------
 The full installation of Anaconda is large and unnecessary for our purpose so we will use miniconda instead. 
-Miniconda contains everything needed to create enviroments and install packages. Detailed installation instructions can be found here.
+Miniconda contains everything needed to create enviroments and install packages. Detailed installation instructions can be found `here <https://conda.io/projects/conda/en/latest/user-guide/install/index.html>`.
 You can download and install it using the following command
 
 .. code-block:: console

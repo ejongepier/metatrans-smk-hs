@@ -91,6 +91,11 @@ which rules depend on the output of other rules.</p>
 </li>
 </ul>
 <p>These DGE results are generated for both the isoform and gene level transcripts.</p>
+<p>Besides the results included in the report there are:</p>
+<ul class="simple">
+<li><p>The assembled transcripts contained in the <em>results/run/trinity_output/trinity_assemble.Trinity.fasta</em> file.</p></li>
+<li><p>The differential expression result tables contained within the <em>results/run/trinity_output/trinity_assemble/edgeR-output/</em> folder. These DE results are made for both the isoform and gene level expression.</p></li>
+</ul>
 <p>Not all results generated during a DiFlex run are returned by default. This is because the complete results can be over 180 GB large due to the file space needed for the Trinity assembly.
 Most of these files are not of importance to the end user. The complete results can be returned by changing the <em>return_all_results</em> setting in the config file to <em>true</em>.</p>
 </section>

@@ -73,7 +73,7 @@ All parameters in DiFlex
     documentation for more information.
 
 *samples* [string] (default: samples.csv)
-    comma seperated file containing the run, sample group, individual samples and file paths to foward and reverse reads.
+    comma seperated file containing the run, sample group, individual samples and file paths to forward and reverse reads.
     This file should be stored within the same folder as the Snakefile.
     Each sample name should be unique.
     the sample name can only contain letters, numbers and underscores (_).

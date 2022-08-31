@@ -9,6 +9,9 @@ DiFlex
 DiFlex is a meta-transcriptomics pipeline for Illumina sequenced data. A single command is used to install the required programs, 
 run all processes, manage the created files and distributes the computational resources between processes.
 
+The pipeline consists of the following steps. Filtering of RNA to include only mRNA. Assembly of a metatranscriptome and the alignment of the reads to it. 
+A differential expression analysis and functional annotation and enrichment of proteins.
+
 Quick start
 ----------------------------------
 Clone the DiFlex repository using the following command.
